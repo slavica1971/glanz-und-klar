@@ -3,10 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Glanz & Klar – Ihre lokale Putzfee</title>
-  <meta name="description" content="Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen." />
+
+  <title>Glanz & Klar Veskovac – Endreinigung in Luzern mit Abgabegarantie | Wohnungs- & Büroreinigung</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Glanz & Klar Veskovac: Endreinigung mit Abgabegarantie in Luzern & Umgebung. Wohnungsreinigung, Büroreinigung, Fensterreinigung. Schnelle Offerte, versichert & zuverlässig." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://slavica1971.github.io/glanz-und-klar/" />
+
+  <!-- Language / Hreflang -->
+  <link rel="alternate" href="https://slavica1971.github.io/glanz-und-klar/" hreflang="de" />
+  <link rel="alternate" href="https://slavica1971.github.io/glanz-und-klar/?lang=en" hreflang="en" />
+  <link rel="alternate" href="https://slavica1971.github.io/glanz-und-klar/" hreflang="x-default" />
+
+  <!-- Social Cards -->
+  <meta property="og:title" content="Glanz & Klar Veskovac – Endreinigung in Luzern mit Abgabegarantie" />
+  <meta property="og:description" content="Professionelle Wohnungs- & Büroreinigung in Luzern. Abgabegarantie, versichert, schnelle Offerte per Formular oder WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://slavica1971.github.io/glanz-und-klar/" />
+  <meta property="og:site_name" content="Glanz & Klar Veskovac" />
+  <meta property="og:image" content="https://slavica1971.github.io/glanz-und-klar/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Glanz & Klar Veskovac – Endreinigung in Luzern mit Abgabegarantie" />
+  <meta name="twitter:description" content="Reinigungen aller Art in Luzern & Umgebung. Jetzt kostenlose Offerte anfragen." />
+  <meta name="twitter:image" content="https://slavica1971.github.io/glanz-und-klar/og-cover.jpg" />
+
+  <!-- Theming -->
   <meta name="color-scheme" content="light only">
   <meta name="theme-color" content="#0d3b4b">
+
   <style>
     /* ===== Design Tokens ===== */
     :root{
@@ -22,6 +47,7 @@
       --container:1160px;
       --radius:16px;
       --shadow:0 10px 30px rgba(8, 41, 51, .06);
+      --focus:#b8ecf3;
     }
 
     /* ===== Base ===== */
@@ -34,6 +60,7 @@
       color:var(--ink);
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      line-height:1.55;
     }
     img{max-width:100%;display:block}
     a{color:var(--brand);text-decoration:none}
@@ -47,9 +74,19 @@
     .muted{color:var(--muted)}
     .eyebrow{
       display:inline-block;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-      font-size:.72rem;color:#224c57;opacity:.85;background:var(--brand-soft);
+      font-size:.72rem;color:#224c57;opacity:.9;background:var(--brand-soft);
       border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-bottom:12px
     }
+
+    /* ===== Accessibility ===== */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;overflow:hidden;
+    }
+    .skip-link:focus{
+      left:12px;top:12px;z-index:1000;background:#fff;border:2px solid var(--brand);
+      padding:8px 12px;border-radius:10px;box-shadow:var(--shadow)
+    }
+    :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:10px}
 
     /* ===== Buttons ===== */
     .btn{
@@ -65,12 +102,9 @@
     .btn-outline:hover{background:#f6feff}
     .btn-wa{background:var(--green);color:#fff}
     .btn-wa:hover{background:var(--green-600)}
-    :focus-visible{outline:3px solid #b8ecf3;outline-offset:3px;border-radius:10px}
 
     /* ===== Header ===== */
-    .site-header{
-      position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)
-    }
+    .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
     .nav{height:78px;display:flex;align-items:center;gap:18px}
     .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
     .brand svg{width:44px;height:44px;color:var(--brand);background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:8px}
@@ -79,6 +113,7 @@
     .nav-links a{color:#234b57;font-weight:700;opacity:.92;text-decoration:none}
     .nav-links a:hover{opacity:1}
     .spacer{flex:1}
+    .menu{display:none}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-weight:800;color:#234b57;background:#fff}
 
     /* Sprach-Buttons (grüne Kästen) */
@@ -93,7 +128,6 @@
       box-shadow:0 0 0 3px rgba(37,211,102,.18)
     }
 
-    .menu{display:none}
     @media (max-width:960px){
       .nav-links,.pill{display:none}
       .menu{display:block}
@@ -113,15 +147,9 @@
     .hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 18px}
     .badge{background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-weight:700;color:#2b5560}
     .hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .hero-media{
-      border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
-      aspect-ratio:4/3;background:#f7fafb;display:grid;place-items:center
-    }
+    .hero-media{border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3;background:#f7fafb;display:grid;place-items:center}
     .hero-media svg{width:100%;height:100%;display:block}
-
-    @media (max-width:960px){
-      .hero-grid{grid-template-columns:1fr;gap:20px}
-    }
+    @media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:20px}}
 
     /* ===== Grids & Cards ===== */
     .stripe{background:#fafcfd;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -130,9 +158,7 @@
     .grid-2{grid-template-columns:repeat(2,1fr)}
     @media (max-width:960px){.grid-3,.grid-2{grid-template-columns:1fr}}
 
-    .card{
-      background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)
-    }
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
     .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff;margin-bottom:10px}
     .thumb svg{width:100%;height:100%;display:block}
     .price{font-size:28px;font-weight:900;letter-spacing:.2px}
@@ -158,21 +184,53 @@
     @media(max-width:960px){footer .cols{grid-template-columns:1fr}}
     .legal{border-top:1px solid var(--line);padding:12px 0 20px}
   </style>
+
+  <!-- LocalBusiness JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Glanz & Klar Veskovac",
+    "image": "https://slavica1971.github.io/glanz-und-klar/og-cover.jpg",
+    "url": "https://slavica1971.github.io/glanz-und-klar/",
+    "telephone": "+41 76 449 11 00",
+    "email": "slavica.reinigungen@gmail.com",
+    "areaServed": ["Luzern", "Zentralschweiz"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "CH",
+      "addressRegion": "LU"
+    },
+    "priceRange": "$$",
+    "currenciesAccepted": "CHF",
+    "description": "Endreinigung mit Abgabegarantie, Wohnungsreinigung, Büroreinigung und Fensterreinigung in Luzern & Umgebung.",
+    "knowsAbout": [
+      "Endreinigung",
+      "Abgabegarantie",
+      "Wohnungsreinigung",
+      "Büroreinigung",
+      "Fensterreinigung",
+      "Räumung und Entsorgung"
+    ],
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#start">Zum Inhalt springen</a>
 
   <!-- ===== Header ===== -->
-  <header class="site-header" aria-label="Hauptnavigation">
+  <header class="site-header" role="banner" aria-label="Hauptnavigation">
     <div class="container nav">
       <a href="#start" class="brand" aria-label="Zur Startseite – Glanz & Klar">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
           <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/>
         </svg>
         <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
       </a>
 
-      <nav class="nav-links" aria-label="Seiten">
+      <nav class="nav-links" aria-label="Seitennavigation">
         <a href="#leistungen">Leistungen</a>
         <a href="#versprechen">Unser Versprechen</a>
         <a href="#preise">Preise</a>
@@ -180,331 +238,331 @@
         <a href="#angebot">Offerte</a>
       </nav>
 
-      <div class="spacer"></div>
+      <div class="spacer" aria-hidden="true"></div>
 
-      <a class="btn btn-primary" href="#angebot">Offerte einholen</a>
+      <a class="btn btn-primary" href="#angebot" aria-label="Kostenlose Offerte anfragen">Offerte einholen</a>
 
       <details class="menu" style="margin-left:8px">
-        <summary>Menü</summary>
-        <div class="menu-panel">
-          <a href="#leistungen">Leistungen</a>
-          <a href="#versprechen">Unser Versprechen</a>
-          <a href="#preise">Preise</a>
-          <a href="#ablauf">Ablauf</a>
-          <a href="#angebot">Offerte</a>
+        <summary aria-label="Menü öffnen">Menü</summary>
+        <div class="menu-panel" role="menu" aria-label="Mobiles Menü">
+          <a role="menuitem" href="#leistungen">Leistungen</a>
+          <a role="menuitem" href="#versprechen">Unser Versprechen</a>
+          <a role="menuitem" href="#preise">Preise</a>
+          <a role="menuitem" href="#ablauf">Ablauf</a>
+          <a role="menuitem" href="#angebot">Offerte</a>
         </div>
       </details>
 
       <!-- Sprach-Buttons (grüne Kästen) -->
-      <div class="lang-switch" role="group" aria-label="Sprache">
+      <div class="lang-switch" role="group" aria-label="Sprache wählen">
         <button type="button" class="lang-btn is-active" data-lang="de" aria-pressed="true">DE</button>
         <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section id="start" class="hero">
-    <div class="container hero-grid">
-      <!-- Textspalte -->
-      <div class="hero-text">
-        <span class="eyebrow">Reinigung in der Zentralschweiz</span>
-        <h1>Ihre Putzfee in Luzern - für professionelle Reinigungen mit garantiertem Glanz!</h1>
+  <main id="start" role="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <!-- Textspalte -->
+        <div class="hero-text">
+          <span class="eyebrow">Reinigung in der Zentralschweiz</span>
+          <h1 id="hero-title">Endreinigung in Luzern mit Abgabegarantie – zuverlässig, freundlich, fair.</h1>
 
-        <p class="lead">
-          Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz &amp; Klar bietet Ihnen
-          einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail.
-        </p>
+          <p class="lead">
+            Umzug, Frühjahrsputz oder einfach wieder Glanz? <strong>Glanz &amp; Klar</strong> reinigt gründlich,
+            termingerecht und versichert – mit Liebe zum Detail und klaren Preisen.
+          </p>
 
-        <div class="hero-badges" aria-label="Leistungsmerkmale">
-          <span class="badge">Abgabegarantie</span>
-          <span class="badge">Versichert</span>
-          <span class="badge">Eigene Reinigungsmittel</span>
-          <span class="badge">WhatsApp Termin</span>
+          <div class="hero-badges" aria-label="Leistungsmerkmale">
+            <span class="badge">Abgabegarantie</span>
+            <span class="badge">Versichert</span>
+            <span class="badge">Eigene Reinigungsmittel</span>
+            <span class="badge">WhatsApp-Termin</span>
+          </div>
+
+          <div class="hero-ctas" role="group" aria-label="Hauptaktionen">
+            <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
+            <a class="btn btn-outline" href="#leistungen">Leistungen ansehen</a>
+          </div>
         </div>
 
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
-          <a class="btn btn-outline" href="#leistungen">Leistungen ansehen</a>
-        </div>
-      </div>
-
-      <!-- Medienkachel -->
-      <div class="hero-media" aria-hidden="true">
-        <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saubere, helle Wohnung mit Glanz">
-          <defs>
-            <linearGradient id="hG" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#f3fbfd"/>
-              <stop offset="1" stop-color="#dff3f8"/>
-            </linearGradient>
-            <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0b3c49" flood-opacity=".12"/>
-            </filter>
-          </defs>
-          <rect width="1200" height="900" fill="url(#hG)"/>
-          <!-- Fenster/Glanz -->
-          <g filter="url(#s)">
-            <rect x="140" y="140" width="920" height="540" rx="24" fill="#fff" stroke="#e6eef2"/>
-            <rect x="160" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
-            <rect x="440" y="170" width="260" height="220" rx="14" fill="#eef8fb"/>
-            <rect x="720" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
-            <rect x="160" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
-            <rect x="580" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
-            <!-- Glanzsterne -->
-            <g fill="#0ea5b3" opacity=".65">
-              <path d="M1020 260 l10 24 24 10-24 10-10 24-10-24-24-10 24-10z"/>
-              <path d="M320 540 l8 18 18 8-18 8-8 18-8-18-18-8 18-8z" opacity=".6"/>
-              <path d="M880 560 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".6"/>
+        <!-- Medienkachel -->
+        <div class="hero-media" aria-hidden="true">
+          <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saubere, helle Wohnung mit Glanz">
+            <defs>
+              <linearGradient id="hG-hero" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f3fbfd"/>
+                <stop offset="1" stop-color="#dff3f8"/>
+              </linearGradient>
+              <filter id="s-hero" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0b3c49" flood-opacity=".12"/>
+              </filter>
+            </defs>
+            <rect width="1200" height="900" fill="url(#hG-hero)"/>
+            <g filter="url(#s-hero)">
+              <rect x="140" y="140" width="920" height="540" rx="24" fill="#fff" stroke="#e6eef2"/>
+              <rect x="160" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
+              <rect x="440" y="170" width="260" height="220" rx="14" fill="#eef8fb"/>
+              <rect x="720" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
+              <rect x="160" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
+              <rect x="580" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
+              <g fill="#0ea5b3" opacity=".65">
+                <path d="M1020 260 l10 24 24 10-24 10-10 24-10-24-24-10 24-10z"/>
+                <path d="M320 540 l8 18 18 8-18 8-8 18-8-18-18-8 18-8z" opacity=".6"/>
+                <path d="M880 560 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".6"/>
+              </g>
             </g>
-          </g>
-          <!-- Boden -->
-          <rect y="720" width="1200" height="180" fill="#e9f3f6"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Leistungen ===== -->
-  <section id="leistungen" class="stripe" aria-labelledby="s-leistungen">
-    <div class="container">
-      <h2 id="s-leistungen">Unsere Dienstleistungen</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="thumb" aria-label="Endreinigung – Bad und Küche glänzen">
-            <!-- SVG 1: Endreinigung -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f3fbfd"/><stop offset="1" stop-color="#e5f5fb"/>
-                </linearGradient>
-                <filter id="ds1" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b3c49" flood-opacity=".12"/>
-                </filter>
-              </defs>
-              <rect width="1280" height="800" fill="url(#g1)"/>
-              <g filter="url(#ds1)">
-                <rect x="120" y="140" width="1040" height="520" rx="24" fill="#fff" stroke="#e6eef2"/>
-                <rect x="160" y="180" width="300" height="200" rx="14" fill="#dff3f8"/>
-                <rect x="500" y="180" width="620" height="200" rx="14" fill="#f5fafc"/>
-                <rect x="160" y="410" width="960" height="200" rx="14" fill="#ffffff"/>
-                <path d="M1080 240 l12 28 28 12-28 12-12 28-12-28-28-12 28-12z" fill="#0ea5b3" opacity=".7"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Endreinigung mit Garantie</h3>
-          <p class="muted">Transparent, gründlich &amp; abgabebereit. Auf Wunsch begleiten wir die Übergabe.</p>
-        </article>
-
-        <article class="card">
-          <div class="thumb" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
-            <!-- SVG 2: Unterhaltsreinigungen -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f7fdff"/><stop offset="1" stop-color="#eaf6fa"/>
-                </linearGradient>
-              </defs>
-              <rect width="1280" height="800" fill="url(#g2)"/>
-              <g transform="translate(200,160)">
-                <rect x="0" y="0" width="320" height="480" rx="30" fill="#0ea5b3" opacity=".9"/>
-                <rect x="220" y="-20" width="160" height="60" rx="12" fill="#0d3b4b"/>
-                <rect x="40" y="440" width="360" height="30" rx="12" fill="#0ea5b3" opacity=".6"/>
-                <circle cx="520" cy="120" r="18" fill="#0ea5b3" opacity=".35"/>
-                <path d="M520 120 l10 22 22 10-22 10-10 22-10-22-22-10 22-10z" fill="#0ea5b3" opacity=".55"/>
-                <circle cx="600" cy="200" r="12" fill="#0ea5b3" opacity=".4"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Unterhaltsreinigungen</h3>
-          <p class="muted">Individuell für Büro, Praxis &amp; Laden – sauber, ordentlich, verlässlich.</p>
-        </article>
-
-        <article class="card">
-          <div class="thumb" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
-            <!-- SVG 3: Räumung & Entsorgung -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
-                </linearGradient>
-              </defs>
-              <rect width="1280" height="800" fill="url(#g3)"/>
-              <g transform="translate(180,220)">
-                <rect x="0" y="120" width="280" height="200" rx="12" fill="#a9d6e5"/>
-                <rect x="120" y="0" width="300" height="200" rx="12" fill="#ffffff" stroke="#d8eef4"/>
-                <rect x="460" y="120" width="160" height="200" rx="8" fill="#12a0c7" opacity=".75"/>
-                <rect x="670" y="-40" width="12" height="360" rx="6" fill="#0f4c5c"/>
-                <rect x="650" y="-60" width="54" height="18" rx="9" fill="#a9d6e5"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Räumung &amp; Entsorgung</h3>
-          <p class="muted">Demontage, Abtransport &amp; fachgerechte Entsorgung – Übergabe besenrein.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Unser Versprechen ===== -->
-  <section id="versprechen" class="stripe" aria-labelledby="s-versprechen">
-    <div class="container">
-      <h2 id="s-versprechen">Unser Versprechen</h2>
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="thumb" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
-            <!-- SVG 4: Nachhaltige Reinigungsmittel -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f3fbf6"/><stop offset="1" stop-color="#e6f7ed"/>
-                </linearGradient>
-              </defs>
-              <rect width="1280" height="800" fill="url(#p1)"/>
-              <g transform="translate(280,200)">
-                <circle cx="120" cy="200" r="90" fill="#a9d6c5"/>
-                <path d="M60 200 l40 40 70-80" stroke="#0f4c5c" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="260" y="90" width="520" height="260" rx="26" fill="#fff" stroke="#e6eef2"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Nachhaltige Reinigungsmittel</h3>
-          <p class="muted">Schonend für Oberflächen, stark gegen Schmutz – zertifiziert &amp; umweltbewusst.</p>
-        </article>
-
-        <article class="card">
-          <div class="thumb" aria-label="Abgabegarantie – Schlüssel und Dokument">
-            <!-- SVG 5: Abgabe Garantie bei Wohnungen -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f2fbff"/><stop offset="1" stop-color="#e7f5fb"/>
-                </linearGradient>
-              </defs>
-              <rect width="1280" height="800" fill="url(#p2)"/>
-              <g transform="translate(240,180)">
-                <rect x="0" y="0" width="420" height="300" rx="20" fill="#fff" stroke="#dcecf1"/>
-                <rect x="40" y="40" width="160" height="20" rx="10" fill="#cfe8f0"/>
-                <rect x="40" y="80" width="260" height="20" rx="10" fill="#e6f1f5"/>
-                <path d="M760 300 l-80 0 0 -160 160 0 0 80 -80 80" fill="#0ea5b3" opacity=".7"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Abgabe Garantie bei Wohnungen</h3>
-          <p class="muted">Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist.</p>
-        </article>
-
-        <article class="card">
-          <div class="thumb" aria-label="Persönliche Anwesenheit – Kommunikation">
-            <!-- SVG 6: Persönliche Anwesenheit -->
-            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
-              <defs>
-                <linearGradient id="p3" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
-                </linearGradient>
-              </defs>
-              <rect width="1280" height="800" fill="url(#p3)"/>
-              <g transform="translate(240,180)">
-                <rect x="140" y="120" width="760" height="240" rx="26" fill="#fff" stroke="#e6eef2"/>
-                <circle cx="300" cy="240" r="16" fill="#0ea5b3"/>
-                <circle cx="480" cy="240" r="16" fill="#0ea5b3"/>
-                <circle cx="660" cy="240" r="16" fill="#0ea5b3"/>
-              </g>
-            </svg>
-          </div>
-          <h3>Persönliche Anwesenheit</h3>
-          <p class="muted">Eine feste Ansprechperson vor Ort – von der Besichtigung bis zum Finish.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Preise ===== -->
-  <section id="preise" aria-labelledby="s-preise">
-    <div class="container">
-      <h2 id="s-preise">Transparente Richtpreise</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>2.5–3.5 Zimmer</h3>
-          <p class="muted">Endreinigung, Grundpaket</p>
-          <div class="price">ab CHF 429.–</div>
-          <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
-        </div>
-        <div class="card">
-          <h3>4.5–5.5 Zimmer</h3>
-          <p class="muted">Endreinigung, Grundpaket</p>
-          <div class="price">ab CHF 890.–</div>
-          <p class="muted">inkl. Küche &amp; Bad intensiv</p>
-        </div>
-        <div class="card">
-          <h3>Büroreinigung</h3>
-          <p class="muted">Regelmässig / einmalig</p>
-          <div class="price">ab CHF 39.–/Std.</div>
-          <p class="muted">Fixpreis nach Besichtigung möglich</p>
+            <rect y="720" width="1200" height="180" fill="#e9f3f6"/>
+          </svg>
         </div>
       </div>
-      <p class="muted" style="margin-top:10px">Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung.</p>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Prozess ===== -->
-  <section id="ablauf" class="stripe" aria-labelledby="s-ablauf">
-    <div class="container">
-      <h2 id="s-ablauf">So einfach funktioniert’s</h2>
-      <div class="steps">
-        <div class="step">
-          <strong>1) Anfrage</strong>
-          <p class="muted">Per Formular, Telefon oder WhatsApp. Wir reagieren schnell.</p>
-        </div>
-        <div class="step">
-          <strong>2) Offerte</strong>
-          <p class="muted">Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis.</p>
-        </div>
-        <div class="step">
-          <strong>3) Reinigung &amp; Übergabe</strong>
-          <p class="muted">Wir bringen Material mit und begleiten die Abgabe.</p>
+    <!-- ===== Leistungen ===== -->
+    <section id="leistungen" class="stripe" aria-labelledby="s-leistungen">
+      <div class="container">
+        <h2 id="s-leistungen">Unsere Dienstleistungen</h2>
+        <div class="grid grid-3" role="list">
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Endreinigung – Bad und Küche glänzen">
+              <!-- SVG 1: Endreinigung -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endreinigung – Bad und Küche glänzen">
+                <defs>
+                  <linearGradient id="g1-svc1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f3fbfd"/><stop offset="1" stop-color="#e5f5fb"/>
+                  </linearGradient>
+                  <filter id="ds1-svc1" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b3c49" flood-opacity=".12"/>
+                  </filter>
+                </defs>
+                <rect width="1280" height="800" fill="url(#g1-svc1)"/>
+                <g filter="url(#ds1-svc1)">
+                  <rect x="120" y="140" width="1040" height="520" rx="24" fill="#fff" stroke="#e6eef2"/>
+                  <rect x="160" y="180" width="300" height="200" rx="14" fill="#dff3f8"/>
+                  <rect x="500" y="180" width="620" height="200" rx="14" fill="#f5fafc"/>
+                  <rect x="160" y="410" width="960" height="200" rx="14" fill="#ffffff"/>
+                  <path d="M1080 240 l12 28 28 12-28 12-12 28-12-28-28-12 28-12z" fill="#0ea5b3" opacity=".7"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Endreinigung mit Abgabegarantie</h3>
+            <p class="muted">Transparent, gründlich &amp; bereit für die Übergabe. Auf Wunsch begleiten wir die Abnahme.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
+              <!-- SVG 2: Unterhaltsreinigungen -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
+                <defs>
+                  <linearGradient id="g2-svc2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f7fdff"/><stop offset="1" stop-color="#eaf6fa"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1280" height="800" fill="url(#g2-svc2)"/>
+                <g transform="translate(200,160)">
+                  <rect x="0" y="0" width="320" height="480" rx="30" fill="#0ea5b3" opacity=".9"/>
+                  <rect x="220" y="-20" width="160" height="60" rx="12" fill="#0d3b4b"/>
+                  <rect x="40" y="440" width="360" height="30" rx="12" fill="#0ea5b3" opacity=".6"/>
+                  <circle cx="520" cy="120" r="18" fill="#0ea5b3" opacity=".35"/>
+                  <path d="M520 120 l10 22 22 10-22 10-10 22-10-22-22-10 22-10z" fill="#0ea5b3" opacity=".55"/>
+                  <circle cx="600" cy="200" r="12" fill="#0ea5b3" opacity=".4"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Unterhaltsreinigung</h3>
+            <p class="muted">Individuell für Büro, Praxis &amp; Laden – sauber, ordentlich, verlässlich.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
+              <!-- SVG 3: Räumung & Entsorgung -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
+                <defs>
+                  <linearGradient id="g3-svc3" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1280" height="800" fill="url(#g3-svc3)"/>
+                <g transform="translate(180,220)">
+                  <rect x="0" y="120" width="280" height="200" rx="12" fill="#a9d6e5"/>
+                  <rect x="120" y="0" width="300" height="200" rx="12" fill="#ffffff" stroke="#d8eef4"/>
+                  <rect x="460" y="120" width="160" height="200" rx="8" fill="#12a0c7" opacity=".75"/>
+                  <rect x="670" y="-40" width="12" height="360" rx="6" fill="#0f4c5c"/>
+                  <rect x="650" y="-60" width="54" height="18" rx="9" fill="#a9d6e5"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Räumung &amp; Entsorgung</h3>
+            <p class="muted">Demontage, Abtransport &amp; fachgerechte Entsorgung – Übergabe besenrein.</p>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Offerte (Form über volle Breite) ===== -->
-  <section id="angebot" aria-labelledby="s-angebot">
-    <div class="container">
-      <h2 id="s-angebot">Jetzt Offerte anfragen</h2>
-    <div class="card">
-      <form id="offerForm"
-            action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
-            method="POST" accept-charset="UTF-8">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
-        <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
+    <!-- ===== Unser Versprechen ===== -->
+    <section id="versprechen" class="stripe" aria-labelledby="s-versprechen">
+      <div class="container">
+        <h2 id="s-versprechen">Unser Versprechen</h2>
+        <div class="grid grid-3" role="list">
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
+              <!-- SVG 4: Nachhaltige Reinigungsmittel -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
+                <defs>
+                  <linearGradient id="p1-promise" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f3fbf6"/><stop offset="1" stop-color="#e6f7ed"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1280" height="800" fill="url(#p1-promise)"/>
+                <g transform="translate(280,200)">
+                  <circle cx="120" cy="200" r="90" fill="#a9d6c5"/>
+                  <path d="M60 200 l40 40 70-80" stroke="#0f4c5c" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="260" y="90" width="520" height="260" rx="26" fill="#fff" stroke="#e6eef2"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Nachhaltige Reinigungsmittel</h3>
+            <p class="muted">Schonend für Oberflächen, stark gegen Schmutz – zertifiziert &amp; umweltbewusst.</p>
+          </article>
 
-        <label for="f-name">Name</label>
-        <input id="f-name" class="field" required name="Name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Abgabegarantie – Schlüssel und Dokument">
+              <!-- SVG 5: Abgabe Garantie bei Wohnungen -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abgabegarantie – Schlüssel und Dokument">
+                <defs>
+                  <linearGradient id="p2-promise" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f2fbff"/><stop offset="1" stop-color="#e7f5fb"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1280" height="800" fill="url(#p2-promise)"/>
+                <g transform="translate(240,180)">
+                  <rect x="0" y="0" width="420" height="300" rx="20" fill="#fff" stroke="#dcecf1"/>
+                  <rect x="40" y="40" width="160" height="20" rx="10" fill="#cfe8f0"/>
+                  <rect x="40" y="80" width="260" height="20" rx="10" fill="#e6f1f5"/>
+                  <path d="M760 300 l-80 0 0 -160 160 0 0 80 -80 80" fill="#0ea5b3" opacity=".7"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Abgabegarantie bei Wohnungen</h3>
+            <p class="muted">Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist.</p>
+          </article>
 
-        <label for="f-phone">Telefon</label>
-        <input id="f-phone" class="field" required name="Telefon" type="tel" placeholder="+41 .." inputmode="tel" autocomplete="tel" />
-
-        <label for="f-mail">E-Mail</label>
-        <input id="f-mail" class="field" required name="E-Mail" type="email" placeholder="name@mail.ch" autocomplete="email" />
-
-        <label for="f-msg">Nachricht</label>
-        <textarea id="f-msg" class="field" name="Nachricht" placeholder="Besonderheiten, Terminwunsch"></textarea>
-
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-          <button class="btn btn-primary" type="submit">Anfrage senden</button>
-          <a class="btn btn-wa"
-             href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
-             target="_blank" rel="noopener">Per WhatsApp</a>
+          <article class="card" role="listitem">
+            <div class="thumb" aria-label="Persönliche Anwesenheit – Kommunikation">
+              <!-- SVG 6: Persönliche Anwesenheit -->
+              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Persönliche Anwesenheit – Kommunikation">
+                <defs>
+                  <linearGradient id="p3-promise" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
+                  </linearGradient>
+                </defs>
+                <rect width="1280" height="800" fill="url(#p3-promise)"/>
+                <g transform="translate(240,180)">
+                  <rect x="140" y="120" width="760" height="240" rx="26" fill="#fff" stroke="#e6eef2"/>
+                  <circle cx="300" cy="240" r="16" fill="#0ea5b3"/>
+                  <circle cx="480" cy="240" r="16" fill="#0ea5b3"/>
+                  <circle cx="660" cy="240" r="16" fill="#0ea5b3"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Persönliche Anwesenheit</h3>
+            <p class="muted">Eine feste Ansprechperson vor Ort – von der Besichtigung bis zum Finish.</p>
+          </article>
         </div>
-      </form>
-    </div>
-    </div>
-  </section>
+      </div>
+    </section>
+
+    <!-- ===== Preise ===== -->
+    <section id="preise" aria-labelledby="s-preise">
+      <div class="container">
+        <h2 id="s-preise">Transparente Richtpreise</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>2.5–3.5 Zimmer</h3>
+            <p class="muted">Endreinigung, Grundpaket</p>
+            <div class="price">ab CHF 429.–</div>
+            <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
+          </div>
+          <div class="card">
+            <h3>4.5–5.5 Zimmer</h3>
+            <p class="muted">Endreinigung, Grundpaket</p>
+            <div class="price">ab CHF 890.–</div>
+            <p class="muted">inkl. Küche &amp; Bad intensiv</p>
+          </div>
+          <div class="card">
+            <h3>Büroreinigung</h3>
+            <p class="muted">Regelmässig / einmalig</p>
+            <div class="price">ab CHF 39.–/Std.</div>
+            <p class="muted">Fixpreis nach Besichtigung möglich</p>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:10px">Hinweis: Richtwerte. Die genaue Offerte erhalten Sie nach kurzer Anfrage oder Besichtigung.</p>
+      </div>
+    </section>
+
+    <!-- ===== Prozess ===== -->
+    <section id="ablauf" class="stripe" aria-labelledby="s-ablauf">
+      <div class="container">
+        <h2 id="s-ablauf">So einfach funktioniert’s</h2>
+        <div class="steps" role="list">
+          <div class="step" role="listitem">
+            <strong>1) Anfrage</strong>
+            <p class="muted">Per Formular, Telefon oder WhatsApp. Wir reagieren schnell.</p>
+          </div>
+          <div class="step" role="listitem">
+            <strong>2) Offerte</strong>
+            <p class="muted">Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis.</p>
+          </div>
+          <div class="step" role="listitem">
+            <strong>3) Reinigung &amp; Übergabe</strong>
+            <p class="muted">Wir bringen Material mit und begleiten die Abgabe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Offerte (Form) ===== -->
+    <section id="angebot" aria-labelledby="s-angebot">
+      <div class="container">
+        <h2 id="s-angebot">Jetzt Offerte anfragen</h2>
+        <div class="card" role="form" aria-describedby="offer-hint">
+          <p id="offer-hint" class="muted" style="margin-top:0">Antwort meist am selben Tag.</p>
+          <form id="offerForm"
+                action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
+                method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
+            <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
+
+            <label for="f-name">Name</label>
+            <input id="f-name" class="field" required name="Name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
+
+            <label for="f-phone">Telefon</label>
+            <input id="f-phone" class="field" required name="Telefon" type="tel" placeholder="+41 .." inputmode="tel" autocomplete="tel" />
+
+            <label for="f-mail">E-Mail</label>
+            <input id="f-mail" class="field" required name="E-Mail" type="email" placeholder="name@mail.ch" autocomplete="email" />
+
+            <label for="f-msg">Nachricht</label>
+            <textarea id="f-msg" class="field" name="Nachricht" placeholder="Besonderheiten, Terminwunsch"></textarea>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+              <button class="btn btn-primary" type="submit">Anfrage senden</button>
+              <a class="btn btn-wa"
+                 href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
+                 target="_blank" rel="noopener" aria-label="Per WhatsApp anfragen">Per WhatsApp</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ===== Footer ===== -->
-  <footer>
-    <div class="container cols">
+  <footer role="contentinfo">
+    <div class="container cols" aria-label="Footer">
       <div>
         <strong>Glanz &amp; Klar Veskovac</strong>
         <p class="muted">Reinigungen in Luzern &amp; Umgebung.</p>
@@ -512,10 +570,19 @@
       <div>
         <strong>Kontakt</strong>
         <p class="muted" style="margin:8px 0 0">
-          <a href="tel:+41764491100">+41 76 449 11 00</a><br>
-          <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>
+          <a href="tel:+41764491100" aria-label="Telefonnummer anrufen">+41 76 449 11 00</a><br>
+          <a href="mailto:slavica.reinigungen@gmail.com" aria-label="E-Mail schreiben">slavica.reinigungen@gmail.com</a>
         </p>
       </div>
+      <nav aria-label="Footer-Navigation">
+        <p class="muted" style="margin:0">
+          <a href="#start">Startseite</a> ·
+          <a href="#versprechen">Über uns</a> ·
+          <a href="#angebot">Kontakt</a> ·
+          <a href="impressum.html">Impressum</a> ·
+          <a href="datenschutz.html">Datenschutz</a>
+        </p>
+      </nav>
     </div>
     <div class="legal">
       <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
@@ -526,33 +593,30 @@
   </footer>
 
   <!-- Jahr -->
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script defer>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
   <!-- ===== i18n (DE/EN) + Language-Buttons Init ===== -->
-  <script>
+  <script defer>
   (function(){
-    const setHTML=(el,html)=>{if(el)el.innerHTML=html};
-    const setText=(el,text)=>{if(el)el.textContent=text};
-
     const L={
       de:{nav:{services:"Leistungen",promises:"Unser Versprechen",prices:"Preise",process:"Ablauf",offer:"Offerte"},
         hero:{eyebrow:"Reinigung in der Zentralschweiz",
-          title:"Ihre Putzfee in Luzern - für professionelle Reinigungen mit garantiertem Glanz!",
-          lead:"Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz & Klar bietet Ihnen einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail.",
-          badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp Termin"],primary:"Kostenlose Offerte",see:"Leistungen ansehen"},
+          title:"Endreinigung in Luzern mit Abgabegarantie – zuverlässig, freundlich, fair.",
+          lead:"Umzug, Frühjahrsputz oder einfach wieder Glanz? <strong>Glanz &amp; Klar</strong> reinigt gründlich, termingerecht und versichert – mit Liebe zum Detail und klaren Preisen.",
+          badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp-Termin"],primary:"Kostenlose Offerte",see:"Leistungen ansehen"},
         services:{h2:"Unsere Dienstleistungen",
-          c1:{h3:"Endreinigung mit Garantie",p:"Transparent, gründlich & abgabebereit. Auf Wunsch begleiten wir die Übergabe."},
-          c2:{h3:"Unterhaltsreinigungen",p:"Individuell für Büro, Praxis & Laden – sauber, ordentlich, verlässlich."},
+          c1:{h3:"Endreinigung mit Abgabegarantie",p:"Transparent, gründlich & abgabebereit. Auf Wunsch begleiten wir die Abnahme."},
+          c2:{h3:"Unterhaltsreinigung",p:"Individuell für Büro, Praxis & Laden – sauber, ordentlich, verlässlich."},
           c3:{h3:"Räumung & Entsorgung",p:"Demontage, Abtransport & fachgerechte Entsorgung – Übergabe besenrein."}},
         promises:{h2:"Unser Versprechen",
           p1:{h3:"Nachhaltige Reinigungsmittel",p:"Schonend für Oberflächen, stark gegen Schmutz – zertifiziert & umweltbewusst."},
-          p2:{h3:"Abgabe Garantie bei Wohnungen",p:"Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist."},
+          p2:{h3:"Abgabegarantie bei Wohnungen",p:"Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist."},
           p3:{h3:"Persönliche Anwesenheit",p:"Eine feste Ansprechperson vor Ort – von der Besichtigung bis zum Finish."}},
         prices:{h2:"Transparente Richtpreise",
           c1:{h3:"2.5–3.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 429.–",p2:"zzgl. Fenster/Storen nach Aufwand"},
           c2:{h3:"4.5–5.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 890.–",p2:"inkl. Küche & Bad intensiv"},
           c3:{h3:"Büroreinigung",p1:"Regelmässig / einmalig",price:"ab CHF 39.–/Std.",p2:"Fixpreis nach Besichtigung möglich"},
-          note:"Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung."},
+          note:"Hinweis: Richtwerte. Die genaue Offerte erhalten Sie nach kurzer Anfrage oder Besichtigung."},
         process:{h2:"So einfach funktioniert’s",
           s1:{h3:"1) Anfrage",p:"Per Formular, Telefon oder WhatsApp. Wir reagieren schnell."},
           s2:{h3:"2) Offerte",p:"Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis."},
@@ -562,11 +626,11 @@
       },
       en:{nav:{services:"Services",promises:"Our Promise",prices:"Prices",process:"Process",offer:"Quote"},
         hero:{eyebrow:"Cleaning in Central Switzerland",
-          title:"Your cleaning fairy in Lucerne – professional cleaning with guaranteed sparkle!",
-          lead:"Whether moving out, spring cleaning, or simply a fresh shine – Glanz & Klar delivers professional service you can rely on. Punctual, thorough, and detail-oriented.",
+          title:"Final cleaning in Lucerne with handover guarantee – reliable, friendly, fair.",
+          lead:"Moving out, spring cleaning or just some sparkle? <strong>Glanz &amp; Klar</strong> delivers thorough, on-time and insured cleaning – with clear pricing.",
           badges:["Handover guarantee","Insured","Own cleaning products","WhatsApp appointment"],primary:"Free quote",see:"View services"},
         services:{h2:"Our Services",
-          c1:{h3:"Final Cleaning with Guarantee",p:"Transparent, thorough & ready for handover. We can attend the handover if required."},
+          c1:{h3:"Final Cleaning with Handover Guarantee",p:"Transparent, thorough & ready for handover. We attend the inspection if required."},
           c2:{h3:"Maintenance Cleaning",p:"Tailored for offices, practices & shops – clean, tidy, reliable."},
           c3:{h3:"Clear-out & Disposal",p:"Dismantling, transport & proper disposal – broom-clean handover."}},
         promises:{h2:"Our Promise",
@@ -577,7 +641,7 @@
           c1:{h3:"2.5–3.5 rooms",p1:"Final cleaning, base package",price:"from CHF 429",p2:"plus windows/shutters as required"},
           c2:{h3:"4.5–5.5 rooms",p1:"Final cleaning, base package",price:"from CHF 890",p2:"incl. intensive kitchen & bathroom"},
           c3:{h3:"Office cleaning",p1:"Recurring / one-off",price:"from CHF 39/h",p2:"Fixed price possible after inspection"},
-          note:"Note: These are guide values. You’ll receive a precise quote after a short inquiry or an inspection."},
+          note:"Note: Guide values. You’ll receive a precise quote after a short inquiry or an inspection."},
         process:{h2:"How it works",
           s1:{h3:"1) Inquiry",p:"Via form, phone or WhatsApp. We respond quickly."},
           s2:{h3:"2) Quote",p:"A few details are enough – you’ll get a transparent fixed price."},
@@ -590,6 +654,9 @@
     function t(lang, path){ return path.split('.').reduce((a,c)=>a?.[c], L[lang]||L.de); }
 
     function applyLang(lang){
+      // Update <html lang>
+      document.documentElement.setAttribute('lang', lang);
+
       // Nav
       document.querySelector('.nav-links a[href="#leistungen"]')?.replaceChildren(t(lang,'nav.services'));
       document.querySelector('.nav-links a[href="#versprechen"]')?.replaceChildren(t(lang,'nav.promises'));
@@ -599,12 +666,12 @@
 
       // Hero
       document.querySelector('.eyebrow')?.replaceChildren(t(lang,'hero.eyebrow'));
-      document.querySelector('#start h1')?.replaceChildren(t(lang,'hero.title'));
-      const lead=document.querySelector('#start .lead'); if(lead) lead.innerHTML=t(lang,'hero.lead');
+      document.querySelector('#hero-title')?.replaceChildren(t(lang,'hero.title'));
+      const lead=document.querySelector('.hero .lead'); if(lead) lead.innerHTML=t(lang,'hero.lead');
       const badges=document.querySelector('.hero-badges');
       if(badges){ badges.innerHTML=(t(lang,'hero.badges')||[]).map(s=>`<span class="badge">${s}</span>`).join(''); }
-      document.querySelector('#start .hero-ctas .btn-primary')?.replaceChildren(t(lang,'hero.primary'));
-      document.querySelector('#start .hero-ctas .btn-outline')?.replaceChildren(t(lang,'hero.see'));
+      document.querySelector('.hero-ctas .btn-primary')?.replaceChildren(t(lang,'hero.primary'));
+      document.querySelector('.hero-ctas .btn-outline')?.replaceChildren(t(lang,'hero.see'));
 
       // Services
       document.querySelector('#leistungen h2')?.replaceChildren(t(lang,'services.h2'));
@@ -648,14 +715,14 @@
         form.querySelector('label[for="f-msg"]').textContent=t(lang,'offer.form.msg');
         form.querySelector('textarea[name="Nachricht"]')?.setAttribute('placeholder',t(lang,'offer.form.msgPh'));
         form.querySelector('button[type="submit"]')?.replaceChildren(t(lang,'offer.form.send'));
-        document.querySelector('.btn.btn-wa')?.replaceChildren(t(lang,'offer.form.wa'));
+        const waBtn=document.querySelector('.btn.btn-wa');
+        if(waBtn){ waBtn.replaceChildren(t(lang,'offer.form.wa')); }
       }
 
-      // Title & <html lang>
+      // Title
       document.title = (lang==='en')
-        ? "Glanz & Klar – Your local cleaning fairy"
-        : "Glanz & Klar – Ihre lokale Putzfee";
-      document.documentElement.setAttribute('lang', lang);
+        ? "Glanz & Klar Veskovac – Final cleaning in Lucerne with handover guarantee"
+        : "Glanz & Klar Veskovac – Endreinigung in Luzern mit Abgabegarantie";
     }
 
     // === Sprach-Buttons Init (statt Select) ===
