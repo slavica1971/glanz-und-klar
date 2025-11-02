@@ -44,25 +44,60 @@
     .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
     .menu-panel a:hover{background:#f9fdff}
 
-    /* ===== Hero – Split-Layout wie Vorlage (nur Anordnung) ===== */
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch;padding:32px 0 44px}
-    .hero-left{
-      background:linear-gradient(180deg,#ffffff,rgba(255,255,255,.6));
-      border-radius:18px;border:1px solid var(--line);padding:36px;
-      display:flex;flex-direction:column;justify-content:center;min-height:520px
-    }
-    .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0f4c5c;font-size:12px}
-    h1{font-size:clamp(30px,3.4vw,44px);line-height:1.15;margin:10px 0 12px}
-    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
-    .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
-    .hero-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+/* ===== Hero (zentrierte Einspalten-Version) ===== */
+.hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:80px 0;
+}
 
-    .hero-right{
-      position:relative;border-radius:18px;overflow:hidden;
-      background:radial-gradient(1200px 300px at 50% -10%,rgba(255,255,255,.9),rgba(255,255,255,0));
-      border:1px solid var(--line);padding:12px;display:flex;align-items:center;justify-content:center;min-height:520px
-    }
+.hero-left{
+  max-width:800px;
+  width:100%;
+  text-align:center;
+  background:linear-gradient(180deg,#ffffff,rgba(255,255,255,.6));
+  border-radius:18px;
+  border:1px solid var(--line);
+  padding:50px 36px;
+}
+
+.eyebrow{
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:#0f4c5c;
+  font-size:12px;
+}
+
+h1{
+  font-size:clamp(30px,3.4vw,44px);
+  line-height:1.15;
+  margin:10px 0 12px;
+}
+
+.lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
+
+.badges{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:14px 0 20px;
+}
+.badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
+
+.hero-ctas{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+/* Die rechte Spalte gibt es nicht mehr */
+.hero-right{display:none !important;}
+
     .badge-floating{
       position:absolute;right:16px;top:16px;background:#fff;border:1px solid var(--line);
       padding:10px 12px;border-radius:12px;font-weight:700;color:#0f4c5c
