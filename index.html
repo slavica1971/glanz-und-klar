@@ -5,86 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Glanz & Klar Veskovac – Ihre lokale Putzfee</title>
   <meta name="description" content="Glanz & Klar Veskovac – Professionelle Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Fensterreinigung, Unterhaltsreinigung. Kostenlose Offerte in 2 Minuten anfragen.">
-  <meta name="theme-color" content="#a9d6e5">
-  <meta property="og:title" content="Glanz & Klar Veskovac">
-  <meta property="og:description" content="Reinigungen aller Art – zuverlässig, freundlich, fair.">
-  <meta property="og:type" content="website">
-
   <style>
-    :root{--brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--success:#25d366}
-    *{box-sizing:border-box}html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+    :root{--brand:#a9d6e5;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--success:#25d366}
+    *{box-sizing:border-box}html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink)}
     a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
     .container{width:min(1100px,92vw);margin:0 auto}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:600;border:2px solid transparent}
-    .btn-primary{background:var(--accent);color:#fff}.btn-outline{background:#fff;color:var(--accent);border-color:var(--accent)}.btn-wa{background:var(--success);color:#fff}
-    header{background:linear-gradient(180deg,var(--brand),var(--brand2));overflow:hidden}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}.brand{font-weight:800;letter-spacing:.2px}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;padding:32px 0 48px;align-items:center}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    h1{font-size:clamp(30px,3.6vw,44px);line-height:1.15;margin:10px 0 12px}
-    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
+    .btn{display:inline-block;padding:12px 16px;border-radius:10px;font-weight:600;border:2px solid transparent}
+    .btn-primary{background:var(--accent);color:#fff}.btn-wa{background:var(--success);color:#fff}
+    header{background:linear-gradient(180deg,var(--brand),#d8eef4)}.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-weight:800}.hero{padding:32px 0}.badges{display:flex;gap:8px;flex-wrap:wrap}
     .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
-    .card{background:var(--card);border:1px solid #e3f2f7;border-radius:16px;padding:16px}
-    section{padding:48px 0}
-    h2{font-size:clamp(24px,2.6vw,34px);margin:0 0 16px}
-    .grid{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
-    .price{font-size:26px;font-weight:800}
-    footer{background:#f4fafc;color:var(--muted)}
-    footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
-    @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
+    section{padding:40px 0}.grid{display:grid;gap:16px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}
+    @media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}.card{background:var(--card);border:1px solid #e3f2f7;border-radius:14px;padding:16px}
+    footer{background:#f4fafc;color:var(--muted)}footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
     .legal{border-top:1px solid #e3f2f7;padding:12px 0 20px}
   </style>
-
-  <!-- LocalBusiness Schema (SEO) -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","name":"Glanz & Klar Veskovac",
-   "description":"Wohnungs- und Büroreinigung, Endreinigung mit Abgabegarantie, Fensterreinigung, Unterhaltsreinigung.",
-   "areaServed":"Kanton Luzern und Umgebung",
-   "address":{"@type":"PostalAddress","addressLocality":"Luzern","addressCountry":"CH"},
-   "telephone":"+41 76 449 11 00","email":"slavica.reinigungen@gmail.com"}
-  </script>
 </head>
 <body>
-  <!-- Header / Hero -->
   <header>
     <div class="container">
-      <nav class="nav" aria-label="Hauptnavigation">
+      <nav class="nav">
         <div class="brand">Glanz &amp; Klar <span style="opacity:.7">Veskovac</span></div>
-        <a class="btn btn-outline" href="#kontakt">Kontakt</a>
+        <a class="btn" href="#kontakt">Kontakt</a>
       </nav>
-
       <div class="hero">
-        <div>
-          <div style="font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0f4c5c;font-size:12px">Reinigung in der Zentralschweiz</div>
-          <h1>Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.</h1>
-          <p class="lead">Wohnungen, Häuser &amp; Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong> Kostenlose Offerte in 2 Minuten anfragen.</p>
-          <div class="badges">
-            <span class="badge">Abgabegarantie</span><span class="badge">Versichert</span><span class="badge">Eigene Reinigungsmittel</span><span class="badge">WhatsApp Termin</span>
-          </div>
-          <p>
-            <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
-            <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen." target="_blank" rel="noopener">WhatsApp</a>
-          </p>
+        <h1>Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.</h1>
+        <p>Wohnungen, Häuser &amp; Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong></p>
+        <div class="badges">
+          <span class="badge">Abgabegarantie</span><span class="badge">Versichert</span><span class="badge">Eigene Reinigungsmittel</span>
         </div>
-
-        <div class="card" role="complementary" aria-label="Schnellanfrage">
-          <form action="https://formsubmit.co/slavica.reinigungen@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Neue Anfrage – Glanz & Klar">
-            <label> Name<br><input required name="Name" type="text" placeholder="Vor- und Nachname" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> Telefon<br><input required name="Telefon" type="tel" placeholder="+41 .." style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> E-Mail<br><input required name="E-Mail" type="email" placeholder="name@mail.ch" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> Nachricht<br><textarea name="Nachricht" rows="4" placeholder="Kurze Beschreibung & Wunschtermin" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></textarea></label><br><br>
-            <button class="btn btn-primary" type="submit">Senden</button>
-          </form>
-        </div>
+        <p style="margin-top:12px;">
+          <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
+          <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen." target="_blank" rel="noopener">WhatsApp</a>
+        </p>
       </div>
     </div>
   </header>
 
-  <!-- Leistungen -->
   <section id="leistungen">
     <div class="container">
       <h2>Unsere Dienstleistungen</h2>
@@ -105,45 +62,6 @@
     </div>
   </section>
 
-  <!-- Richtpreise -->
-  <section id="preise" style="background:#f9fdff">
-    <div class="container">
-      <h2>Transparente Richtpreise</h2>
-      <div class="grid grid-3">
-        <div class="card"><h3>2.5–3.5 Zimmer</h3><p class="muted">Endreinigung, Grundpaket</p><div class="price">ab CHF 429.–</div><p class="muted">zzgl. Fenster/Storen nach Aufwand</p></div>
-        <div class="card"><h3>4.5–5.5 Zimmer</h3><p class="muted">Endreinigung, Grundpaket</p><div class="price">ab CHF 890.–</div><p class="muted">inkl. Küche & Bad intensiv</p></div>
-        <div class="card"><h3>Büroreinigung</h3><p class="muted">Regelmässig / einmalig</p><div class="price">ab CHF 39.–/Std.</div><p class="muted">Fixpreis nach Besichtigung möglich</p></div>
-      </div>
-      <p class="muted">Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung.</p>
-    </div>
-  </section>
-
-  <!-- Ablauf -->
-  <section id="ablauf">
-    <div class="container">
-      <h2>So einfach funktioniert’s</h2>
-      <div class="grid grid-3">
-        <div class="card"><h3>1) Anfrage</h3><p class="muted">Per Formular, Telefon oder WhatsApp. Wir reagieren schnell.</p></div>
-        <div class="card"><h3>2) Offerte</h3><p class="muted">Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis.</p></div>
-        <div class="card"><h3>3) Reinigung & Übergabe</h3><p class="muted">Wir bringen Material mit und begleiten die Abgabe.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" style="background:#f9fdff">
-    <div class="container">
-      <h2>Häufige Fragen</h2>
-      <div class="grid grid-2">
-        <div class="card"><h3>Ist Material inklusive?</h3><p class="muted">Ja, wir bringen professionelle Reinigungsmittel und Geräte mit. Nachhaltige Optionen auf Wunsch.</p></div>
-        <div class="card"><h3>Gibt es eine Abgabegarantie?</h3><p class="muted">Ja. Falls die Verwaltung nachbessern möchte, kommen wir kostenlos nach.</p></div>
-        <div class="card"><h3>Wie bezahle ich?</h3><p class="muted">Bequem per Rechnung (30 Tage).</p></div>
-        <div class="card"><h3>Welche Regionen?</h3><p class="muted">Kanton Luzern und Umgebung. Andere Orte auf Anfrage.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt / Angebot -->
   <section id="angebot">
     <div class="container">
       <h2>Jetzt Offerte anfragen</h2>
@@ -152,17 +70,17 @@
           <form action="https://formsubmit.co/slavica.reinigungen@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
-            <label> Name<br><input required name="Name" type="text" placeholder="Vor- und Nachname" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> Telefon<br><input required name="Telefon" type="tel" placeholder="+41 .." style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> E-Mail<br><input required name="E-Mail" type="email" placeholder="name@mail.ch" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
-            <label> Nachricht<br><textarea name="Nachricht" rows="5" placeholder="Besonderheiten, Terminwunsch" style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></textarea></label><br><br>
+            <label> Name<br><input required name="Name" type="text" placeholder="Vor- und Nachname" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
+            <label> Telefon<br><input required name="Telefon" type="tel" placeholder="+41 .." style="width:100%;padding:10px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
+            <label> E-Mail<br><input required name="E-Mail" type="email" placeholder="name@mail.ch" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d8eef4"></label><br><br>
+            <label> Nachricht<br><textarea name="Nachricht" rows="4" style="width:100%;padding:10px;border-radius:10px;border:1px solid #d8eef4"></textarea></label><br><br>
             <button class="btn btn-primary" type="submit">Anfrage senden</button>
-            <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen." target="_blank" rel="noopener">Per WhatsApp</a>
           </form>
         </div>
         <div class="card" id="kontakt">
           <h3>Kontakt</h3>
-          <p><strong>Glanz &amp; Klar Veskovac</strong><br>Luzern, Zentralschweiz<br>
+          <p><strong>Glanz &amp; Klar Veskovac</strong><br>
+          Luzern, Zentralschweiz<br>
           Tel. <a href="tel:+41764491100">+41 76 449 11 00</a><br>
           <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a></p>
         </div>
@@ -170,11 +88,10 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container cols">
       <div><strong>Glanz &amp; Klar Veskovac</strong><p class="muted">Reinigungen in Luzern &amp; Umgebung.</p></div>
-      <div><strong>Leistungen</strong><ul class="list"><li>Endreinigung</li><li>Unterhaltsreinigung</li><li>Fensterreinigung</li></ul></div>
+      <div><strong>Leistungen</strong><ul class="list"><li>Endreinigung</li><li>Unterhalt</li><li>Fenster</li></ul></div>
       <div><strong>Kontakt</strong><p class="muted"><a href="tel:+41764491100">+41 76 449 11 00</a><br><a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a></p></div>
     </div>
     <div class="legal">
@@ -184,21 +101,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Impressum & Datenschutz -->
-  <section id="impressum" style="background:#f9fdff">
-    <div class="container">
-      <h2>Impressum</h2>
-      <p><strong>Glanz &amp; Klar Veskovac</strong><br>Inhaberin: Slavica Veskovac (Einzelfirma)<br>Region: Luzern &amp; Umgebung<br>
-      E-Mail: <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a> · Tel. <a href="tel:+41764491100">+41 76 449 11 00</a></p>
-    </div>
-  </section>
-  <section id="datenschutz">
-    <div class="container">
-      <h2>Datenschutz</h2>
-      <p class="muted">Wir verwenden die von Ihnen übermittelten Daten ausschliesslich zur Angebotserstellung und Kommunikation rund um Ihre Anfrage. Es findet keine Weitergabe an Dritte statt. Auf Wunsch löschen wir Ihre Daten jederzeit.</p>
-    </div>
-  </section>
 
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
