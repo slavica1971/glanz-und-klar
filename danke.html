@@ -3,35 +3,206 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Danke für Ihre Anfrage</title>
+  <title>Danke – Glanz & Klar</title>
+  <meta name="description" content="Vielen Dank für Ihre Offertenanfrage bei Glanz & Klar. Wir prüfen Ihre Angaben und senden Ihnen innerhalb von 48 Stunden ein unverbindliches Angebot.">
+  <meta name="theme-color" content="#a9d6e5">
   <style>
-    :root{--ink:#24424a;--muted:#5f7b82}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f6fbfd}
-    .wrap{width:min(900px,92vw);margin:10vh auto;background:#fff;border:1px solid #e3f2f7;border-radius:16px;padding:28px}
-    h1{margin:0 0 8px}
-    p{margin:0 0 14px}
-    .muted{color:var(--muted)}
-    a.btn{display:inline-block;margin-top:10px;padding:12px 16px;border-radius:12px;
-          background:#12a0c7;color:#fff;text-decoration:none;font-weight:600}
+    :root{--brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--success:#25d366;--line:#e3f2f7}
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .container{width:min(1100px,92vw);margin:0 auto}
+    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:600;border:2px solid transparent}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-outline{background:#fff;color:var(--accent);border-color:var(--accent)}
+    .btn-wa{background:var(--success);color:#fff}
+
+    /* ===== Header (gleich wie index) ===== */
+    .site-header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--brand),var(--brand2));border-bottom:1px solid rgba(0,0,0,.04)}
+    .nav{display:flex;align-items:center;gap:16px;height:68px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{width:40px;height:40px;color:var(--accent);background:#fff;border-radius:10px;padding:8px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .brand span{font-weight:800;font-size:1.25rem;letter-spacing:.2px;color:#0f4c5c}
+    .nav-links{display:flex;align-items:center;gap:16px;margin-left:8px}
+    .spacer{flex:1}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#fff;font-weight:600;color:#0f4c5c}
+    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:2px solid var(--accent);background:#fff;color:var(--accent);font-weight:700}
+    .cta:hover{background:#fefefe}
+
+    .lang-switch select{
+      appearance:none;-webkit-appearance:none;-moz-appearance:none;
+      border:1px solid rgba(0,0,0,.12);background:#fff;padding:6px 10px;border-radius:10px;
+      font-weight:600;color:#0f4c5c;cursor:pointer
+    }
+    .menu{display:none}
+    .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(0,0,0,.15);padding:8px 12px;border-radius:10px;background:#fff;font-weight:600;color:#0f4c5c}
+    .menu[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .menu-panel{background:#fff;border:1px solid var(--line);border-top:0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;padding:10px;margin-top:4px}
+    .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
+    .menu-panel a:hover{background:#f9fdff}
+
+    /* ===== Danke-Content ===== */
+    main{padding:40px 0}
+    .thank-card{
+      margin:24px auto;background:#fff;border:1px solid var(--line);border-radius:16px;
+      padding:24px;display:grid;gap:12px;max-width:760px
+    }
+    .h1{font-size:clamp(26px,2.8vw,36px);margin:0 0 6px}
+    .lead{color:var(--muted);margin:0}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .note{font-size:14px;color:var(--muted)}
+    .check{
+      width:48px;height:48px;border-radius:12px;
+      display:inline-grid;place-items:center;background:var(--card);border:1px solid var(--line)
+    }
+
+    footer{background:#f4fafc;color:var(--muted);margin-top:40px}
+    footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
+    @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
+    .legal{border-top:1px solid var(--line);padding:12px 0 20px}
+
+    @media (max-width:900px){
+      .nav-links{display:none}
+      .menu{display:block}
+    }
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <h1>Vielen Dank für Ihre Offertenanfrage!</h1>
-    <p class="muted">
-      Wir haben Ihre Angaben erhalten und prüfen diese sorgfältig. Sie erhalten innerhalb von
-      <strong>48&nbsp;Stunden</strong> ein unverbindliches Angebot – bei Rückfragen melden wir uns direkt bei Ihnen.
-    </p>
-    <p>
-      Benötigen Sie kurzfristig Unterstützung oder möchten Sie uns noch Bilder/Infos senden?
-      Schreiben Sie uns gerne per WhatsApp oder E-Mail.
-    </p>
-    <p>
-      <strong>Glanz &amp; Klar Veskovac</strong><br>
-      Tel. <a href="tel:+41764491100">+41&nbsp;76&nbsp;449&nbsp;11&nbsp;00</a><br>
-      <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>
-    </p>
-    <a class="btn" href="index.html">Zurück zur Startseite</a>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="brand" aria-label="Zur Startseite – Glanz & Klar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
+        <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Seiten">
+        <a href="index.html#leistungen">Leistungen</a>
+        <a href="index.html#preise">Preise</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#kontakt">Kontakt</a>
+      </nav>
+
+      <div class="spacer"></div>
+      <div class="pill">📍 Luzern</div>
+      <a class="cta" href="index.html#angebot">Offerte einholen →</a>
+
+      <div class="lang-switch" style="margin-left:8px">
+        <select id="lang" title="Sprache wählen">
+          <option value="de">DE</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <details class="menu" style="margin-left:6px">
+        <summary>Menü</summary>
+        <div class="menu-panel">
+          <a href="index.html#leistungen">Leistungen</a>
+          <a href="index.html#preise">Preise</a>
+          <a href="index.html#ablauf">Ablauf</a>
+          <a href="index.html#kontakt">Kontakt</a>
+          <a href="index.html#angebot" class="btn btn-primary" style="display:block;text-align:center;margin-top:8px">Offerte anfragen</a>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <!-- ===== Danke-Inhalt ===== -->
+  <main class="container">
+    <div class="thank-card" role="status" aria-live="polite">
+      <div class="check" aria-hidden="true">
+        <!-- kleines Häkchen -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="#a9d6e5"/>
+          <path d="M7 12.5l3.2 3.2L17 9.5" stroke="#12a0c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 class="h1">Vielen Dank für Ihre Offertenanfrage!</h1>
+      <p class="lead">
+        Wir haben Ihre Angaben erhalten und prüfen diese sorgfältig. Sie erhalten innerhalb von
+        <strong>48&nbsp;Stunden</strong> ein unverbindliches Angebot. Bei Rückfragen melden wir uns direkt bei Ihnen.
+      </p>
+      <p class="note">
+        Benötigen Sie kurzfristig Unterstützung oder möchten Sie uns noch Bilder/Infos senden?
+        Schreiben Sie uns gerne per WhatsApp oder E-Mail.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">Zurück zur Startseite</a>
+        <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20habe%20soeben%20eine%20Offertenanfrage%20gesendet." target="_blank" rel="noopener">Per WhatsApp</a>
+        <a class="btn btn-outline" href="mailto:slavica.reinigungen@gmail.com">E-Mail senden</a>
+      </div>
+    </div>
   </main>
+
+  <!-- ===== Footer (gleich wie index) ===== -->
+  <footer>
+    <div class="container cols">
+      <div><strong>Glanz &amp; Klar Veskovac</strong><p class="muted">Reinigungen in Luzern &amp; Umgebung.</p></div>
+      <div><strong>Leistungen</strong><ul class="list"><li>Endreinigung</li><li>Unterhaltsreinigung</li><li>Fensterreinigung</li></ul></div>
+      <div><strong>Kontakt</strong><p class="muted"><a href="tel:+41764491100">+41 76 449 11 00</a><br><a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a></p></div>
+    </div>
+    <div class="legal">
+      <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+        <span class="muted">© <span id="y"></span> Glanz &amp; Klar Veskovac</span>
+        <span class="muted"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Jahr -->
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- Kleines i18n für DE/EN (passt sich deiner Startseite an) -->
+  <script>
+  (function(){
+    const i18n = {
+      de:{
+        title:"Danke – Glanz & Klar",
+        h1:"Vielen Dank für Ihre Offertenanfrage!",
+        lead:'Wir haben Ihre Angaben erhalten und prüfen diese sorgfältig. Sie erhalten innerhalb von <strong>48&nbsp;Stunden</strong> ein unverbindliches Angebot. Bei Rückfragen melden wir uns direkt bei Ihnen.',
+        note:"Benötigen Sie kurzfristig Unterstützung oder möchten Sie uns noch Bilder/Infos senden? Schreiben Sie uns gerne per WhatsApp oder E-Mail.",
+        back:"Zurück zur Startseite",
+        cta:"Offerte einholen →",
+        menu_cta:"Offerte anfragen"
+      },
+      en:{
+        title:"Thank you – Glanz & Klar",
+        h1:"Thank you for your quote request!",
+        lead:'We have received your details and will review them carefully. You will receive a non-binding offer within <strong>48&nbsp;hours</strong>. We will contact you directly if we have any questions.',
+        note:"Need support at short notice or want to send us photos/details? Feel free to write us via WhatsApp or email.",
+        back:"Back to homepage",
+        cta:"Get a quote →",
+        menu_cta:"Request a quote"
+      }
+    };
+
+    function setHTML(sel, html){ const el=document.querySelector(sel); if(el) el.innerHTML=html; }
+    function setText(sel, txt){ const el=document.querySelector(sel); if(el) el.textContent=txt; }
+
+    const langSelect = document.getElementById('lang');
+    const saved = localStorage.getItem('lang') || 'de';
+    function apply(lang){
+      const L = i18n[lang] || i18n.de;
+      document.title = L.title;
+      setText('.cta', L.cta);
+      setText('.menu-panel a.btn.btn-primary', L.menu_cta);
+      setText('.thank-card .h1', L.h1);
+      setHTML('.thank-card .lead', L.lead);
+      setText('.thank-card .note', L.note);
+      setText('.thank-card .btn.btn-primary', L.back);
+    }
+    if(langSelect){
+      langSelect.value = saved;
+      apply(saved);
+      langSelect.addEventListener('change', e=>{
+        const lang = e.target.value;
+        localStorage.setItem('lang', lang);
+        apply(lang);
+      });
+    } else { apply(saved); }
+  })();
+  </script>
 </body>
 </html>
