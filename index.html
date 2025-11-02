@@ -8,15 +8,17 @@
   <meta name="color-scheme" content="light only">
   <meta name="theme-color" content="#0d3b4b">
   <style>
-    /* ===== Design Tokens (helle, ruhige Clinic-Ästhetik) ===== */
+    /* ===== Design Tokens ===== */
     :root{
       --bg:#ffffff;
-      --ink:#0d3b4b;         /* Primary Text (dunkles Blaugrün) */
-      --muted:#5d7680;       /* Sekundärtext */
-      --line:#e8eff2;        /* feine Linien */
-      --brand:#0ea5b3;       /* Akzent (türkis) */
+      --ink:#0d3b4b;
+      --muted:#5d7680;
+      --line:#e8eff2;
+      --brand:#0ea5b3;         /* Türkis */
       --brand-600:#098494;
-      --brand-soft:#f3fbfd;  /* sehr helles Türkis */
+      --brand-soft:#f3fbfd;
+      --green:#25d366;         /* Grün für Buttons (Match WhatsApp/„grüne Kästen“) */
+      --green-600:#1fad57;
       --container:1160px;
       --radius:16px;
       --shadow:0 10px 30px rgba(8, 41, 51, .06);
@@ -61,8 +63,8 @@
     .btn-primary:hover{background:var(--brand-600)}
     .btn-outline{background:#fff;color:var(--brand);border-color:var(--brand)}
     .btn-outline:hover{background:#f6feff}
-    .btn-wa{background:#25d366;color:#fff}
-    .btn-wa:hover{filter:brightness(1.05)}
+    .btn-wa{background:var(--green);color:#fff}
+    .btn-wa:hover{background:var(--green-600)}
     :focus-visible{outline:3px solid #b8ecf3;outline-offset:3px;border-radius:10px}
 
     /* ===== Header ===== */
@@ -78,10 +80,19 @@
     .nav-links a:hover{opacity:1}
     .spacer{flex:1}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-weight:800;color:#234b57;background:#fff}
-    .lang-switch select{
-      appearance:none;border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:12px;
-      font-weight:800;color:#234b57;cursor:pointer
+
+    /* Sprach-Buttons (grüne Kästen) */
+    .lang-switch{display:flex;gap:8px;align-items:center}
+    .lang-btn{
+      appearance:none;border:2px solid var(--green);background:#fff;color:var(--green);
+      font-weight:900;padding:8px 12px;border-radius:12px;cursor:pointer;transition:.2s ease;
     }
+    .lang-btn:hover{background:#f2fff6}
+    .lang-btn.is-active{
+      background:var(--green);color:#fff;border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(37,211,102,.18)
+    }
+
     .menu{display:none}
     @media (max-width:960px){
       .nav-links,.pill{display:none}
@@ -106,7 +117,7 @@
       border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
       aspect-ratio:4/3;background:#f7fafb;display:grid;place-items:center
     }
-    .hero-media svg{width:86%;height:auto;color:#b7dfe6}
+    .hero-media img{width:100%;height:100%;object-fit:cover}
 
     @media (max-width:960px){
       .hero-grid{grid-template-columns:1fr;gap:20px}
@@ -185,77 +196,53 @@
         </div>
       </details>
 
+      <!-- Sprach-Buttons (grüne Kästen) -->
       <div class="lang-switch" role="group" aria-label="Sprache">
-  <button type="button" class="lang-btn" data-lang="de" aria-pressed="true">DE</button>
-  <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-</div>
-
-        <label for="lang" class="visually-hidden" style="position:absolute;left:-9999px">Sprache</label>
-        <select id="lang" title="Sprache wählen" aria-label="Sprache">
-          <option value="de">DE</option>
-          <option value="en">EN</option>
-        </select>
+        <button type="button" class="lang-btn is-active" data-lang="de" aria-pressed="true">DE</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
   </header>
 
-<!-- ===== Hero ===== -->
-<section id="start" class="hero">
-  <div class="container hero-grid">
-    <!-- Textspalte -->
-    <div class="hero-text">
-      <span class="eyebrow">Reinigung in der Zentralschweiz</span>
-      <h1>Ihre Putzfee in Luzern - für professionelle Reinigungen mit garantiertem Glanz!</h1>
+  <!-- ===== Hero ===== -->
+  <section id="start" class="hero">
+    <div class="container hero-grid">
+      <!-- Textspalte -->
+      <div class="hero-text">
+        <span class="eyebrow">Reinigung in der Zentralschweiz</span>
+        <h1>Ihre Putzfee in Luzern - für professionelle Reinigungen mit garantiertem Glanz!</h1>
 
-      <p class="lead">
-        Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz &amp; Klar bietet Ihnen
-        einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail.
-      </p>
+        <p class="lead">
+          Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz &amp; Klar bietet Ihnen
+          einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail.
+        </p>
 
-      <div class="hero-badges" aria-label="Leistungsmerkmale">
-        <span class="badge">Abgabegarantie</span>
-        <span class="badge">Versichert</span>
-        <span class="badge">Eigene Reinigungsmittel</span>
-        <span class="badge">WhatsApp Termin</span>
+        <div class="hero-badges" aria-label="Leistungsmerkmale">
+          <span class="badge">Abgabegarantie</span>
+          <span class="badge">Versichert</span>
+          <span class="badge">Eigene Reinigungsmittel</span>
+          <span class="badge">WhatsApp Termin</span>
+        </div>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
+          <a class="btn btn-outline" href="#leistungen">Leistungen ansehen</a>
+        </div>
       </div>
 
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
-        <a class="btn btn-outline" href="#leistungen">Leistungen ansehen</a>
-      </div>
-    </div>
-
-    <!-- Medienkachel -->
-    <div class="hero-media" aria-hidden="true">
-      <!-- Platzhalterbild – gerne ersetzen: assets/hero-1.webp / hero-1.jpg -->
-      <picture>
-        <source srcset="assets/hero-1.webp" type="image/webp" />
-        <img
-          src="assets/hero-1.jpg"
-          alt=""
-          width="1200" height="900"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          style="width:100%;height:100%;object-fit:cover"
-        />
-      </picture>
-    </div>
-  </div>
-</section>
-
-        <!-- Platzhalter-Grafik (ersetzbar mit Bild) -->
-        <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#e6f6fa"/><stop offset="1" stop-color="#cfeef5"/>
-            </linearGradient>
-          </defs>
-          <rect width="600" height="450" fill="url(#g)"/>
-          <rect x="60" y="60" width="480" height="280" rx="16" fill="#fff" stroke="#dcecf1"/>
-          <rect x="60" y="360" width="200" height="16" rx="8" fill="#dcecf1"/>
-          <rect x="270" y="360" width="120" height="16" rx="8" fill="#dcecf1"/>
-        </svg>
+      <!-- Medienkachel -->
+      <div class="hero-media" aria-hidden="true">
+        <picture>
+          <source srcset="assets/hero-1.webp" type="image/webp" />
+          <img
+            src="assets/hero-1.jpg"
+            alt=""
+            width="1200" height="900"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
       </div>
     </div>
   </section>
@@ -306,7 +293,7 @@
     </div>
   </section>
 
-  <!-- ===== Unser Versprechen (1:1 identische Kacheln) ===== -->
+  <!-- ===== Unser Versprechen ===== -->
   <section id="versprechen" class="stripe" aria-labelledby="s-versprechen">
     <div class="container">
       <h2 id="s-versprechen">Unser Versprechen</h2>
@@ -356,26 +343,26 @@
   <section id="preise" aria-labelledby="s-preise">
     <div class="container">
       <h2 id="s-preise">Transparente Richtpreise</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>2.5–3.5 Zimmer</h3>
-          <p class="muted">Endreinigung, Grundpaket</p>
-          <div class="price">ab CHF 429.–</div>
-          <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
-        </div>
-        <div class="card">
-          <h3>4.5–5.5 Zimmer</h3>
-          <p class="muted">Endreinigung, Grundpaket</p>
-          <div class="price">ab CHF 890.–</div>
-          <p class="muted">inkl. Küche &amp; Bad intensiv</p>
-        </div>
-        <div class="card">
-          <h3>Büroreinigung</h3>
-          <p class="muted">Regelmässig / einmalig</p>
-          <div class="price">ab CHF 39.–/Std.</div>
-          <p class="muted">Fixpreis nach Besichtigung möglich</p>
-        </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>2.5–3.5 Zimmer</h3>
+        <p class="muted">Endreinigung, Grundpaket</p>
+        <div class="price">ab CHF 429.–</div>
+        <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
       </div>
+      <div class="card">
+        <h3>4.5–5.5 Zimmer</h3>
+        <p class="muted">Endreinigung, Grundpaket</p>
+        <div class="price">ab CHF 890.–</div>
+        <p class="muted">inkl. Küche &amp; Bad intensiv</p>
+      </div>
+      <div class="card">
+        <h3>Büroreinigung</h3>
+        <p class="muted">Regelmässig / einmalig</p>
+        <div class="price">ab CHF 39.–/Std.</div>
+        <p class="muted">Fixpreis nach Besichtigung möglich</p>
+      </div>
+    </div>
       <p class="muted" style="margin-top:10px">Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung.</p>
     </div>
   </section>
@@ -468,16 +455,17 @@
   <!-- Jahr -->
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
-  <!-- ===== i18n (DE/EN) – DE aktualisiert mit neuem Hero-Text ===== -->
+  <!-- ===== i18n (DE/EN) + Language-Buttons Init ===== -->
   <script>
   (function(){
     const setHTML=(el,html)=>{if(el)el.innerHTML=html};
     const setText=(el,text)=>{if(el)el.textContent=text};
+
     const L={
       de:{nav:{services:"Leistungen",promises:"Unser Versprechen",prices:"Preise",process:"Ablauf",offer:"Offerte"},
         hero:{eyebrow:"Reinigung in der Zentralschweiz",
-          title:"Ihr Spezialist für professionelle Reinigungen von privaten Haushalten sowie Wohn- und Geschäftsräumlichkeiten.",
-          lead:"Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz & Klar bietet Ihnen einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail",
+          title:"Ihre Putzfee in Luzern - für professionelle Reinigungen mit garantiertem Glanz!",
+          lead:"Ob eine Reinigung wegen Umzug, Frühjahrsputz oder einfach für neuen Glanz – Glanz & Klar bietet Ihnen einen professionellen Service, auf den Sie sich verlassen können. Sauber, pünktlich und mit Liebe zum Detail.",
           badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp Termin"],primary:"Kostenlose Offerte",see:"Leistungen ansehen"},
         services:{h2:"Unsere Dienstleistungen",
           c1:{h3:"Endreinigung mit Garantie",p:"Transparent, gründlich & abgabebereit. Auf Wunsch begleiten wir die Übergabe."},
@@ -499,10 +487,35 @@
         offer:{h2:"Jetzt Offerte anfragen",
           form:{name:"Name",phone:"Telefon",email:"E-Mail",msg:"Nachricht",msgPh:"Besonderheiten, Terminwunsch",send:"Anfrage senden",wa:"Per WhatsApp"}}
       },
-      en:{ /* EN unverändert – gerne liefere ich die neue Übersetzung nach */ }
+      en:{nav:{services:"Services",promises:"Our Promise",prices:"Prices",process:"Process",offer:"Quote"},
+        hero:{eyebrow:"Cleaning in Central Switzerland",
+          title:"Your cleaning fairy in Lucerne – professional cleaning with guaranteed sparkle!",
+          lead:"Whether moving out, spring cleaning, or simply a fresh shine – Glanz & Klar delivers professional service you can rely on. Punctual, thorough, and detail-oriented.",
+          badges:["Handover guarantee","Insured","Own cleaning products","WhatsApp appointment"],primary:"Free quote",see:"View services"},
+        services:{h2:"Our Services",
+          c1:{h3:"Final Cleaning with Guarantee",p:"Transparent, thorough & ready for handover. We can attend the handover if required."},
+          c2:{h3:"Maintenance Cleaning",p:"Tailored for offices, practices & shops – clean, tidy, reliable."},
+          c3:{h3:"Clear-out & Disposal",p:"Dismantling, transport & proper disposal – broom-clean handover."}},
+        promises:{h2:"Our Promise",
+          p1:{h3:"Sustainable Cleaning Products",p:"Gentle on surfaces, tough on dirt – certified & eco-conscious."},
+          p2:{h3:"Handover Guarantee for Apartments",p:"We accompany the handover – until everything is approved."},
+          p3:{h3:"Personal Presence",p:"A single point of contact on site – from inspection to finish."}},
+        prices:{h2:"Transparent Guide Prices",
+          c1:{h3:"2.5–3.5 rooms",p1:"Final cleaning, base package",price:"from CHF 429",p2:"plus windows/shutters as required"},
+          c2:{h3:"4.5–5.5 rooms",p1:"Final cleaning, base package",price:"from CHF 890",p2:"incl. intensive kitchen & bathroom"},
+          c3:{h3:"Office cleaning",p1:"Recurring / one-off",price:"from CHF 39/h",p2:"Fixed price possible after inspection"},
+          note:"Note: These are guide values. You’ll receive a precise quote after a short inquiry or an inspection."},
+        process:{h2:"How it works",
+          s1:{h3:"1) Inquiry",p:"Via form, phone or WhatsApp. We respond quickly."},
+          s2:{h3:"2) Quote",p:"A few details are enough – you’ll get a transparent fixed price."},
+          s3:{h3:"3) Cleaning & Handover",p:"We bring materials and can attend the handover."}},
+        offer:{h2:"Request a quote now",
+          form:{name:"Name",phone:"Phone",email:"Email",msg:"Message",msgPh:"Special requests, preferred date",send:"Send request",wa:"Via WhatsApp"}}
+      }
     };
 
     function t(lang, path){ return path.split('.').reduce((a,c)=>a?.[c], L[lang]||L.de); }
+
     function applyLang(lang){
       // Nav
       document.querySelector('.nav-links a[href="#leistungen"]')?.replaceChildren(t(lang,'nav.services'));
@@ -510,7 +523,6 @@
       document.querySelector('.nav-links a[href="#preise"]')?.replaceChildren(t(lang,'nav.prices'));
       document.querySelector('.nav-links a[href="#ablauf"]')?.replaceChildren(t(lang,'nav.process'));
       document.querySelector('.nav-links a[href="#angebot"]')?.replaceChildren(t(lang,'nav.offer'));
-      document.querySelector('a.btn.btn-primary[href="#angebot"]')?.replaceChildren("Offerte einholen");
 
       // Hero
       document.querySelector('.eyebrow')?.replaceChildren(t(lang,'hero.eyebrow'));
@@ -566,17 +578,36 @@
         document.querySelector('.btn.btn-wa')?.replaceChildren(t(lang,'offer.form.wa'));
       }
 
-      // Title & Meta
-      document.title = "Glanz & Klar – Ihre lokale Putzfee";
-      const md=document.querySelector('meta[name="description"]');
-      if(md){
-        md.setAttribute('content', "Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen.");
-      }
+      // Title & Meta (optional dynamisch pro Sprache)
+      document.title = (lang==='en')
+        ? "Glanz & Klar – Your local cleaning fairy"
+        : "Glanz & Klar – Ihre lokale Putzfee";
     }
-    const sel=document.getElementById('lang');
-    const saved=localStorage.getItem('lang')||'de';
-    if(sel){ sel.value=saved; applyLang(saved); sel.addEventListener('change',e=>{const v=e.target.value; localStorage.setItem('lang',v); applyLang(v);}); }
-    else { applyLang(saved); }
+
+    // === Sprach-Buttons (statt Select) ===
+    const btns = document.querySelectorAll('.lang-switch .lang-btn');
+    const saved = localStorage.getItem('lang') || 'de';
+    applyLang(saved);
+    setActive(saved);
+
+    btns.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const lang = btn.dataset.lang || 'de';
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
+        setActive(lang);
+        // html lang-Attribut setzen (SEO/Accessibility)
+        document.documentElement.setAttribute('lang', lang);
+      });
+    });
+
+    function setActive(lang){
+      btns.forEach(b=>{
+        const on = b.dataset.lang === lang;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
   })();
   </script>
 </body>
