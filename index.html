@@ -35,9 +35,10 @@
   <style>
     /* ===== Design Tokens ===== */
     :root{
-  /* ... deine bestehenden Tokens ... */
+      /* neu: Logo-Variablen */
       --logo: 68px;        /* Desktop-Logogrösse */
       --logo-mobile: 44px; /* Mobile-Logogrösse */
+
       --bg:#ffffff;
       --ink:#0d3b4b;
       --muted:#5d7680;
@@ -106,12 +107,32 @@
     .btn-wa{background:var(--green);color:#fff}
     .btn-wa:hover{background:var(--green-600)}
 
-    /* ===== Header ===== */
+    /* ===== Header (aktualisiert) ===== */
     .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-    .nav{height:78px;display:flex;align-items:center;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .brand svg{width:44px;height:44px;color:var(--brand);background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:8px}
-    .brand span{font-weight:900;font-size:1.15rem;letter-spacing:.2px;color:var(--ink)}
+    /* neu: Höhe folgt der Logo-Grösse */
+    .nav{
+      height: calc(var(--logo) + 34px);
+      display:flex;align-items:center;gap:22px
+    }
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;white-space:nowrap}
+    /* neu: Logo deutlich grösser */
+    .brand svg{
+      width:var(--logo);
+      height:var(--logo);
+      color:var(--brand);
+      background:#fff;
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:10px;
+    }
+    /* neu: Wortmarke etwas grösser/angepasst */
+    .brand span{
+      font-weight:900;
+      font-size:clamp(1.05rem, 1.6vw, 1.35rem);
+      letter-spacing:.2px;
+      color:var(--ink);
+    }
+
     .nav-links{display:flex;align-items:center;gap:22px;margin-left:8px}
     .nav-links a{color:#234b57;font-weight:700;opacity:.92;text-decoration:none}
     .nav-links a:hover{opacity:1}
@@ -141,6 +162,16 @@
       .menu-panel{background:#fff;border:1px solid var(--line);border-top:0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;padding:10px;margin-top:4px;box-shadow:var(--shadow)}
       .menu-panel a{display:block;padding:10px 8px;border-radius:10px;color:#234b57;text-decoration:none}
       .menu-panel a:hover{background:#f7fbfd}
+
+      /* neu: mobile Logo-/Header-Grösse */
+      .nav{height: calc(var(--logo-mobile) + 32px)}
+      .brand svg{
+        width:var(--logo-mobile);
+        height:var(--logo-mobile);
+        border-radius:12px;
+        padding:8px;
+      }
+      .brand span{font-size:1.06rem}
     }
 
     /* ===== Hero ===== */
@@ -657,7 +688,6 @@
     function t(lang, path){ return path.split('.').reduce((a,c)=>a?.[c], L[lang]||L.de); }
 
     function applyLang(lang){
-      // Update <html lang>
       document.documentElement.setAttribute('lang', lang);
 
       // Nav
