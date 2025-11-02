@@ -17,7 +17,7 @@
       --brand:#0ea5b3;         /* Türkis */
       --brand-600:#098494;
       --brand-soft:#f3fbfd;
-      --green:#25d366;         /* Grün für Buttons (Match WhatsApp/„grüne Kästen“) */
+      --green:#25d366;         /* Grün für Sprach-Buttons */
       --green-600:#1fad57;
       --container:1160px;
       --radius:16px;
@@ -117,13 +117,13 @@
       border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
       aspect-ratio:4/3;background:#f7fafb;display:grid;place-items:center
     }
-    .hero-media img{width:100%;height:100%;object-fit:cover}
+    .hero-media svg{width:100%;height:100%;display:block}
 
     @media (max-width:960px){
       .hero-grid{grid-template-columns:1fr;gap:20px}
     }
 
-    /* ===== Stripes ===== */
+    /* ===== Grids & Cards ===== */
     .stripe{background:#fafcfd;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .grid{display:grid;gap:18px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
@@ -134,6 +134,7 @@
       background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)
     }
     .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff;margin-bottom:10px}
+    .thumb svg{width:100%;height:100%;display:block}
     .price{font-size:28px;font-weight:900;letter-spacing:.2px}
 
     /* ===== Steps ===== */
@@ -230,37 +231,39 @@
         </div>
       </div>
 
-  <div class="hero-media" aria-hidden="true">
-  <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saubere, helle Wohnung mit Glanz">
-    <defs>
-      <linearGradient id="hG" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#f3fbfd"/>
-        <stop offset="1" stop-color="#dff3f8"/>
-      </linearGradient>
-      <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-        <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0b3c49" flood-opacity=".12"/>
-      </filter>
-    </defs>
-    <rect width="1200" height="900" fill="url(#hG)"/>
-    <!-- Fenster/Glanz -->
-    <g filter="url(#s)">
-      <rect x="140" y="140" width="920" height="540" rx="24" fill="#fff" stroke="#e6eef2"/>
-      <rect x="160" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
-      <rect x="440" y="170" width="260" height="220" rx="14" fill="#eef8fb"/>
-      <rect x="720" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
-      <rect x="160" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
-      <rect x="580" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
-      <!-- Glanzsterne -->
-      <g fill="#0ea5b3" opacity=".65">
-        <path d="M1020 260 l10 24 24 10-24 10-10 24-10-24-24-10 24-10z"/>
-        <path d="M320 540 l8 18 18 8-18 8-8 18-8-18-18-8 18-8z" opacity=".6"/>
-        <path d="M880 560 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".6"/>
-      </g>
-    </g>
-    <!-- Boden -->
-    <rect y="720" width="1200" height="180" fill="#e9f3f6"/>
-  </svg>
-</div>
+      <!-- Medienkachel -->
+      <div class="hero-media" aria-hidden="true">
+        <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saubere, helle Wohnung mit Glanz">
+          <defs>
+            <linearGradient id="hG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f3fbfd"/>
+              <stop offset="1" stop-color="#dff3f8"/>
+            </linearGradient>
+            <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0b3c49" flood-opacity=".12"/>
+            </filter>
+          </defs>
+          <rect width="1200" height="900" fill="url(#hG)"/>
+          <!-- Fenster/Glanz -->
+          <g filter="url(#s)">
+            <rect x="140" y="140" width="920" height="540" rx="24" fill="#fff" stroke="#e6eef2"/>
+            <rect x="160" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
+            <rect x="440" y="170" width="260" height="220" rx="14" fill="#eef8fb"/>
+            <rect x="720" y="170" width="260" height="220" rx="14" fill="#eaf6fa"/>
+            <rect x="160" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
+            <rect x="580" y="410" width="400" height="240" rx="16" fill="#ffffff"/>
+            <!-- Glanzsterne -->
+            <g fill="#0ea5b3" opacity=".65">
+              <path d="M1020 260 l10 24 24 10-24 10-10 24-10-24-24-10 24-10z"/>
+              <path d="M320 540 l8 18 18 8-18 8-8 18-8-18-18-8 18-8z" opacity=".6"/>
+              <path d="M880 560 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".6"/>
+            </g>
+          </g>
+          <!-- Boden -->
+          <rect y="720" width="1200" height="180" fill="#e9f3f6"/>
+        </svg>
+      </div>
+    </div>
   </section>
 
   <!-- ===== Leistungen ===== -->
@@ -269,11 +272,25 @@
       <h2 id="s-leistungen">Unsere Dienstleistungen</h2>
       <div class="grid grid-3">
         <article class="card">
-          <div class="thumb">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <rect x="30" y="50" width="240" height="110" rx="10" fill="#fff" stroke="#d8eef4"/>
-              <path d="M220 90 l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#12a0c7" opacity="0.4"/>
+          <div class="thumb" aria-label="Endreinigung – Bad und Küche glänzen">
+            <!-- SVG 1: Endreinigung -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f3fbfd"/><stop offset="1" stop-color="#e5f5fb"/>
+                </linearGradient>
+                <filter id="ds1" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b3c49" flood-opacity=".12"/>
+                </filter>
+              </defs>
+              <rect width="1280" height="800" fill="url(#g1)"/>
+              <g filter="url(#ds1)">
+                <rect x="120" y="140" width="1040" height="520" rx="24" fill="#fff" stroke="#e6eef2"/>
+                <rect x="160" y="180" width="300" height="200" rx="14" fill="#dff3f8"/>
+                <rect x="500" y="180" width="620" height="200" rx="14" fill="#f5fafc"/>
+                <rect x="160" y="410" width="960" height="200" rx="14" fill="#ffffff"/>
+                <path d="M1080 240 l12 28 28 12-28 12-12 28-12-28-28-12 28-12z" fill="#0ea5b3" opacity=".7"/>
+              </g>
             </svg>
           </div>
           <h3>Endreinigung mit Garantie</h3>
@@ -281,11 +298,23 @@
         </article>
 
         <article class="card">
-          <div class="thumb">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <rect x="100" y="70" width="50" height="90" rx="10" fill="#12a0c7"/>
-              <rect x="120" y="60" width="30" height="16" rx="5" fill="#0f4c5c"/>
+          <div class="thumb" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
+            <!-- SVG 2: Unterhaltsreinigungen -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f7fdff"/><stop offset="1" stop-color="#eaf6fa"/>
+                </linearGradient>
+              </defs>
+              <rect width="1280" height="800" fill="url(#g2)"/>
+              <g transform="translate(200,160)">
+                <rect x="0" y="0" width="320" height="480" rx="30" fill="#0ea5b3" opacity=".9"/>
+                <rect x="220" y="-20" width="160" height="60" rx="12" fill="#0d3b4b"/>
+                <rect x="40" y="440" width="360" height="30" rx="12" fill="#0ea5b3" opacity=".6"/>
+                <circle cx="520" cy="120" r="18" fill="#0ea5b3" opacity=".35"/>
+                <path d="M520 120 l10 22 22 10-22 10-10 22-10-22-22-10 22-10z" fill="#0ea5b3" opacity=".55"/>
+                <circle cx="600" cy="200" r="12" fill="#0ea5b3" opacity=".4"/>
+              </g>
             </svg>
           </div>
           <h3>Unterhaltsreinigungen</h3>
@@ -293,13 +322,22 @@
         </article>
 
         <article class="card">
-          <div class="thumb">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <rect x="40" y="100" width="80" height="60" rx="6" fill="#a9d6e5" stroke="#d8eef4"/>
-              <rect x="60" y="80" width="80" height="60" rx="6" fill="#fff" stroke="#d8eef4"/>
-              <rect x="150" y="100" width="40" height="60" rx="4" fill="#12a0c7" opacity="0.7"/>
-              <rect x="195" y="60" width="4" height="100" fill="#0f4c5c"/>
+          <div class="thumb" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
+            <!-- SVG 3: Räumung & Entsorgung -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
+                </linearGradient>
+              </defs>
+              <rect width="1280" height="800" fill="url(#g3)"/>
+              <g transform="translate(180,220)">
+                <rect x="0" y="120" width="280" height="200" rx="12" fill="#a9d6e5"/>
+                <rect x="120" y="0" width="300" height="200" rx="12" fill="#ffffff" stroke="#d8eef4"/>
+                <rect x="460" y="120" width="160" height="200" rx="8" fill="#12a0c7" opacity=".75"/>
+                <rect x="670" y="-40" width="12" height="360" rx="6" fill="#0f4c5c"/>
+                <rect x="650" y="-60" width="54" height="18" rx="9" fill="#a9d6e5"/>
+              </g>
             </svg>
           </div>
           <h3>Räumung &amp; Entsorgung</h3>
@@ -315,11 +353,20 @@
       <h2 id="s-versprechen">Unser Versprechen</h2>
       <div class="grid grid-3">
         <article class="card">
-          <div class="thumb" aria-hidden="true">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <circle cx="90" cy="110" r="36" fill="#a9d6e5"/>
-              <path d="M70 110 l16 16 28-32" stroke="#0f4c5c" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="thumb" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
+            <!-- SVG 4: Nachhaltige Reinigungsmittel -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="p1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f3fbf6"/><stop offset="1" stop-color="#e6f7ed"/>
+                </linearGradient>
+              </defs>
+              <rect width="1280" height="800" fill="url(#p1)"/>
+              <g transform="translate(280,200)">
+                <circle cx="120" cy="200" r="90" fill="#a9d6c5"/>
+                <path d="M60 200 l40 40 70-80" stroke="#0f4c5c" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="260" y="90" width="520" height="260" rx="26" fill="#fff" stroke="#e6eef2"/>
+              </g>
             </svg>
           </div>
           <h3>Nachhaltige Reinigungsmittel</h3>
@@ -327,11 +374,21 @@
         </article>
 
         <article class="card">
-          <div class="thumb" aria-hidden="true">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <rect x="50" y="70" width="120" height="70" rx="10" fill="#fff" stroke="#d8eef4"/>
-              <path d="M210 130 l-20 0 0 -40 40 0 0 20 -20 20" fill="#12a0c7" opacity=".7"/>
+          <div class="thumb" aria-label="Abgabegarantie – Schlüssel und Dokument">
+            <!-- SVG 5: Abgabe Garantie bei Wohnungen -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="p2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f2fbff"/><stop offset="1" stop-color="#e7f5fb"/>
+                </linearGradient>
+              </defs>
+              <rect width="1280" height="800" fill="url(#p2)"/>
+              <g transform="translate(240,180)">
+                <rect x="0" y="0" width="420" height="300" rx="20" fill="#fff" stroke="#dcecf1"/>
+                <rect x="40" y="40" width="160" height="20" rx="10" fill="#cfe8f0"/>
+                <rect x="40" y="80" width="260" height="20" rx="10" fill="#e6f1f5"/>
+                <path d="M760 300 l-80 0 0 -160 160 0 0 80 -80 80" fill="#0ea5b3" opacity=".7"/>
+              </g>
             </svg>
           </div>
           <h3>Abgabe Garantie bei Wohnungen</h3>
@@ -339,13 +396,21 @@
         </article>
 
         <article class="card">
-          <div class="thumb" aria-hidden="true">
-            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-              <rect width="300" height="200" fill="#f6fbfd"/>
-              <rect x="80" y="70" width="140" height="60" rx="12" fill="#fff" stroke="#d8eef4"/>
-              <circle cx="110" cy="100" r="6" fill="#12a0c7"/>
-              <circle cx="150" cy="100" r="6" fill="#12a0c7"/>
-              <circle cx="190" cy="100" r="6" fill="#12a0c7"/>
+          <div class="thumb" aria-label="Persönliche Anwesenheit – Kommunikation">
+            <!-- SVG 6: Persönliche Anwesenheit -->
+            <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img">
+              <defs>
+                <linearGradient id="p3" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
+                </linearGradient>
+              </defs>
+              <rect width="1280" height="800" fill="url(#p3)"/>
+              <g transform="translate(240,180)">
+                <rect x="140" y="120" width="760" height="240" rx="26" fill="#fff" stroke="#e6eef2"/>
+                <circle cx="300" cy="240" r="16" fill="#0ea5b3"/>
+                <circle cx="480" cy="240" r="16" fill="#0ea5b3"/>
+                <circle cx="660" cy="240" r="16" fill="#0ea5b3"/>
+              </g>
             </svg>
           </div>
           <h3>Persönliche Anwesenheit</h3>
@@ -359,26 +424,26 @@
   <section id="preise" aria-labelledby="s-preise">
     <div class="container">
       <h2 id="s-preise">Transparente Richtpreise</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>2.5–3.5 Zimmer</h3>
-        <p class="muted">Endreinigung, Grundpaket</p>
-        <div class="price">ab CHF 429.–</div>
-        <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>2.5–3.5 Zimmer</h3>
+          <p class="muted">Endreinigung, Grundpaket</p>
+          <div class="price">ab CHF 429.–</div>
+          <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
+        </div>
+        <div class="card">
+          <h3>4.5–5.5 Zimmer</h3>
+          <p class="muted">Endreinigung, Grundpaket</p>
+          <div class="price">ab CHF 890.–</div>
+          <p class="muted">inkl. Küche &amp; Bad intensiv</p>
+        </div>
+        <div class="card">
+          <h3>Büroreinigung</h3>
+          <p class="muted">Regelmässig / einmalig</p>
+          <div class="price">ab CHF 39.–/Std.</div>
+          <p class="muted">Fixpreis nach Besichtigung möglich</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>4.5–5.5 Zimmer</h3>
-        <p class="muted">Endreinigung, Grundpaket</p>
-        <div class="price">ab CHF 890.–</div>
-        <p class="muted">inkl. Küche &amp; Bad intensiv</p>
-      </div>
-      <div class="card">
-        <h3>Büroreinigung</h3>
-        <p class="muted">Regelmässig / einmalig</p>
-        <div class="price">ab CHF 39.–/Std.</div>
-        <p class="muted">Fixpreis nach Besichtigung möglich</p>
-      </div>
-    </div>
       <p class="muted" style="margin-top:10px">Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung.</p>
     </div>
   </section>
@@ -408,34 +473,34 @@
   <section id="angebot" aria-labelledby="s-angebot">
     <div class="container">
       <h2 id="s-angebot">Jetzt Offerte anfragen</h2>
-      <div class="card">
-        <form id="offerForm"
-              action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
-              method="POST" accept-charset="UTF-8">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
-          <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
+    <div class="card">
+      <form id="offerForm"
+            action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
+            method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
+        <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
 
-          <label for="f-name">Name</label>
-          <input id="f-name" class="field" required name="Name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
+        <label for="f-name">Name</label>
+        <input id="f-name" class="field" required name="Name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
 
-          <label for="f-phone">Telefon</label>
-          <input id="f-phone" class="field" required name="Telefon" type="tel" placeholder="+41 .." inputmode="tel" autocomplete="tel" />
+        <label for="f-phone">Telefon</label>
+        <input id="f-phone" class="field" required name="Telefon" type="tel" placeholder="+41 .." inputmode="tel" autocomplete="tel" />
 
-          <label for="f-mail">E-Mail</label>
-          <input id="f-mail" class="field" required name="E-Mail" type="email" placeholder="name@mail.ch" autocomplete="email" />
+        <label for="f-mail">E-Mail</label>
+        <input id="f-mail" class="field" required name="E-Mail" type="email" placeholder="name@mail.ch" autocomplete="email" />
 
-          <label for="f-msg">Nachricht</label>
-          <textarea id="f-msg" class="field" name="Nachricht" placeholder="Besonderheiten, Terminwunsch"></textarea>
+        <label for="f-msg">Nachricht</label>
+        <textarea id="f-msg" class="field" name="Nachricht" placeholder="Besonderheiten, Terminwunsch"></textarea>
 
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-            <button class="btn btn-primary" type="submit">Anfrage senden</button>
-            <a class="btn btn-wa"
-               href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
-               target="_blank" rel="noopener">Per WhatsApp</a>
-          </div>
-        </form>
-      </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <button class="btn btn-primary" type="submit">Anfrage senden</button>
+          <a class="btn btn-wa"
+             href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
+             target="_blank" rel="noopener">Per WhatsApp</a>
+        </div>
+      </form>
+    </div>
     </div>
   </section>
 
@@ -594,17 +659,17 @@
         document.querySelector('.btn.btn-wa')?.replaceChildren(t(lang,'offer.form.wa'));
       }
 
-      // Title & Meta (optional dynamisch pro Sprache)
+      // Title & <html lang>
       document.title = (lang==='en')
         ? "Glanz & Klar – Your local cleaning fairy"
         : "Glanz & Klar – Ihre lokale Putzfee";
+      document.documentElement.setAttribute('lang', lang);
     }
 
-    // === Sprach-Buttons (statt Select) ===
+    // === Sprach-Buttons Init (statt Select) ===
     const btns = document.querySelectorAll('.lang-switch .lang-btn');
     const saved = localStorage.getItem('lang') || 'de';
-    applyLang(saved);
-    setActive(saved);
+    applyLang(saved); setActive(saved);
 
     btns.forEach(btn=>{
       btn.addEventListener('click', ()=>{
@@ -612,8 +677,6 @@
         localStorage.setItem('lang', lang);
         applyLang(lang);
         setActive(lang);
-        // html lang-Attribut setzen (SEO/Accessibility)
-        document.documentElement.setAttribute('lang', lang);
       });
     });
 
