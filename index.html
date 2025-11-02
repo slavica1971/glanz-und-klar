@@ -1,170 +1,209 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Glanz & Klar – Ihre lokale Putzfee</title>
-  <meta name="description" content="Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen.">
-  <meta name="theme-color" content="#a9d6e5">
+  <meta name="description" content="Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen." />
+  <meta name="theme-color" content="#0f4c5c" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c3942" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
   <style>
-    :root{--brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--success:#25d366;--line:#e3f2f7}
+    /* ===== Design-Tokens ===== */
+    :root{
+      --brand-50:#f4fafc;
+      --brand-100:#eaf6fb;
+      --brand-200:#d8eef4;
+      --brand-300:#a9d6e5;
+      --brand-400:#69c2dc;
+      --brand-500:#12a0c7;
+      --ink:#0f4c5c;
+      --ink-2:#24424a;
+      --muted:#5f7b82;
+      --line:#e3f2f7;
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 30px rgba(0,0,0,.06);
+      --radius:16px;
+    }
+    @media (prefers-color-scheme:dark){
+      :root{
+        --brand-50:#0c2e36;
+        --brand-100:#103a44;
+        --brand-200:#144a57;
+        --brand-300:#1a5b6a;
+        --brand-400:#0e8fb0;
+        --brand-500:#12a0c7;
+        --ink:#eaf6fb;
+        --ink-2:#cfe7ee;
+        --muted:#9db7bf;
+        --line:#1a424f;
+        --card:#0b2127;
+        --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 28px rgba(0,0,0,.45);
+      }
+    }
+
+    /* ===== Base ===== */
     *{box-sizing:border-box}
-    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    .container{width:min(1100px,92vw);margin:0 auto}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:600;border:2px solid transparent}
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-outline{background:#fff;color:var(--accent);border-color:var(--accent)}
-    .btn-wa{background:var(--success);color:#fff}
+    html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji;
+      color:var(--ink);
+      background:linear-gradient(180deg,var(--brand-50),#fff 28%);
+      background-attachment:fixed;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:var(--brand-500);text-decoration:none}
+    a:hover{text-decoration:underline}
+    :focus-visible{outline:3px solid var(--brand-400);outline-offset:2px;border-radius:10px}
 
-    /* ===== Header (Arrangement wie Vorlage) ===== */
-    .site-header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--brand),var(--brand2));border-bottom:1px solid rgba(0,0,0,.04)}
-    .nav{display:flex;align-items:center;gap:16px;height:68px}
+    /* ===== Layout ===== */
+    .container{width:min(1120px,92vw);margin-inline:auto}
+    section{padding:72px 0}
+    @media (max-width:720px){ section{padding:48px 0} }
+
+    /* ===== Buttons ===== */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+      padding:12px 16px;border-radius:14px;border:1.5px solid transparent;
+      font-weight:700;line-height:1;cursor:pointer;transition:.25s ease;
+      box-shadow:0 0 0 transparent;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--brand-500);color:#fff}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-outline{background:transparent;color:var(--brand-500);border-color:var(--brand-500)}
+    .btn-outline:hover{background-color:color-mix(in srgb,var(--brand-500) 10%,transparent)}
+    .btn-wa{background:#25d366;color:#fff}
+    .btn-wa:hover{filter:brightness(1.05)}
+
+    /* ===== Header ===== */
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:color-mix(in srgb, var(--brand-100) 86%, transparent);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:72px;display:flex;align-items:center;gap:16px;
+    }
     .brand{display:flex;align-items:center;gap:12px}
-    .brand svg{width:40px;height:40px;color:var(--accent);background:#fff;border-radius:10px;padding:8px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .brand span{font-weight:800;font-size:1.25rem;letter-spacing:.2px;color:#0f4c5c}
-    .nav-links{display:flex;align-items:center;gap:16px;margin-left:8px}
+    .brand svg{
+      width:42px;height:42px;color:var(--brand-500);background:var(--card);
+      border-radius:12px;padding:8px;box-shadow:var(--shadow)
+    }
+    .brand span{font-weight:800;font-size:1.15rem;letter-spacing:.2px;color:var(--ink)}
+    .nav-links{display:flex;align-items:center;gap:18px;margin-left:8px}
+    .nav-links a{color:var(--ink-2);font-weight:600;opacity:.9}
+    .nav-links a:hover{opacity:1}
     .spacer{flex:1}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#fff;font-weight:600;color:#0f4c5c}
-    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:2px solid var(--accent);background:#fff;color:var(--accent);font-weight:700}
-    .cta:hover{background:#fefefe}
-
-    /* Language switch */
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);background:var(--card);font-weight:700;color:var(--ink-2)
+    }
     .lang-switch select{
-      appearance:none;-webkit-appearance:none;-moz-appearance:none;
-      border:1px solid rgba(0,0,0,.12);background:#fff;padding:6px 10px;border-radius:10px;
-      font-weight:600;color:#0f4c5c;cursor:pointer
+      appearance:none;border:1px solid var(--line);background:var(--card);
+      padding:8px 12px;border-radius:12px;font-weight:700;color:var(--ink-2);cursor:pointer
     }
 
-    /* Mobile Menu */
+    /* Mobile menu (Details) */
     .menu{display:none}
-    .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(0,0,0,.15);padding:8px 12px;border-radius:10px;background:#fff;font-weight:600;color:#0f4c5c}
-    .menu[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
-    .menu-panel{background:#fff;border:1px solid var(--line);border-top:0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;padding:10px;margin-top:4px}
-    .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
-    .menu-panel a:hover{background:#f9fdff}
-
-/* ===== Hero (zentrierte Einspalten-Version) ===== */
-.hero{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:80px 0;
-}
-
-.hero-left{
-  max-width:800px;
-  width:100%;
-  text-align:center;
-  background:linear-gradient(180deg,#ffffff,rgba(255,255,255,.6));
-  border-radius:18px;
-  border:1px solid var(--line);
-  padding:50px 36px;
-}
-
-.eyebrow{
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:#0f4c5c;
-  font-size:12px;
-}
-
-h1{
-  font-size:clamp(30px,3.4vw,44px);
-  line-height:1.15;
-  margin:10px 0 12px;
-}
-
-.lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-
-.badges{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  margin:14px 0 20px;
-}
-.badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
-
-.hero-ctas{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:8px;
-}
-
-/* Die rechte Spalte gibt es nicht mehr */
-.hero-right{display:none !important;}
-
-    .badge-floating{
-      position:absolute;right:16px;top:16px;background:#fff;border:1px solid var(--line);
-      padding:10px 12px;border-radius:12px;font-weight:700;color:#0f4c5c
+    .menu summary{
+      list-style:none;cursor:pointer;border:1px solid var(--line);padding:8px 12px;border-radius:12px;
+      background:var(--card);font-weight:700;color:var(--ink-2)
     }
+    .menu[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .menu-panel{
+      background:var(--card);border:1px solid var(--line);border-top:0;border-bottom-left-radius:14px;border-bottom-right-radius:14px;
+      padding:10px;margin-top:4px;box-shadow:var(--shadow)
+    }
+    .menu-panel a{display:block;padding:10px 8px;border-radius:10px;color:var(--ink)}
+    .menu-panel a:hover{background:color-mix(in srgb,var(--brand-300) 12%,transparent)}
 
-    /* Sections & Cards */
-    section{padding:48px 0}
-    h2{font-size:clamp(24px,2.6vw,34px);margin:0 0 16px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
-    .price{font-size:26px;font-weight:800}
-    .muted{color:var(--muted)}
-
-    /* Thumbnails */
-    .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff}
-    .thumb svg{width:100%;height:100%;display:block}
-    .thumb picture,.thumb img{display:block;width:100%;height:100%;object-fit:cover}
-    #leistungen .thumb{max-height:260px;border-radius:14px}
-    @media (max-width:600px){#leistungen .thumb{max-height:200px}}
-
-    /* Footer */
-    footer{background:#f4fafc;color:var(--muted)}
-    footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
-    @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
-    .legal{border-top:1px solid var(--line);padding:12px 0 20px}
-
-    /* Mobile Tweaks */
     @media (max-width:900px){
       .nav-links{display:none}
       .menu{display:block}
-    }
-    @media (max-width:600px){
-      .container{width:92vw}
-      .nav{height:64px}
-      .hero{grid-template-columns:1fr;gap:18px;padding:22px 0 28px}
-      .hero-left{min-height:unset;padding:22px}
-      .hero-right{min-height:420px}
-      .badges{gap:6px;margin:10px 0 14px}
-      .badge{font-size:13px;padding:5px 9px}
-      .hero-ctas .btn{width:100%;text-align:center;padding:14px 16px;border-radius:12px}
-      section{padding:36px 0}
-      .grid{gap:12px}
-      .card{padding:14px;border-radius:14px}
-      footer .cols{gap:12px;padding:16px 0}
-      .legal{padding:10px 0 16px}
-      .lang-switch{order:-1}
+      .pill{display:none}
     }
 
-    a,button{-webkit-tap-highlight-color:rgba(18,160,199,.15)}
-    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+    /* ===== Hero ===== */
+    .hero{padding:84px 0 32px}
+    .hero-wrap{
+      display:grid;grid-template-columns:1fr;place-items:center;text-align:center;
+      background:linear-gradient(180deg,#fff, color-mix(in srgb,var(--brand-100) 55%, #fff));
+      border:1px solid var(--line);border-radius:22px;padding:48px 28px;box-shadow:var(--shadow)
+    }
+    .eyebrow{
+      display:inline-block;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+      color:var(--ink-2);font-size:.72rem;opacity:.85;
+      background:color-mix(in srgb,var(--brand-300) 16%,transparent);
+      border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-bottom:12px
+    }
+    h1{font-size:clamp(32px,4.2vw,48px);line-height:1.12;margin:10px 0 10px}
+    .lead{font-size:clamp(16px,2vw,20px);opacity:.95;max-width:58ch;margin:0 auto 14px}
+    .badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
+    .badge{background:var(--card);border:1px solid var(--line);padding:7px 12px;border-radius:999px;font-size:.92rem}
+    .hero-ctas{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .hero-ctas .btn{min-width:180px}
+
+    /* ===== Cards & Grids ===== */
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      padding:18px;box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease
+    }
+    .card:hover{transform:translateY(-2px)}
+    .thumb{aspect-ratio:16/10;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:#fff;margin-bottom:10px}
+    .thumb svg{width:100%;height:100%;display:block}
+
+    h2{font-size:clamp(24px,3vw,36px);margin:0 0 18px}
+    h3{font-size:clamp(18px,2.2vw,22px);margin:8px 0}
+    .muted{color:var(--muted)}
+    .price{font-size:28px;font-weight:900;letter-spacing:.2px}
+
+    /* ===== Preise-Section BG ===== */
+    #preise{background:color-mix(in srgb,var(--brand-100) 60%, transparent)}
+
+    /* ===== Formular ===== */
+    form label{font-weight:700;display:block;margin:6px 0 6px}
+    .field{
+      width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);
+      color:var(--ink);font-size:1rem;transition:border-color .2s ease, box-shadow .2s ease
+    }
+    .field:focus{border-color:var(--brand-500);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand-500) 25%, transparent)}
+    textarea.field{min-height:120px;resize:vertical}
+
+    /* ===== Footer ===== */
+    footer{background:var(--brand-50);color:var(--muted)}
+    footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:26px 0}
+    @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
+    .legal{border-top:1px solid var(--line);padding:12px 0 20px}
+
+    /* ===== Motion & Touch ===== */
+    a,button{ -webkit-tap-highlight-color:rgba(18,160,199,.15) }
+    @media (prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto;animation:none;transition:none}
+    }
   </style>
 </head>
 <body>
 
   <!-- ===== Header ===== -->
-  <header class="site-header">
-    <div class="container nav" aria-label="Hauptnavigation">
-      <!-- Brand -->
-      <a href="index.html" class="brand" aria-label="Zur Startseite – Glanz & Klar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
+  <header class="site-header" aria-label="Hauptnavigation">
+    <div class="container nav">
+      <a href="#start" class="brand" aria-label="Zur Startseite – Glanz & Klar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/>
+        </svg>
         <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
       </a>
 
-      <!-- Desktop Links -->
       <nav class="nav-links" aria-label="Seiten">
         <a href="#leistungen">Leistungen</a>
         <a href="#preise">Preise</a>
@@ -174,23 +213,20 @@ h1{
 
       <div class="spacer"></div>
 
-      <!-- Standort-Pill wie im Vorbild -->
       <div class="pill" aria-label="Standort">📍 Luzern</div>
 
-      <!-- CTA -->
-      <a class="cta" href="#angebot">Offerte einholen →</a>
+      <a class="btn btn-outline" href="#angebot">Offerte einholen →</a>
 
-      <!-- Sprache -->
-      <div class="lang-switch" aria-label="Sprachauswahl" style="margin-left:8px">
-        <select id="lang" title="Sprache wählen">
+      <div class="lang-switch" style="margin-left:8px">
+        <label for="lang" class="visually-hidden" style="position:absolute;left:-9999px">Sprache</label>
+        <select id="lang" title="Sprache wählen" aria-label="Sprache">
           <option value="de">DE</option>
           <option value="en">EN</option>
         </select>
       </div>
 
-      <!-- Mobile Menü -->
       <details class="menu" style="margin-left:6px">
-        <summary>Menü</summary>
+        <summary aria-label="Menü öffnen">Menü</summary>
         <div class="menu-panel">
           <a href="#leistungen">Leistungen</a>
           <a href="#preise">Preise</a>
@@ -202,77 +238,62 @@ h1{
     </div>
   </header>
 
-<!-- ===== Hero (zentriert über gesamte Breite) ===== -->
-<div class="container hero" id="start">
-  <div class="hero-left">
-    <div class="eyebrow">Reinigung in der Zentralschweiz</div>
-    <h1>Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.</h1>
-    <p class="lead">
-      Wohnungen, Häuser &amp; Büros. Fixe Termine, transparente Preise,
-      <strong>Material inkl.</strong>
-    </p>
-
-    <div class="badges">
-      <span class="badge">Abgabegarantie</span>
-      <span class="badge">Versichert</span>
-      <span class="badge">Eigene Reinigungsmittel</span>
-      <span class="badge">WhatsApp Termin</span>
+  <!-- ===== Hero ===== -->
+  <main id="start" class="container hero">
+    <div class="hero-wrap">
+      <span class="eyebrow">Reinigung in der Zentralschweiz</span>
+      <h1>Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.</h1>
+      <p class="lead">Wohnungen, Häuser &amp; Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong></p>
+      <div class="badges" aria-label="Leistungsmerkmale">
+        <span class="badge">Abgabegarantie</span>
+        <span class="badge">Versichert</span>
+        <span class="badge">Eigene Reinigungsmittel</span>
+        <span class="badge">WhatsApp Termin</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#angebot" aria-label="Kostenlose Offerte anfragen">Kostenlose Offerte</a>
+        <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
+           target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
-
-    <div class="hero-ctas">
-      <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
-      <a class="btn btn-wa"
-         href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
-         target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-  </div> <!-- / .hero-left -->
-</div> <!-- / .container.hero -->
+  </main>
 
   <!-- ===== Leistungen ===== -->
-  <section id="leistungen">
+  <section id="leistungen" aria-labelledby="s-leistungen">
     <div class="container">
-      <h2>Unsere Dienstleistungen</h2>
+      <h2 id="s-leistungen">Unsere Dienstleistungen</h2>
       <div class="grid grid-3">
 
-        <!-- Endreinigung mit Garantie -->
-        <div class="card">
-          <div class="thumb" aria-label="Endreinigung mit Garantie – sauberes Zimmer">
+        <article class="card">
+          <div class="thumb" aria-hidden="true">
+            <!-- simple SVG -->
             <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
               <rect width="300" height="200" fill="#f6fbfd"/>
               <rect x="30" y="60" width="240" height="100" rx="8" fill="#fff" stroke="#d8eef4"/>
               <rect x="60" y="80" width="60" height="60" rx="6" fill="#a9d6e5" opacity="0.3"/>
               <circle cx="220" cy="100" r="10" fill="#12a0c7" opacity="0.6"/>
               <path d="M220 100 l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#12a0c7" opacity="0.4"/>
-              <rect x="180" y="120" width="40" height="40" rx="6" fill="#12a0c7" opacity="0.8"/>
-              <rect x="200" y="120" width="12" height="25" rx="4" fill="#0f4c5c"/>
-              <circle cx="206" cy="118" r="6" fill="#a9d6e5"/>
             </svg>
           </div>
           <h3>Endreinigung mit Garantie</h3>
-          <p>Wir sorgen dafür, dass Ihre Wohnung bei der Übergabe makellos sauber ist.</p>
-        </div>
+          <p class="muted">Transparent, gründlich &amp; bereit zur Abgabe. Auf Wunsch begleiten wir die Übergabe.</p>
+        </article>
 
-        <!-- Unterhaltsreinigungen -->
-        <div class="card">
-          <div class="thumb" aria-label="Unterhaltsreinigung – Sprühflasche und Glanz">
+        <article class="card">
+          <div class="thumb" aria-hidden="true">
             <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
               <rect width="300" height="200" fill="#f6fbfd"/>
               <rect x="100" y="80" width="50" height="80" rx="10" fill="#12a0c7"/>
               <rect x="120" y="70" width="30" height="15" rx="5" fill="#0f4c5c"/>
               <circle cx="140" cy="60" r="8" fill="#a9d6e5"/>
-              <rect x="110" y="140" width="60" height="20" rx="8" fill="#12a0c7" opacity="0.6"/>
-              <circle cx="180" cy="90" r="6" fill="#12a0c7" opacity="0.4"/>
-              <path d="M180 90 l3 6 6 3-6 3-3 6-3-6-6-3 6-3z" fill="#12a0c7" opacity="0.6"/>
-              <circle cx="190" cy="110" r="4" fill="#a9d6e5" opacity="0.8"/>
             </svg>
           </div>
           <h3>Unterhaltsreinigungen</h3>
-          <p>Individuell nach Bedarf – für Büro, Praxis &amp; Laden. Sauber, ordentlich, verlässlich.</p>
-        </div>
+          <p class="muted">Individuell für Büro, Praxis &amp; Laden – sauber, ordentlich, verlässlich.</p>
+        </article>
 
-        <!-- Räumung & Entsorgung -->
-        <div class="card">
-          <div class="thumb" aria-label="Räumung und Entsorgung – Kartons und Besen">
+        <article class="card">
+          <div class="thumb" aria-hidden="true">
             <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
               <rect width="300" height="200" fill="#f6fbfd"/>
               <rect x="40" y="100" width="80" height="60" rx="6" fill="#a9d6e5" stroke="#d8eef4"/>
@@ -280,34 +301,48 @@ h1{
               <rect x="150" y="100" width="40" height="60" rx="4" fill="#12a0c7" opacity="0.7"/>
               <rect x="195" y="60" width="4" height="100" fill="#0f4c5c"/>
               <rect x="188" y="55" width="18" height="6" rx="3" fill="#a9d6e5"/>
-              <path d="M230 130 l10 30 20-2z" fill="#a9d6e5" opacity="0.6"/>
             </svg>
           </div>
           <h3>Räumung &amp; Entsorgung</h3>
-          <p>Demontage, Abtransport &amp; fachgerechte Entsorgung. Übergabe besenrein.</p>
-        </div>
+          <p class="muted">Demontage, Abtransport &amp; fachgerechte Entsorgung – Übergabe besenrein.</p>
+        </article>
 
       </div>
     </div>
   </section>
 
   <!-- ===== Preise ===== -->
-  <section id="preise" style="background:#f9fdff">
+  <section id="preise" aria-labelledby="s-preise">
     <div class="container">
-      <h2>Transparente Richtpreise</h2>
+      <h2 id="s-preise">Transparente Richtpreise</h2>
       <div class="grid grid-3">
-        <div class="card"><h3>2.5–3.5 Zimmer</h3><p class="muted">Endreinigung, Grundpaket</p><div class="price">ab CHF 429.–</div><p class="muted">zzgl. Fenster/Storen nach Aufwand</p></div>
-        <div class="card"><h3>4.5–5.5 Zimmer</h3><p class="muted">Endreinigung, Grundpaket</p><div class="price">ab CHF 890.–</div><p class="muted">inkl. Küche &amp; Bad intensiv</p></div>
-        <div class="card"><h3>Büroreinigung</h3><p class="muted">Regelmässig / einmalig</p><div class="price">ab CHF 39.–/Std.</div><p class="muted">Fixpreis nach Besichtigung möglich</p></div>
+        <div class="card">
+          <h3>2.5–3.5 Zimmer</h3>
+          <p class="muted">Endreinigung, Grundpaket</p>
+          <div class="price">ab CHF 429.–</div>
+          <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
+        </div>
+        <div class="card">
+          <h3>4.5–5.5 Zimmer</h3>
+          <p class="muted">Endreinigung, Grundpaket</p>
+          <div class="price">ab CHF 890.–</div>
+          <p class="muted">inkl. Küche &amp; Bad intensiv</p>
+        </div>
+        <div class="card">
+          <h3>Büroreinigung</h3>
+          <p class="muted">Regelmässig / einmalig</p>
+          <div class="price">ab CHF 39.–/Std.</div>
+          <p class="muted">Fixpreis nach Besichtigung möglich</p>
+        </div>
       </div>
       <p class="muted">Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung.</p>
     </div>
   </section>
 
   <!-- ===== Ablauf ===== -->
-  <section id="ablauf">
+  <section id="ablauf" aria-labelledby="s-ablauf">
     <div class="container">
-      <h2>So einfach funktioniert’s</h2>
+      <h2 id="s-ablauf">So einfach funktioniert’s</h2>
       <div class="grid grid-3">
         <div class="card"><h3>1) Anfrage</h3><p class="muted">Per Formular, Telefon oder WhatsApp. Wir reagieren schnell.</p></div>
         <div class="card"><h3>2) Offerte</h3><p class="muted">Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis.</p></div>
@@ -316,85 +351,92 @@ h1{
     </div>
   </section>
 
-<!-- ===== Kontakt / Angebot ===== -->
-<section id="angebot">
-  <div class="container">
-    <h2>Jetzt Offerte anfragen</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <form id="offerForm"
-              action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
-              method="POST" accept-charset="UTF-8">
+  <!-- ===== Kontakt / Angebot ===== -->
+  <section id="angebot" aria-labelledby="s-angebot">
+    <div class="container">
+      <h2 id="s-angebot">Jetzt Offerte anfragen</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <form id="offerForm"
+                action="https://formsubmit.co/ajax/slavica.reinigungen@gmail.com"
+                method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
+            <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
 
-          <!-- FormSubmit-Optionen -->
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="Offertenanfrage – Glanz & Klar">
-          <input type="hidden" name="_next" value="https://slavica1971.github.io/glanz-und-klar/danke.html">
+            <label for="f-name">Name</label>
+            <input id="f-name" class="field" required name="Name" type="text" placeholder="Vor- und Nachname" autocomplete="name" />
 
-          <!-- Felder -->
-          <label> Name<br>
-            <input required name="Name" type="text" placeholder="Vor- und Nachname"
-                   style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4">
-          </label><br><br>
+            <label for="f-phone">Telefon</label>
+            <input id="f-phone" class="field" required name="Telefon" type="tel" placeholder="+41 .." inputmode="tel" autocomplete="tel" />
 
-          <label> Telefon<br>
-            <input required name="Telefon" type="tel" placeholder="+41 .."
-                   style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4">
-          </label><br><br>
+            <label for="f-mail">E-Mail</label>
+            <input id="f-mail" class="field" required name="E-Mail" type="email" placeholder="name@mail.ch" autocomplete="email" />
 
-          <label> E-Mail<br>
-            <input required name="E-Mail" type="email" placeholder="name@mail.ch"
-                   style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4">
-          </label><br><br>
+            <label for="f-msg">Nachricht</label>
+            <textarea id="f-msg" class="field" name="Nachricht" placeholder="Besonderheiten, Terminwunsch"></textarea>
 
-          <label> Nachricht<br>
-            <textarea name="Nachricht" rows="5" placeholder="Besonderheiten, Terminwunsch"
-                      style="width:100%;padding:12px;border-radius:10px;border:1px solid #d8eef4"></textarea>
-          </label><br><br>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+              <button class="btn btn-primary" type="submit">Anfrage senden</button>
+              <a class="btn btn-wa"
+                 href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
+                 target="_blank" rel="noopener">Per WhatsApp</a>
+            </div>
+          </form>
 
-          <!-- Buttons -->
-          <button class="btn btn-primary" type="submit">Anfrage senden</button>
-          <a class="btn btn-wa"
-             href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen."
-             target="_blank" rel="noopener">Per WhatsApp</a>
-        </form>
+          <script>
+            (function () {
+              const form = document.getElementById('offerForm');
+              const thanks = 'https://slavica1971.github.io/glanz-und-klar/danke.html';
+              if (!form) return;
+              form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                fetch(form.action, {
+                  method: 'POST',
+                  headers: { 'Accept': 'application/json' },
+                  body: data
+                })
+                .then(()=>location.href=thanks)
+                .catch(()=>location.href=thanks);
+              });
+            })();
+          </script>
+        </div>
 
-        <!-- AJAX submit + Redirect -->
-        <script>
-          (function () {
-            const form = document.getElementById('offerForm');
-            const thanks = 'https://slavica1971.github.io/glanz-und-klar/danke.html';
-            if (!form) return;
-            form.addEventListener('submit', function (e) {
-              e.preventDefault();
-              const data = new FormData(form);
-              fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: data })
-                .then(() => window.location.href = thanks)
-                .catch(() => window.location.href = thanks);
-            });
-          })();
-        </script>
-      </div>
-
-      <div class="card" id="kontakt">
-        <h3>Kontakt</h3>
-        <p>
-          <strong>Glanz &amp; Klar Veskovac</strong><br>
-          Luzern, Zentralschweiz<br>
-          Tel. <a href="tel:+41764491100">+41 76 449 11 00</a><br>
-          <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>
-        </p>
+        <aside class="card" id="kontakt">
+          <h3>Kontakt</h3>
+          <p>
+            <strong>Glanz &amp; Klar Veskovac</strong><br>
+            Luzern, Zentralschweiz<br>
+            Tel. <a href="tel:+41764491100">+41 76 449 11 00</a><br>
+            <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>
+          </p>
+        </aside>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ===== Footer ===== -->
   <footer>
     <div class="container cols">
-      <div><strong>Glanz &amp; Klar Veskovac</strong><p class="muted">Reinigungen in Luzern &amp; Umgebung.</p></div>
-      <div><strong>Leistungen</strong><ul class="list"><li>Endreinigung</li><li>Unterhaltsreinigung</li><li>Fensterreinigung</li></ul></div>
-      <div><strong>Kontakt</strong><p class="muted"><a href="tel:+41764491100">+41 76 449 11 00</a><br><a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a></p></div>
+      <div>
+        <strong>Glanz &amp; Klar Veskovac</strong>
+        <p class="muted">Reinigungen in Luzern &amp; Umgebung.</p>
+      </div>
+      <div>
+        <strong>Leistungen</strong>
+        <ul class="muted" style="list-style:none;padding:0;margin:8px 0 0">
+          <li>Endreinigung</li><li>Unterhaltsreinigung</li><li>Fensterreinigung</li>
+        </ul>
+      </div>
+      <div>
+        <strong>Kontakt</strong>
+        <p class="muted" style="margin:8px 0 0">
+          <a href="tel:+41764491100">+41 76 449 11 00</a><br>
+          <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>
+        </p>
+      </div>
     </div>
     <div class="legal">
       <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;">
@@ -407,19 +449,18 @@ h1{
   <!-- Jahr -->
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
-  <!-- DE/EN Übersetzung (funktioniert weiter mit den gleichen Selektoren) -->
+  <!-- ===== i18n (DE/EN) ===== -->
   <script>
   (function(){
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-
-    const i18n = {
+    const setHTML=(el,html)=>{if(el)el.innerHTML=html};
+    const setText=(el,text)=>{if(el)el.textContent=text};
+    const L={
       de:{nav:{services:"Leistungen",prices:"Preise",process:"Ablauf",contact:"Kontakt",cta:"Offerte einholen",cta2:"Offerte anfragen"},
         hero:{eyebrow:"Reinigung in der Zentralschweiz",title:"Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.",
           lead:"Wohnungen, Häuser & Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong>",
           badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp Termin"],primary:"Kostenlose Offerte",wa:"WhatsApp"},
         services:{h2:"Unsere Dienstleistungen",
-          c1:{h3:"Endreinigung mit Garantie",p:"Transparenter Fixpreis, gründlich & abgabebereit. Auf Wunsch begleiten wir die Übergabe."},
+          c1:{h3:"Endreinigung mit Garantie",p:"Transparent, gründlich & abgabebereit. Auf Wunsch begleiten wir die Übergabe."},
           c2:{h3:"Unterhaltsreinigungen",p:"Individuell nach Bedarf – für Büro, Praxis & Laden. Sauber, ordentlich, verlässlich."},
           c3:{h3:"Räumung & Entsorgung",p:"Demontage, Abtransport & fachgerechte Entsorgung. Übergabe besenrein."}},
         prices:{h2:"Transparente Richtpreise",
@@ -452,7 +493,7 @@ h1{
         process:{h2:"How it works",
           s1:{h3:"1) Inquiry",p:"Via form, phone or WhatsApp. We respond quickly."},
           s2:{h3:"2) Quote",p:"A few details are enough – you’ll get a transparent fixed price."},
-          s3:{h3:"Cleaning & Handover",p:"We bring materials and can attend the handover."}},
+          s3:{h3:"3) Cleaning & Handover",p:"We bring materials and can attend the handover."}},
         offer:{h2:"Request a quote now",
           form:{name:"Name",phone:"Phone",email:"Email",msg:"Message",msgPh:"Special requests, preferred date",send:"Send request",wa:"Via WhatsApp"},
           contactH3:"Contact"},
@@ -460,149 +501,100 @@ h1{
       }
     };
 
-    function setHTML(el, html){ if(el) el.innerHTML = html; }
-    function setText(el, text){ if(el) el && (el.textContent = text); }
-
     function applyLang(lang){
-      const L = i18n[lang] || i18n.de;
+      const t=(p)=>p.split('.').reduce((a,c)=>a?.[c],L[lang]||L.de);
 
-      // Navigation
-      setText(document.querySelector('a[href="#leistungen"]'), L.nav.services);
-      setText(document.querySelector('a[href="#preise"]'), L.nav.prices);
-      setText(document.querySelector('a[href="#ablauf"]'), L.nav.process);
-      setText(document.querySelector('a[href="#kontakt"]'), L.nav.contact);
-      setText(document.querySelector('.cta'), L.nav.cta + " →");
-      setText(document.querySelector('.menu-panel a.btn.btn-primary'), L.nav.cta2);
+      // Nav
+      document.querySelector('.nav-links a[href="#leistungen"]')?.replaceChildren(t('nav.services'));
+      document.querySelector('.nav-links a[href="#preise"]')?.replaceChildren(t('nav.prices'));
+      document.querySelector('.nav-links a[href="#ablauf"]')?.replaceChildren(t('nav.process'));
+      document.querySelector('.nav-links a[href="#kontakt"]')?.replaceChildren(t('nav.contact'));
+      document.querySelector('.menu-panel a.btn.btn-primary')?.replaceChildren(t('nav.cta2'));
+
+      // Header CTA text (outline button)
+      document.querySelector('.btn.btn-outline')?.replaceChildren(t('nav.cta') + ' →');
 
       // Hero
-      setText(document.querySelector('.eyebrow'), L.hero.eyebrow);
-      setText(document.querySelector('.hero-left h1'), L.hero.title);
-      setHTML(document.querySelector('.hero-left .lead'), L.hero.lead);
-      const badges = document.querySelector('.badges');
-      if(badges){ badges.innerHTML = L.hero.badges.map(t => `<span class="badge">${t}</span>`).join(''); }
-      setText(document.querySelector('.hero-ctas .btn.btn-primary'), L.hero.primary);
-      setText(document.querySelector('.hero-ctas .btn.btn-wa'), L.hero.wa);
+      document.querySelector('.eyebrow')?.replaceChildren(t('hero.eyebrow'));
+      document.querySelector('main h1')?.replaceChildren(t('hero.title'));
+      const leadEl=document.querySelector('main .lead'); if(leadEl) leadEl.innerHTML = t('hero.lead');
+      const badges=document.querySelector('.badges');
+      if(badges){ badges.innerHTML=(t('hero.badges')||[]).map(s=>`<span class="badge">${s}</span>`).join('') }
+      document.querySelector('.hero-ctas .btn-primary')?.replaceChildren(t('hero.primary'));
+      document.querySelector('.hero-ctas .btn-wa')?.replaceChildren(t('hero.wa'));
 
       // Services
-      setText(document.querySelector('#leistungen h2'), L.services.h2);
-      const scards = document.querySelectorAll('#leistungen .card');
-      if(scards.length >= 3){
-        setText(scards[0].querySelector('h3'), L.services.c1.h3);
-        setText(scards[0].querySelector('p'), L.services.c1.p);
-        setText(scards[1].querySelector('h3'), L.services.c2.h3);
-        setText(scards[1].querySelector('p'), L.services.c2.p);
-        setText(scards[2].querySelector('h3'), L.services.c3.h3);
-        setText(scards[2].querySelector('p'), L.services.c3.p);
-      }
+      document.querySelector('#leistungen h2')?.replaceChildren(t('services.h2'));
+      const scards=document.querySelectorAll('#leistungen .card');
+      if(scards[0]){ scards[0].querySelector('h3').textContent=t('services.c1.h3'); scards[0].querySelector('p').textContent=t('services.c1.p'); }
+      if(scards[1]){ scards[1].querySelector('h3').textContent=t('services.c2.h3'); scards[1].querySelector('p').textContent=t('services.c2.p'); }
+      if(scards[2]){ scards[2].querySelector('h3').textContent=t('services.c3.h3'); scards[2].querySelector('p').textContent=t('services.c3.p'); }
 
       // Prices
-      const pricesSec = document.querySelector('#preise');
-      if(pricesSec){
-        setText(pricesSec.querySelector('h2'), L.prices.h2);
-        const pcards = pricesSec.querySelectorAll('.card');
-        if(pcards.length >= 3){
-          setText(pcards[0].querySelector('h3'), L.prices.c1.h3);
-          setText(pcards[0].querySelectorAll('.muted')[0], L.prices.c1.p1);
-          setText(pcards[0].querySelector('.price'), L.prices.c1.price);
-          setText(pcards[0].querySelectorAll('.muted')[1], L.prices.c1.p2);
-
-          setText(pcards[1].querySelector('h3'), L.prices.c2.h3);
-          setText(pcards[1].querySelectorAll('.muted')[0], L.prices.c2.p1);
-          setText(pcards[1].querySelector('.price'), L.prices.c2.price);
-          setText(pcards[1].querySelectorAll('.muted')[1], L.prices.c2.p2);
-
-          setText(pcards[2].querySelector('h3'), L.prices.c3.h3);
-          setText(pcards[2].querySelectorAll('.muted')[0], L.prices.c3.p1);
-          setText(pcards[2].querySelector('.price'), L.prices.c3.price);
-          setText(pcards[2].querySelectorAll('.muted')[1], L.prices.c3.p2);
-        }
-        const note = pricesSec.querySelector('p.muted:last-of-type');
-        setText(note, L.prices.note);
+      const prices=document.querySelector('#preise');
+      if(prices){
+        prices.querySelector('h2')?.replaceChildren(t('prices.h2'));
+        const pc=prices.querySelectorAll('.card');
+        if(pc[0]){ pc[0].querySelector('h3').textContent=t('prices.c1.h3'); pc[0].querySelectorAll('.muted')[0].textContent=t('prices.c1.p1'); pc[0].querySelector('.price').textContent=t('prices.c1.price'); pc[0].querySelectorAll('.muted')[1].textContent=t('prices.c1.p2'); }
+        if(pc[1]){ pc[1].querySelector('h3').textContent=t('prices.c2.h3'); pc[1].querySelectorAll('.muted')[0].textContent=t('prices.c2.p1'); pc[1].querySelector('.price').textContent=t('prices.c2.price'); pc[1].querySelectorAll('.muted')[1].textContent=t('prices.c2.p2'); }
+        if(pc[2]){ pc[2].querySelector('h3').textContent=t('prices.c3.h3'); pc[2].querySelectorAll('.muted')[0].textContent=t('prices.c3.p1'); pc[2].querySelector('.price').textContent=t('prices.c3.price'); pc[2].querySelectorAll('.muted')[1].textContent=t('prices.c3.p2'); }
+        const note=prices.querySelector('p.muted:last-of-type'); if(note) note.textContent=t('prices.note');
       }
 
       // Process
-      const proc = document.querySelector('#ablauf');
+      const proc=document.querySelector('#ablauf');
       if(proc){
-        setText(proc.querySelector('h2'), L.process.h2);
-        const cards = proc.querySelectorAll('.card');
-        if(cards.length >= 3){
-          setText(cards[0].querySelector('h3'), L.process.s1.h3);
-          setText(cards[0].querySelector('p'), L.process.s1.p);
-          setText(cards[1].querySelector('h3'), L.process.s2.h3);
-          setText(cards[1].querySelector('p'), L.process.s2.p);
-          setText(cards[2].querySelector('h3'), L.process.s3.h3);
-          setText(cards[2].querySelector('p'), L.process.s3.p);
-        }
+        proc.querySelector('h2')?.replaceChildren(t('process.h2'));
+        const c=proc.querySelectorAll('.card');
+        if(c[0]){ c[0].querySelector('h3').textContent=t('process.s1.h3'); c[0].querySelector('p').textContent=t('process.s1.p'); }
+        if(c[1]){ c[1].querySelector('h3').textContent=t('process.s2.h3'); c[1].querySelector('p').textContent=t('process.s2.p'); }
+        if(c[2]){ c[2].querySelector('h3').textContent=t('process.s3.h3'); c[2].querySelector('p').textContent=t('process.s3.p'); }
       }
 
-      // Offer / Contact
-      const offer = document.querySelector('#angebot');
-      if(offer){
-        const h2 = offer.querySelector('h2'); if(h2) setText(h2, L.offer.h2);
-        const form = offer.querySelector('form');
-        if(form){
-          const labels = form.querySelectorAll('label');
-          if(labels[0]) labels[0].childNodes[0].textContent = ' ' + L.offer.form.name;
-          if(labels[1]) labels[1].childNodes[0].textContent = ' ' + L.offer.form.phone;
-          if(labels[2]) labels[2].childNodes[0].textContent = ' ' + L.offer.form.email;
-          if(labels[3]) labels[3].childNodes[0].textContent = ' ' + L.offer.form.msg;
-          form.querySelector('input[name="Name"]')?.setAttribute('placeholder', lang==='en' ? 'First and last name' : 'Vor- und Nachname');
-          form.querySelector('input[name="Telefon"]')?.setAttribute('placeholder', lang==='en' ? '+41 ..' : '+41 ..');
-          form.querySelector('input[name="E-Mail"]')?.setAttribute('placeholder', lang==='en' ? 'name@mail.ch' : 'name@mail.ch');
-          form.querySelector('textarea[name="Nachricht"]')?.setAttribute('placeholder', L.offer.form.msgPh);
-          setText(form.querySelector('button[type="submit"]'), L.offer.form.send);
-          setText(form.querySelector('.btn.btn-wa'), L.offer.form.wa);
-        }
-        const contactBox = document.querySelector('#kontakt');
-        if(contactBox){ setText(contactBox.querySelector('h3'), L.offer.contactH3); }
+      // Offer
+      document.querySelector('#angebot h2')?.replaceChildren(t('offer.h2'));
+      const form=document.getElementById('offerForm');
+      if(form){
+        form.querySelector('label[for="f-name"]').textContent=t('offer.form.name');
+        form.querySelector('label[for="f-phone"]').textContent=t('offer.form.phone');
+        form.querySelector('label[for="f-mail"]').textContent=t('offer.form.email');
+        form.querySelector('label[for="f-msg"]').textContent=t('offer.form.msg');
+        form.querySelector('textarea[name="Nachricht"]')?.setAttribute('placeholder',t('offer.form.msgPh'));
+        form.querySelector('button[type="submit"]')?.replaceChildren(t('offer.form.send'));
+        document.querySelector('.btn.btn-wa')?.replaceChildren(t('offer.form.wa'));
+        form.querySelector('input[name="Name"]')?.setAttribute('placeholder', (lang==='en')?'First and last name':'Vor- und Nachname');
       }
+      const contactBox=document.querySelector('#kontakt h3'); if(contactBox) contactBox.textContent=t('offer.contactH3');
 
       // Footer
-      const footer = document.querySelector('footer');
-      if(footer){
-        const cols = footer.querySelectorAll('.cols > div');
-        if(cols[0]){
-          cols[0].querySelector('strong').textContent = i18n.de.footer.aboutTitle;
-          const p = cols[0].querySelector('p.muted'); if(p) setText(p, L.footer.aboutText);
-        }
-        if(cols[1]){ setText(cols[1].querySelector('strong'), L.footer.servicesTitle); }
-        if(cols[2]){ setText(cols[2].querySelector('strong'), L.footer.contactTitle); }
-        const legal = footer.querySelector('.legal');
-        if(legal){
-          const links = legal.querySelectorAll('a');
-          if(links[0]) setText(links[0], L.footer.legalImpressum);
-          if(links[1]) setText(links[1], L.footer.legalPrivacy);
-        }
+      const cols=document.querySelectorAll('footer .cols > div');
+      if(cols[0]) cols[0].querySelector('strong').textContent=L.de.footer.aboutTitle; // Brand bleibt identisch
+      if(cols[0]) cols[0].querySelector('.muted').textContent=t('footer.aboutText');
+      if(cols[1]) cols[1].querySelector('strong').textContent=t('footer.servicesTitle');
+      if(cols[2]) cols[2].querySelector('strong').textContent=t('footer.contactTitle');
+      const legal=document.querySelector('footer .legal'); if(legal){
+        const links=legal.querySelectorAll('a');
+        if(links[0]) links[0].textContent=t('footer.legalImpressum');
+        if(links[1]) links[1].textContent=t('footer.legalPrivacy');
       }
 
-      // Document title & description
-      document.title = lang === 'en'
+      // Title & meta
+      document.title = (lang==='en')
         ? "Glanz & Klar – Your local cleaning service"
         : "Glanz & Klar – Ihre lokale Putzfee";
-
-      const md = document.querySelector('meta[name="description"]');
+      const md=document.querySelector('meta[name="description"]');
       if(md){
-        md.setAttribute('content',
-          lang==='en'
+        md.setAttribute('content', (lang==='en')
           ? "Glanz & Klar – Apartment & office cleaning in Central Switzerland. Final cleaning with handover guarantee, maintenance cleaning, window cleaning. Request a free quote."
           : "Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen."
         );
       }
     }
 
-    const langSelect = document.getElementById('lang');
-    const saved = localStorage.getItem('lang') || 'de';
-    if(langSelect){
-      langSelect.value = saved;
-      applyLang(saved);
-      langSelect.addEventListener('change', e=>{
-        const lang = e.target.value;
-        localStorage.setItem('lang', lang);
-        applyLang(lang);
-      });
-    } else {
-      applyLang(saved);
-    }
+    const sel=document.getElementById('lang');
+    const saved=localStorage.getItem('lang')||'de';
+    if(sel){ sel.value=saved; applyLang(saved); sel.addEventListener('change',e=>{const v=e.target.value; localStorage.setItem('lang',v); applyLang(v);}); }
+    else { applyLang(saved); }
   })();
   </script>
 </body>
