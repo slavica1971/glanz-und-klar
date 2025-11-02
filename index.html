@@ -185,7 +185,11 @@
         </div>
       </details>
 
-      <div class="lang-switch" style="margin-left:8px">
+      <div class="lang-switch" role="group" aria-label="Sprache">
+  <button type="button" class="lang-btn" data-lang="de" aria-pressed="true">DE</button>
+  <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
         <label for="lang" class="visually-hidden" style="position:absolute;left:-9999px">Sprache</label>
         <select id="lang" title="Sprache wählen" aria-label="Sprache">
           <option value="de">DE</option>
