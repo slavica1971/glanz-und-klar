@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutz – Glanz & Klar</title>
+  <meta name="theme-color" content="#a9d6e5">
+  <style>
+    :root{--brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--line:#e3f2f7}
+    *{box-sizing:border-box} html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .container{width:min(900px,92vw);margin:0 auto}
+    header{background:linear-gradient(180deg,var(--brand),var(--brand2))}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{width:34px;height:34px;color:var(--accent);background:#fff;border-radius:10px;padding:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    .brand span{font-weight:800;color:#0f4c5c}
+    main{padding:28px 0 44px}
+    h1{font-size:clamp(26px,3vw,36px);margin:8px 0 14px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+    .muted{color:var(--muted)}
+    footer{background:#f4fafc;color:var(--muted);border-top:1px solid var(--line);margin-top:34px}
+    footer .inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 0}
+    @media (max-width:600px){.container{width:92vw}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Navigation">
+        <div class="brand">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
+          <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
+        </div>
+        <a href="index.html" class="muted">Zurück zur Startseite</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Datenschutz</h1>
+    <div class="card">
+      <p>Wir verwenden die von Ihnen übermittelten Daten ausschliesslich zur Angebotserstellung und Kommunikation rund um Ihre Anfrage. Eine Weitergabe an Dritte findet nicht statt.</p>
+      <p><strong>Verantwortliche Stelle</strong><br>
+        Glanz &amp; Klar Veskovac, Luzern, Schweiz<br>
+        E-Mail: <a href="mailto:slavica.reinigungen@gmail.com">slavica.reinigungen@gmail.com</a>, Tel. <a href="tel:+41764491100">+41 76 449 11 00</a>
+      </p>
+      <p><strong>Welche Daten verarbeiten wir?</strong><br>
+        Angaben aus Formularen (z. B. Name, E-Mail, Telefonnummer, Nachricht). Diese Daten werden nur so lange gespeichert, wie es zur Bearbeitung Ihrer Anfrage notwendig ist.
+      </p>
+      <p><strong>Ihre Rechte</strong><br>
+        Sie können Auskunft, Berichtigung oder Löschung Ihrer personenbezogenen Daten verlangen. Senden Sie uns dazu eine kurze E-Mail.
+      </p>
+      <p class="muted">Hinweis: Diese Seite stellt eine vereinfachte Datenschutzerklärung für eine Einzelfirma ohne Tracking/Analytics dar.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container inner">
+      <span>© <span id="y"></span> Glanz &amp; Klar Veskovac</span>
+      <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
