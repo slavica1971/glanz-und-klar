@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +27,13 @@
     .nav-links{display:flex;align-items:center;gap:16px}
     .nav-cta{display:flex;align-items:center;gap:10px}
 
+    /* Language switcher */
+    .lang-switch select{
+      appearance:none;-webkit-appearance:none;-moz-appearance:none;
+      border:1px solid rgba(0,0,0,.1);background:#fff;padding:6px 10px;border-radius:10px;
+      font-weight:600;color:#0f4c5c;cursor:pointer
+    }
+
     /* Mobile Menu */
     .menu{display:none}
     .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,255,255,.6);padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.35);font-weight:600;color:#0f4c5c}
@@ -36,7 +42,7 @@
     .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
     .menu-panel a:hover{background:#fff}
 
-    /* Hero (mit SVG-Bild) */
+    /* Hero */
     .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:32px 0 44px}
     .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0f4c5c;font-size:12px}
     h1{font-size:clamp(30px,3.4vw,44px);line-height:1.15;margin:10px 0 12px}
@@ -57,17 +63,13 @@
     .price{font-size:26px;font-weight:800}
     .muted{color:var(--muted)}
 
-    /* Thumbnails (Basis) */
+    /* Thumbnails */
     .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff}
     .thumb svg{width:100%;height:100%;display:block}
-
-    /* >>> NEU: echte Fotos sauber darstellen */
     .thumb picture,.thumb img{display:block;width:100%;height:100%;object-fit:cover}
-    /* Höhe im Leistungen-Grid begrenzen */
+    /* Kompakte Höhe für Leistungen */
     #leistungen .thumb{max-height:260px;border-radius:14px}
-    @media (max-width:600px){
-      #leistungen .thumb{max-height:200px}
-    }
+    @media (max-width:600px){#leistungen .thumb{max-height:200px}}
 
     /* Footer */
     footer{background:#f4fafc;color:var(--muted)}
@@ -91,77 +93,7 @@
       .card{padding:14px;border-radius:14px}
       footer .cols{gap:12px;padding:16px 0}
       .legal{padding:10px 0 16px}
-    }
-
-    a,button{-webkit-tap-highlight-color:rgba(18,160,199,.15)}
-    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
-  </style>
-</head>
-
-
-    /* Header */
-    header{background:linear-gradient(180deg,var(--brand),var(--brand2))}
-    .topbar{border-bottom:1px solid rgba(255,255,255,.35)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand svg{width:40px;height:40px;color:var(--accent);background:#fff;border-radius:10px;padding:8px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .brand span{font-weight:800;font-size:1.25rem;letter-spacing:.2px;color:#0f4c5c}
-    .nav-links{display:flex;align-items:center;gap:16px}
-    .nav-cta{display:flex;align-items:center;gap:10px}
-
-    /* Mobile Menu */
-    .menu{display:none}
-    .menu summary{list-style:none;cursor:pointer;border:1px solid rgba(255,255,255,.6);padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.35);font-weight:600;color:#0f4c5c}
-    .menu[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
-    .menu-panel{background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(6px);border:1px solid var(--line);border-top:0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;padding:10px;margin-top:4px}
-    .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
-    .menu-panel a:hover{background:#fff}
-
-    /* Hero (mit SVG-Bild) */
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:32px 0 44px}
-    .eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0f4c5c;font-size:12px}
-    h1{font-size:clamp(30px,3.4vw,44px);line-height:1.15;margin:10px 0 12px}
-    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
-    .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
-    .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
-    .hero-art{background:radial-gradient(1200px 300px at 50% -10%,rgba(255,255,255,.9),rgba(255,255,255,0));border-radius:18px;border:1px solid var(--line);padding:12px}
-
-    /* Sections & Cards */
-    section{padding:48px 0}
-    h2{font-size:clamp(24px,2.6vw,34px);margin:0 0 16px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
-    .price{font-size:26px;font-weight:800}
-    .muted{color:var(--muted)}
-    .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff}
-    .thumb svg{width:100%;height:100%;display:block}
-
-    /* Footer */
-    footer{background:#f4fafc;color:var(--muted)}
-    footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
-    @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
-    .legal{border-top:1px solid var(--line);padding:12px 0 20px}
-
-    /* Mobile Tweaks */
-    @media (max-width:600px){
-      .container{width:92vw}
-      .nav{padding:12px 0}
-      .nav-links{display:none}
-      .nav-cta .btn{padding:10px 12px}
-      .menu{display:block}
-      .hero{grid-template-columns:1fr;gap:18px;padding:22px 0 28px}
-      .badges{gap:6px;margin:10px 0 14px}
-      .badge{font-size:13px;padding:5px 9px}
-      .hero-ctas .btn{width:100%;text-align:center;padding:14px 16px;border-radius:12px}
-      section{padding:36px 0}
-      .grid{gap:12px}
-      .card{padding:14px;border-radius:14px}
-      footer .cols{gap:12px;padding:16px 0}
-      .legal{padding:10px 0 16px}
+      .lang-switch{order:-1}
     }
 
     a,button{-webkit-tap-highlight-color:rgba(18,160,199,.15)}
@@ -174,10 +106,11 @@
     <div class="topbar">
       <div class="container">
         <nav class="nav" aria-label="Hauptnavigation">
-          <div class="brand">
+          <!-- Klickbares Logo -> Startseite -->
+          <a href="index.html" class="brand" aria-label="Zur Startseite – Glanz & Klar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
             <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
-          </div>
+          </a>
 
           <!-- Desktop -->
           <div class="nav-links">
@@ -189,6 +122,15 @@
 
           <div class="nav-cta">
             <a class="btn btn-outline" href="#angebot">Offerte einholen</a>
+
+            <!-- Language Switch -->
+            <div class="lang-switch" aria-label="Sprachauswahl">
+              <select id="lang" title="Sprache wählen">
+                <option value="de">DE</option>
+                <option value="en">EN</option>
+              </select>
+            </div>
+
             <!-- Mobile -->
             <details class="menu">
               <summary>Menü</summary>
@@ -205,7 +147,7 @@
       </div>
     </div>
 
-    <!-- Hero mit eingebettetem SVG-Bild -->
+    <!-- Hero -->
     <div class="container hero">
       <div>
         <div class="eyebrow">Reinigung in der Zentralschweiz</div>
@@ -230,47 +172,33 @@
           <desc id="heroDesc">Abstrakte Illustration einer Reinigungskraft mit Sprühflasche vor glänzender Küche, helle Blautöne.</desc>
           <defs>
             <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#dff3f9"/>
-              <stop offset="1" stop-color="#f6fbfd"/>
+              <stop offset="0" stop-color="#dff3f9"/><stop offset="1" stop-color="#f6fbfd"/>
             </linearGradient>
             <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/>
-              <stop offset="1" stop-color="#eaf7fb" stop-opacity=".9"/>
+              <stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset="1" stop-color="#eaf7fb" stop-opacity=".9"/>
             </linearGradient>
-            <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="12"/>
-            </filter>
+            <filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>
           </defs>
-
-          <!-- Hintergrundflächen -->
           <rect x="0" y="0" width="520" height="360" fill="url(#bg)"/>
           <ellipse cx="380" cy="300" rx="220" ry="70" fill="#a9d6e5" opacity=".25" filter="url(#s)"/>
-
-          <!-- Küche als Panels -->
           <rect x="40" y="60" width="260" height="180" rx="12" fill="url(#glass)" stroke="#d8eef4"/>
           <rect x="60" y="80" width="220" height="8" rx="4" fill="#12a0c7" opacity=".25"/>
           <rect x="60" y="100" width="60" height="60" rx="8" fill="#fff" stroke="#d8eef4"/>
           <rect x="130" y="100" width="60" height="60" rx="8" fill="#fff" stroke="#d8eef4"/>
           <rect x="200" y="100" width="80" height="60" rx="8" fill="#fff" stroke="#d8eef4"/>
           <rect x="60" y="170" width="220" height="50" rx="8" fill="#fff" stroke="#d8eef4"/>
-
-          <!-- Figur -->
           <g transform="translate(315,90)">
             <circle cx="55" cy="22" r="16" fill="#0f4c5c"/>
             <rect x="26" y="40" width="90" height="110" rx="18" fill="#12a0c7"/>
             <rect x="26" y="40" width="90" height="18" rx="9" fill="#0f4c5c" opacity=".2"/>
             <rect x="12" y="70" width="24" height="60" rx="8" fill="#12a0c7"/>
             <rect x="116" y="70" width="24" height="60" rx="8" fill="#12a0c7"/>
-
-            <!-- Sprühflasche -->
             <g transform="translate(110,50) rotate(12)">
               <rect x="0" y="0" width="12" height="26" rx="4" fill="#0f4c5c"/>
               <rect x="4" y="24" width="18" height="28" rx="6" fill="#a9d6e5" stroke="#0f4c5c" opacity=".9"/>
               <circle cx="20" cy="38" r="3" fill="#12a0c7"/>
             </g>
           </g>
-
-          <!-- Glanzsterne -->
           <g fill="#12a0c7">
             <path d="M440 120 l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" opacity=".25"/>
             <path d="M410 170 l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" opacity=".35"/>
@@ -281,51 +209,51 @@
     </div>
   </header>
 
- <!-- Leistungen (mit echten Fotos) -->
-<section id="leistungen">
-  <div class="container">
-    <h2>Unsere Dienstleistungen</h2>
-    <div class="grid grid-3">
-      
-      <!-- Endreinigung mit Garantie -->
-      <div class="card">
-        <div class="thumb" aria-label="Endreinigung mit Garantie – glänzende, abgabebereite Wohnung">
-          <picture>
-            <source srcset="images/endreinigung.webp" type="image/webp">
-            <img src="images/endreinigung.jpg" alt="Endreinigung mit Garantie: sauberes, helles Wohnzimmer/Küche" loading="lazy" width="1600" height="1000">
-          </picture>
-        </div>
-        <h3>Endreinigung mit Garantie</h3>
-        <p>Transparenter Fixpreis, gründlich &amp; abgabebereit. Auf Wunsch begleiten wir die Übergabe.</p>
-      </div>
+  <!-- Leistungen (mit echten Fotos) -->
+  <section id="leistungen">
+    <div class="container">
+      <h2>Unsere Dienstleistungen</h2>
+      <div class="grid grid-3">
 
-      <!-- Unterhaltsreinigungen -->
-      <div class="card">
-        <div class="thumb" aria-label="Unterhaltsreinigungen – regelmässige Pflege von Wohn- und Geschäftsräumen">
-          <picture>
-            <source srcset="images/unterhalt.webp" type="image/webp">
-            <img src="images/unterhalt.jpg" alt="Unterhaltsreinigungen: gepflegtes, modernes Interieur während der Reinigung" loading="lazy" width="1600" height="1000">
-          </picture>
+        <!-- Endreinigung mit Garantie -->
+        <div class="card">
+          <div class="thumb" aria-label="Endreinigung mit Garantie – glänzende, abgabebereite Wohnung">
+            <picture>
+              <source srcset="images/endreinigung.webp" type="image/webp">
+              <img src="images/endreinigung.jpg" alt="Endreinigung mit Garantie: sauberes, helles Wohnzimmer/Küche" loading="lazy" width="1600" height="1000">
+            </picture>
+          </div>
+          <h3>Endreinigung mit Garantie</h3>
+          <p>Transparenter Fixpreis, gründlich &amp; abgabebereit. Auf Wunsch begleiten wir die Übergabe.</p>
         </div>
-        <h3>Unterhaltsreinigungen</h3>
-        <p>Individuell nach Bedarf – für Büro, Praxis &amp; Laden. Sauber, ordentlich, verlässlich.</p>
-      </div>
 
-      <!-- Räumung & Entsorgung -->
-      <div class="card">
-        <div class="thumb" aria-label="Räumung und Entsorgung – Kartons, Säcke, besenreine Übergabe">
-          <picture>
-            <source srcset="images/raeumung.webp" type="image/webp">
-            <img src="images/raeumung.jpg" alt="Räumung &amp; Entsorgung: Kartons und Entsorgungssäcke, leere Regale" loading="lazy" width="1600" height="1000">
-          </picture>
+        <!-- Unterhaltsreinigungen -->
+        <div class="card">
+          <div class="thumb" aria-label="Unterhaltsreinigungen – regelmässige Pflege von Wohn- und Geschäftsräumen">
+            <picture>
+              <source srcset="images/unterhalt.webp" type="image/webp">
+              <img src="images/unterhalt.jpg" alt="Unterhaltsreinigungen: gepflegtes, modernes Interieur während der Reinigung" loading="lazy" width="1600" height="1000">
+            </picture>
+          </div>
+          <h3>Unterhaltsreinigungen</h3>
+          <p>Individuell nach Bedarf – für Büro, Praxis &amp; Laden. Sauber, ordentlich, verlässlich.</p>
         </div>
-        <h3>Räumung &amp; Entsorgung</h3>
-        <p>Demontage, Abtransport &amp; fachgerechte Entsorgung. Übergabe besenrein.</p>
-      </div>
 
+        <!-- Räumung & Entsorgung -->
+        <div class="card">
+          <div class="thumb" aria-label="Räumung und Entsorgung – Kartons, Säcke, besenreine Übergabe">
+            <picture>
+              <source srcset="images/raeumung.webp" type="image/webp">
+              <img src="images/raeumung.jpg" alt="Räumung &amp; Entsorgung: Kartons und Entsorgungssäcke, leere Regale" loading="lazy" width="1600" height="1000">
+            </picture>
+          </div>
+          <h3>Räumung &amp; Entsorgung</h3>
+          <p>Demontage, Abtransport &amp; fachgerechte Entsorgung. Übergabe besenrein.</p>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Preise -->
   <section id="preise" style="background:#f9fdff">
@@ -394,6 +322,207 @@
     </div>
   </footer>
 
+  <!-- Jahr -->
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- DE/EN Übersetzung -->
+  <script>
+  (function(){
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    const i18n = {
+      de:{nav:{services:"Leistungen",prices:"Preise",process:"Ablauf",contact:"Kontakt",cta:"Offerte einholen",cta2:"Offerte anfragen"},
+        hero:{eyebrow:"Reinigung in der Zentralschweiz",title:"Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.",
+          lead:"Wohnungen, Häuser & Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong>",
+          badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp Termin"],primary:"Kostenlose Offerte",wa:"WhatsApp"},
+        services:{h2:"Unsere Dienstleistungen",
+          c1:{h3:"Endreinigung mit Garantie",p:"Transparenter Fixpreis, gründlich & abgabebereit. Auf Wunsch begleiten wir die Übergabe."},
+          c2:{h3:"Unterhaltsreinigungen",p:"Individuell nach Bedarf – für Büro, Praxis & Laden. Sauber, ordentlich, verlässlich."},
+          c3:{h3:"Räumung & Entsorgung",p:"Demontage, Abtransport & fachgerechte Entsorgung. Übergabe besenrein."}},
+        prices:{h2:"Transparente Richtpreise",
+          c1:{h3:"2.5–3.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 429.–",p2:"zzgl. Fenster/Storen nach Aufwand"},
+          c2:{h3:"4.5–5.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 890.–",p2:"inkl. Küche & Bad intensiv"},
+          c3:{h3:"Büroreinigung",p1:"Regelmässig / einmalig",price:"ab CHF 39.–/Std.",p2:"Fixpreis nach Besichtigung möglich"},
+          note:"Hinweis: Es sind Richtwerte. Genaue Offerte nach kurzer Anfrage oder Besichtigung."},
+        process:{h2:"So einfach funktioniert’s",
+          s1:{h3:"1) Anfrage",p:"Per Formular, Telefon oder WhatsApp. Wir reagieren schnell."},
+          s2:{h3:"2) Offerte",p:"Kurzinfos reichen – Sie erhalten einen transparenten Fixpreis."},
+          s3:{h3:"3) Reinigung & Übergabe",p:"Wir bringen Material mit und begleiten die Abgabe."}},
+        offer:{h2:"Jetzt Offerte anfragen",
+          form:{name:"Name",phone:"Telefon",email:"E-Mail",msg:"Nachricht",msgPh:"Besonderheiten, Terminwunsch",send:"Anfrage senden",wa:"Per WhatsApp"},
+          contactH3:"Kontakt"},
+        footer:{aboutTitle:"Glanz & Klar Veskovac",aboutText:"Reinigungen in Luzern & Umgebung.",servicesTitle:"Leistungen",contactTitle:"Kontakt",legalImpressum:"Impressum",legalPrivacy:"Datenschutz"}
+      },
+      en:{nav:{services:"Services",prices:"Prices",process:"Process",contact:"Contact",cta:"Get a quote",cta2:"Request a quote"},
+        hero:{eyebrow:"Cleaning in Central Switzerland",title:"Final cleaning with handover guarantee – reliable, friendly, fair.",
+          lead:"Flats, houses & offices. Fixed dates, transparent prices, <strong>materials included.</strong>",
+          badges:["Handover guarantee","Insured","Own cleaning products","WhatsApp appointment"],primary:"Free quote",wa:"WhatsApp"},
+        services:{h2:"Our Services",
+          c1:{h3:"Final Cleaning with Guarantee",p:"Transparent fixed price, thorough & ready for handover. We can attend the handover if required."},
+          c2:{h3:"Maintenance Cleaning",p:"Tailored to your needs – for offices, practices & shops. Clean, tidy, reliable."},
+          c3:{h3:"Clear-out & Disposal",p:"Dismantling, transport & proper disposal. Broom-clean handover."}},
+        prices:{h2:"Transparent Guide Prices",
+          c1:{h3:"2.5–3.5 rooms",p1:"Final cleaning, base package",price:"from CHF 429",p2:"plus windows/shutters as required"},
+          c2:{h3:"4.5–5.5 rooms",p1:"Final cleaning, base package",price:"from CHF 890",p2:"incl. intensive kitchen & bathroom"},
+          c3:{h3:"Office cleaning",p1:"Recurring / one-off",price:"from CHF 39/h",p2:"Fixed price possible after inspection"},
+          note:"Note: These are guide values. You’ll receive a precise quote after a short inquiry or an inspection."},
+        process:{h2:"How it works",
+          s1:{h3:"1) Inquiry",p:"Via form, phone or WhatsApp. We respond quickly."},
+          s2:{h3:"2) Quote",p:"A few details are enough – you’ll get a transparent fixed price."},
+          s3:{h3:"3) Cleaning & Handover",p:"We bring materials and can attend the handover."}},
+        offer:{h2:"Request a quote now",
+          form:{name:"Name",phone:"Phone",email:"Email",msg:"Message",msgPh:"Special requests, preferred date",send:"Send request",wa:"Via WhatsApp"},
+          contactH3:"Contact"},
+        footer:{aboutTitle:"Glanz & Klar Veskovac",aboutText:"Cleaning in Lucerne & surroundings.",servicesTitle:"Services",contactTitle:"Contact",legalImpressum:"Imprint",legalPrivacy:"Privacy"}
+      }
+    };
+
+    function setHTML(el, html){ if(el) el.innerHTML = html; }
+    function setText(el, text){ if(el) el && (el.textContent = text); }
+
+    function applyLang(lang){
+      const L = i18n[lang] || i18n.de;
+
+      // Navigation
+      setText(document.querySelector('a[href="#leistungen"]'), L.nav.services);
+      setText(document.querySelector('a[href="#preise"]'), L.nav.prices);
+      setText(document.querySelector('a[href="#ablauf"]'), L.nav.process);
+      setText(document.querySelector('a[href="#kontakt"]'), L.nav.contact);
+      setText(document.querySelector('.nav-cta a.btn.btn-outline'), L.nav.cta);
+      setText(document.querySelector('.menu-panel a.btn.btn-primary'), L.nav.cta2);
+
+      // Hero
+      setText(document.querySelector('.eyebrow'), L.hero.eyebrow);
+      setText(document.querySelector('.hero h1'), L.hero.title);
+      setHTML(document.querySelector('.hero .lead'), L.hero.lead);
+      const badges = document.querySelector('.badges');
+      if(badges){ badges.innerHTML = L.hero.badges.map(t => `<span class="badge">${t}</span>`).join(''); }
+      setText(document.querySelector('.hero-ctas .btn.btn-primary'), L.hero.primary);
+      setText(document.querySelector('.hero-ctas .btn.btn-wa'), L.hero.wa);
+
+      // Services
+      setText(document.querySelector('#leistungen h2'), L.services.h2);
+      const scards = document.querySelectorAll('#leistungen .card');
+      if(scards.length >= 3){
+        setText(scards[0].querySelector('h3'), L.services.c1.h3);
+        setText(scards[0].querySelector('p'), L.services.c1.p);
+        setText(scards[1].querySelector('h3'), L.services.c2.h3);
+        setText(scards[1].querySelector('p'), L.services.c2.p);
+        setText(scards[2].querySelector('h3'), L.services.c3.h3);
+        setText(scards[2].querySelector('p'), L.services.c3.p);
+      }
+
+      // Prices
+      const pricesSec = document.querySelector('#preise');
+      if(pricesSec){
+        setText(pricesSec.querySelector('h2'), L.prices.h2);
+        const pcards = pricesSec.querySelectorAll('.card');
+        if(pcards.length >= 3){
+          setText(pcards[0].querySelector('h3'), L.prices.c1.h3);
+          setText(pcards[0].querySelectorAll('.muted')[0], L.prices.c1.p1);
+          setText(pcards[0].querySelector('.price'), L.prices.c1.price);
+          setText(pcards[0].querySelectorAll('.muted')[1], L.prices.c1.p2);
+
+          setText(pcards[1].querySelector('h3'), L.prices.c2.h3);
+          setText(pcards[1].querySelectorAll('.muted')[0], L.prices.c2.p1);
+          setText(pcards[1].querySelector('.price'), L.prices.c2.price);
+          setText(pcards[1].querySelectorAll('.muted')[1], L.prices.c2.p2);
+
+          setText(pcards[2].querySelector('h3'), L.prices.c3.h3);
+          setText(pcards[2].querySelectorAll('.muted')[0], L.prices.c3.p1);
+          setText(pcards[2].querySelector('.price'), L.prices.c3.price);
+          setText(pcards[2].querySelectorAll('.muted')[1], L.prices.c3.p2);
+        }
+        const note = pricesSec.querySelector('p.muted:last-of-type');
+        setText(note, L.prices.note);
+      }
+
+      // Process
+      const proc = document.querySelector('#ablauf');
+      if(proc){
+        setText(proc.querySelector('h2'), L.process.h2);
+        const cards = proc.querySelectorAll('.card');
+        if(cards.length >= 3){
+          setText(cards[0].querySelector('h3'), L.process.s1.h3);
+          setText(cards[0].querySelector('p'), L.process.s1.p);
+          setText(cards[1].querySelector('h3'), L.process.s2.h3);
+          setText(cards[1].querySelector('p'), L.process.s2.p);
+          setText(cards[2].querySelector('h3'), L.process.s3.h3);
+          setText(cards[2].querySelector('p'), L.process.s3.p);
+        }
+      }
+
+      // Offer / Contact
+      const offer = document.querySelector('#angebot');
+      if(offer){
+        setText(offer.querySelector('h2'), L.offer.h2);
+        const form = offer.querySelector('form');
+        if(form){
+          const labels = form.querySelectorAll('label');
+          if(labels[0]) labels[0].childNodes[0].textContent = ' ' + L.offer.form.name;
+          if(labels[1]) labels[1].childNodes[0].textContent = ' ' + L.offer.form.phone;
+          if(labels[2]) labels[2].childNodes[0].textContent = ' ' + L.offer.form.email;
+          if(labels[3]) labels[3].childNodes[0].textContent = ' ' + L.offer.form.msg;
+          form.querySelector('input[name="Name"]')?.setAttribute('placeholder', lang==='en' ? 'First and last name' : 'Vor- und Nachname');
+          form.querySelector('input[name="Telefon"]')?.setAttribute('placeholder', lang==='en' ? '+41 ..' : '+41 ..');
+          form.querySelector('input[name="E-Mail"]')?.setAttribute('placeholder', lang==='en' ? 'name@mail.ch' : 'name@mail.ch');
+          form.querySelector('textarea[name="Nachricht"]')?.setAttribute('placeholder', L.offer.form.msgPh);
+          setText(form.querySelector('button[type="submit"]'), L.offer.form.send);
+          setText(form.querySelector('.btn.btn-wa'), L.offer.form.wa);
+        }
+        const contactBox = document.querySelector('#kontakt');
+        if(contactBox){ setText(contactBox.querySelector('h3'), L.offer.contactH3); }
+      }
+
+      // Footer
+      const footer = document.querySelector('footer');
+      if(footer){
+        const cols = footer.querySelectorAll('.cols > div');
+        if(cols[0]){
+          cols[0].querySelector('strong').textContent = i18n.de.footer.aboutTitle; // Markenname bleibt DE
+          setText(cols[0].querySelector('p.muted'), L.footer.aboutText);
+        }
+        if(cols[1]){ setText(cols[1].querySelector('strong'), L.footer.servicesTitle); }
+        if(cols[2]){ setText(cols[2].querySelector('strong'), L.footer.contactTitle); }
+        const legal = footer.querySelector('.legal');
+        if(legal){
+          const links = legal.querySelectorAll('a');
+          if(links[0]) setText(links[0], L.footer.legalImpressum);
+          if(links[1]) setText(links[1], L.footer.legalPrivacy);
+        }
+      }
+
+      // Document title & description
+      document.title = lang === 'en'
+        ? "Glanz & Klar – Your local cleaning service"
+        : "Glanz & Klar – Ihre lokale Putzfee";
+
+      const md = document.querySelector('meta[name="description"]');
+      if(md){
+        md.setAttribute('content',
+          lang==='en'
+          ? "Glanz & Klar – Apartment & office cleaning in Central Switzerland. Final cleaning with handover guarantee, maintenance cleaning, window cleaning. Request a free quote."
+          : "Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen."
+        );
+      }
+    }
+
+    // Init & persist
+    const langSelect = document.getElementById('lang');
+    const saved = localStorage.getItem('lang') || 'de';
+    if(langSelect){
+      langSelect.value = saved;
+      applyLang(saved);
+      langSelect.addEventListener('change', e=>{
+        const lang = e.target.value;
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
+      });
+    } else {
+      applyLang(saved);
+    }
+  })();
+  </script>
 </body>
 </html>
