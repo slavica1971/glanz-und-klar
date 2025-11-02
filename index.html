@@ -199,65 +199,51 @@
     </div>
   </header>
 
-  <!-- Leistungen (mit Thumbnails/Illustrationen) -->
-  <section id="leistungen">
-    <div class="container">
-      <h2>Unsere Dienstleistungen</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="thumb" aria-label="Glänzende Küche – Endreinigung">
-            <!-- Küche SVG -->
-            <svg viewBox="0 0 640 400" role="img" aria-labelledby="kuecheTitle"><title id="kuecheTitle">Glänzende Küche</title>
-              <rect x="0" y="0" width="640" height="400" fill="#f6fbfd"/>
-              <rect x="40" y="60" width="560" height="220" rx="16" fill="#fff" stroke="#e3f2f7"/>
-              <rect x="60" y="80" width="200" height="120" rx="10" fill="#ffffff" stroke="#d8eef4"/>
-              <rect x="270" y="80" width="150" height="120" rx="10" fill="#ffffff" stroke="#d8eef4"/>
-              <rect x="430" y="80" width="150" height="120" rx="10" fill="#ffffff" stroke="#d8eef4"/>
-              <rect x="60" y="210" width="520" height="50" rx="10" fill="#a9d6e5" opacity=".15"/>
-              <circle cx="520" cy="120" r="10" fill="#12a0c7" opacity=".5"/>
-              <path d="M520 120 l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#12a0c7" opacity=".35"/>
-            </svg>
-          </div>
-          <h3>Endreinigung mit Garantie</h3>
-          <p>Transparenter Fixpreis, gründlich &amp; abgabebereit. Auf Wunsch begleiten wir die Übergabe.</p>
+ <!-- Leistungen (mit echten Fotos) -->
+<section id="leistungen">
+  <div class="container">
+    <h2>Unsere Dienstleistungen</h2>
+    <div class="grid grid-3">
+      
+      <!-- Endreinigung mit Garantie -->
+      <div class="card">
+        <div class="thumb" aria-label="Endreinigung mit Garantie – glänzende, abgabebereite Wohnung">
+          <picture>
+            <source srcset="images/endreinigung.webp" type="image/webp">
+            <img src="images/endreinigung.jpg" alt="Endreinigung mit Garantie: sauberes, helles Wohnzimmer/Küche" loading="lazy" width="1600" height="1000">
+          </picture>
         </div>
-
-        <div class="card">
-          <div class="thumb" aria-label="Strahlendes Bad – Unterhaltsreinigung">
-            <!-- Bad SVG -->
-            <svg viewBox="0 0 640 400" role="img" aria-labelledby="badTitle"><title id="badTitle">Strahlendes Bad</title>
-              <rect width="640" height="400" fill="#f6fbfd"/>
-              <rect x="70" y="70" width="500" height="240" rx="16" fill="#fff" stroke="#e3f2f7"/>
-              <rect x="100" y="100" width="180" height="120" rx="12" fill="#ffffff" stroke="#d8eef4"/>
-              <rect x="300" y="100" width="240" height="40" rx="8" fill="#a9d6e5" opacity=".25"/>
-              <rect x="300" y="150" width="240" height="20" rx="8" fill="#a9d6e5" opacity=".2"/>
-              <circle cx="540" cy="120" r="7" fill="#12a0c7" opacity=".5"/>
-              <path d="M540 120 l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#12a0c7" opacity=".35"/>
-            </svg>
-          </div>
-          <h3>Unterhaltsreinigung</h3>
-          <p>Individuell nach Bedarf – für Büro, Praxis &amp; Laden. Sauber, ordentlich, verlässlich.</p>
-        </div>
-
-        <div class="card">
-          <div class="thumb" aria-label="Aufgeräumtes Büro – Räumung & Entsorgung">
-            <!-- Büro SVG -->
-            <svg viewBox="0 0 640 400" role="img" aria-labelledby="bueroTitle"><title id="bueroTitle">Aufgeräumtes Büro</title>
-              <rect width="640" height="400" fill="#f6fbfd"/>
-              <rect x="50" y="80" width="540" height="220" rx="16" fill="#fff" stroke="#e3f2f7"/>
-              <rect x="80" y="110" width="180" height="120" rx="12" fill="#ffffff" stroke="#d8eef4"/>
-              <rect x="280" y="130" width="280" height="20" rx="8" fill="#a9d6e5" opacity=".25"/>
-              <rect x="280" y="160" width="220" height="20" rx="8" fill="#a9d6e5" opacity=".2"/>
-              <circle cx="520" cy="210" r="6" fill="#12a0c7" opacity=".5"/>
-              <path d="M520 210 l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#12a0c7" opacity=".35"/>
-            </svg>
-          </div>
-          <h3>Räumung &amp; Entsorgung</h3>
-          <p>Demontage, Abtransport &amp; fachgerechte Entsorgung. Übergabe besenrein.</p>
-        </div>
+        <h3>Endreinigung mit Garantie</h3>
+        <p>Transparenter Fixpreis, gründlich &amp; abgabebereit. Auf Wunsch begleiten wir die Übergabe.</p>
       </div>
+
+      <!-- Unterhaltsreinigungen -->
+      <div class="card">
+        <div class="thumb" aria-label="Unterhaltsreinigungen – regelmässige Pflege von Wohn- und Geschäftsräumen">
+          <picture>
+            <source srcset="images/unterhalt.webp" type="image/webp">
+            <img src="images/unterhalt.jpg" alt="Unterhaltsreinigungen: gepflegtes, modernes Interieur während der Reinigung" loading="lazy" width="1600" height="1000">
+          </picture>
+        </div>
+        <h3>Unterhaltsreinigungen</h3>
+        <p>Individuell nach Bedarf – für Büro, Praxis &amp; Laden. Sauber, ordentlich, verlässlich.</p>
+      </div>
+
+      <!-- Räumung & Entsorgung -->
+      <div class="card">
+        <div class="thumb" aria-label="Räumung und Entsorgung – Kartons, Säcke, besenreine Übergabe">
+          <picture>
+            <source srcset="images/raeumung.webp" type="image/webp">
+            <img src="images/raeumung.jpg" alt="Räumung &amp; Entsorgung: Kartons und Entsorgungssäcke, leere Regale" loading="lazy" width="1600" height="1000">
+          </picture>
+        </div>
+        <h3>Räumung &amp; Entsorgung</h3>
+        <p>Demontage, Abtransport &amp; fachgerechte Entsorgung. Übergabe besenrein.</p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Preise -->
   <section id="preise" style="background:#f9fdff">
