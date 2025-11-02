@@ -4,41 +4,73 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Glanz & Klar – Ihre lokale Putzfee</title>
-  <meta name="description" content="Glanz & Klar Veskovac – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen.">
+  <meta name="description" content="Glanz & Klar – Wohnungs- & Büroreinigung in der Zentralschweiz. Endreinigung mit Abgabegarantie, Unterhaltsreinigung, Fensterreinigung. Kostenlose Offerte anfragen.">
   <meta name="theme-color" content="#a9d6e5">
 
   <style>
-    :root{--brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;--card:#f6fbfd;--accent:#12a0c7;--success:#25d366}
-    *{box-sizing:border-box} html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    :root{
+      --brand:#a9d6e5;--brand2:#d8eef4;--ink:#24424a;--muted:#5f7b82;
+      --card:#f6fbfd;--accent:#12a0c7;--success:#25d366;--line:#e3f2f7
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
     .container{width:min(1100px,92vw);margin:0 auto}
     .btn{display:inline-block;padding:12px 16px;border-radius:12px;font-weight:600;border:2px solid transparent}
-    .btn-primary{background:var(--accent);color:#fff} .btn-outline{background:#fff;color:var(--accent);border-color:var(--accent)}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-outline{background:#fff;color:var(--accent);border-color:var(--accent)}
     .btn-wa{background:var(--success);color:#fff}
 
+    /* ===== Header (modern & schlicht) ===== */
     header{background:linear-gradient(180deg,var(--brand),var(--brand2));overflow:hidden}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-        header{background:linear-gradient(180deg,var(--brand),var(--brand2));overflow:hidden}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-    .brand svg{width:28px;height:28px;color:var(--accent);background:#fff;border-radius:8px;padding:6px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;padding:32px 0 48px;align-items:center}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    h1{font-size:clamp(30px,3.6vw,44px);line-height:1.15;margin:10px 0 12px}
-    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
-    .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;padding:32px 0 48px;align-items:center}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}}
-    h1{font-size:clamp(30px,3.6vw,44px);line-height:1.15;margin:10px 0 12px}
-    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
-    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 18px}
-    .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
+    .topbar{border-bottom:1px solid rgba(255,255,255,.35)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand svg{
+      width:40px;height:40px;color:var(--accent);background:#fff;border-radius:10px;padding:8px;
+      box-shadow:0 2px 10px rgba(0,0,0,.08)
+    }
+    .brand span{font-weight:800;font-size:1.25rem;letter-spacing:.2px;color:#0f4c5c}
 
+    /* Desktop-Links */
+    .nav-links{display:flex;align-items:center;gap:16px}
+    .nav-links a{padding:8px 10px;border-radius:10px}
+    .nav-cta{display:flex;align-items:center;gap:10px}
+
+    /* Mobile Menü (Details/summary) */
+    .menu{display:none}
+    .menu summary{
+      list-style:none;cursor:pointer;border:1px solid rgba(255,255,255,.6);
+      padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.35);
+      font-weight:600;color:#0f4c5c
+    }
+    .menu[open] summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    .menu-panel{
+      background:rgba(255,255,255,.9);backdrop-filter:saturate(140%) blur(6px);
+      border:1px solid var(--line);border-top:0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;
+      padding:10px;margin-top:4px
+    }
+    .menu-panel a{display:block;padding:10px 8px;border-radius:8px;color:var(--ink)}
+    .menu-panel a:hover{background:#fff}
+
+    /* Hero (ohne Formular) */
+    .hero{
+      padding:32px 0 44px
+    }
+    .eyebrow{
+      font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#0f4c5c;font-size:12px
+    }
+    h1{font-size:clamp(30px,3.4vw,44px);line-height:1.15;margin:10px 0 12px}
+    .lead{font-size:clamp(16px,1.8vw,19px);opacity:.95}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
+    .badge{background:var(--card);border:1px solid #d8eef4;padding:6px 10px;border-radius:999px;font-size:14px}
+    .hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* ===== Sections & Cards ===== */
     section{padding:48px 0}
     h2{font-size:clamp(24px,2.6vw,34px);margin:0 0 16px}
-    .card{background:var(--card);border:1px solid #e3f2f7;border-radius:16px;padding:16px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
@@ -46,25 +78,98 @@
     .price{font-size:26px;font-weight:800}
     .muted{color:var(--muted)}
 
+    /* ===== Footer ===== */
     footer{background:#f4fafc;color:var(--muted)}
     footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px;padding:22px 0}
     @media(max-width:900px){footer .cols{grid-template-columns:1fr}}
-    .legal{border-top:1px solid #e3f2f7;padding:12px 0 20px}
+    .legal{border-top:1px solid var(--line);padding:12px 0 20px}
+
+    /* ===== Mobile Tweaks (≤600px) ===== */
+    @media (max-width:600px){
+      .container{width:92vw}
+      .nav{padding:12px 0}
+      .nav-links{display:none} /* Desktop-Navigation ausblenden */
+      .nav-cta .btn{padding:10px 12px}
+      .menu{display:block}
+      .hero{padding:22px 0 28px}
+      .badges{gap:6px;margin:10px 0 14px}
+      .badge{font-size:13px;padding:5px 9px}
+      .hero-ctas .btn{
+        width:100%;text-align:center;padding:14px 16px;border-radius:12px
+      }
+      section{padding:36px 0}
+      .grid{gap:12px}
+      .card{padding:14px;border-radius:14px}
+      footer .cols{gap:12px;padding:16px 0}
+      .legal{padding:10px 0 16px}
+    }
+
+    /* Tap-Feedback & Reduced Motion */
+    a,button{-webkit-tap-highlight-color:rgba(18,160,199,.15)}
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- ===== Header ===== -->
   <header>
-    <div class="container">
-      <nav class="nav" aria-label="Hauptnavigation">
-        <div class="brand">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/></svg>
-          <span>Glanz &amp; Klar <span style="opacity:.7">Veskovac</span></span>
-        </div>
-        <a class="btn btn-outline" href="#kontakt">Kontakt</a>
-      </nav>
+    <div class="topbar">
+      <div class="container">
+        <nav class="nav" aria-label="Hauptnavigation">
+          <div class="brand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z"/>
+            </svg>
+            <span>Glanz&nbsp;&amp;&nbsp;Klar</span>
+          </div>
 
-  <!-- Leistungen -->
+          <!-- Desktop-Navigation -->
+          <div class="nav-links">
+            <a href="#leistungen">Leistungen</a>
+            <a href="#preise">Preise</a>
+            <a href="#ablauf">Ablauf</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+
+          <div class="nav-cta">
+            <a class="btn btn-outline" href="#angebot">Offerte</a>
+            <!-- Mobile-Menü Button -->
+            <details class="menu">
+              <summary>Menü</summary>
+              <div class="menu-panel">
+                <a href="#leistungen">Leistungen</a>
+                <a href="#preise">Preise</a>
+                <a href="#ablauf">Ablauf</a>
+                <a href="#kontakt">Kontakt</a>
+                <a href="#angebot" class="btn btn-primary" style="display:block;text-align:center;margin-top:8px">Offerte anfragen</a>
+              </div>
+            </details>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Schlanker Hero ohne Formular -->
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">Reinigung in der Zentralschweiz</div>
+        <h1>Endreinigungen mit Abgabegarantie – verlässlich, freundlich, fair.</h1>
+        <p class="lead">Wohnungen, Häuser &amp; Büros. Fixe Termine, transparente Preise, <strong>Material inkl.</strong></p>
+        <div class="badges">
+          <span class="badge">Abgabegarantie</span>
+          <span class="badge">Versichert</span>
+          <span class="badge">Eigene Reinigungsmittel</span>
+          <span class="badge">WhatsApp Termin</span>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
+          <a class="btn btn-wa" href="https://wa.me/41764491100?text=Hallo%20Glanz%20%26%20Klar%2C%20ich%20m%C3%B6chte%20eine%20Reinigung%20anfragen." target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Leistungen ===== -->
   <section id="leistungen">
     <div class="container">
       <h2>Unsere Dienstleistungen</h2>
@@ -85,7 +190,7 @@
     </div>
   </section>
 
-  <!-- Preise -->
+  <!-- ===== Preise ===== -->
   <section id="preise" style="background:#f9fdff">
     <div class="container">
       <h2>Transparente Richtpreise</h2>
@@ -98,7 +203,7 @@
     </div>
   </section>
 
-  <!-- Ablauf -->
+  <!-- ===== Ablauf ===== -->
   <section id="ablauf">
     <div class="container">
       <h2>So einfach funktioniert’s</h2>
@@ -110,7 +215,7 @@
     </div>
   </section>
 
-  <!-- Kontakt / Angebot -->
+  <!-- ===== Kontakt / Angebot ===== -->
   <section id="angebot">
     <div class="container">
       <h2>Jetzt Offerte anfragen</h2>
@@ -137,7 +242,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>
     <div class="container cols">
       <div><strong>Glanz &amp; Klar Veskovac</strong><p class="muted">Reinigungen in Luzern &amp; Umgebung.</p></div>
@@ -152,7 +257,7 @@
     </div>
   </footer>
 
-  <!-- Impressum & Datenschutz -->
+  <!-- ===== Impressum & Datenschutz ===== -->
   <section id="impressum" style="background:#f9fdff">
     <div class="container">
       <h2>Impressum</h2>
