@@ -35,18 +35,16 @@
   <style>
     /* ===== Design Tokens ===== */
     :root{
-      /* neu: Logo-Variablen */
-      --logo: 68px;        /* Desktop-Logogrösse */
-      --logo-mobile: 44px; /* Mobile-Logogrösse */
-
+      --logo: 68px;
+      --logo-mobile: 44px;
       --bg:#ffffff;
       --ink:#0d3b4b;
       --muted:#5d7680;
       --line:#e8eff2;
-      --brand:#0ea5b3;         /* Türkis */
+      --brand:#0ea5b3;
       --brand-600:#098494;
       --brand-soft:#f3fbfd;
-      --green:#25d366;         /* Grün für Sprach-Buttons */
+      --green:#25d366;
       --green-600:#1fad57;
       --container:1160px;
       --radius:16px;
@@ -54,7 +52,6 @@
       --focus:#b8ecf3;
     }
 
-    /* ===== Base ===== */
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -82,7 +79,6 @@
       border:1px solid var(--line);border-radius:999px;padding:6px 10px;margin-bottom:12px
     }
 
-    /* ===== Accessibility ===== */
     .skip-link{
       position:absolute;left:-9999px;top:auto;overflow:hidden;
     }
@@ -92,7 +88,6 @@
     }
     :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:10px}
 
-    /* ===== Buttons ===== */
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
       padding:12px 18px;border-radius:12px;border:1.5px solid transparent;
@@ -107,15 +102,13 @@
     .btn-wa{background:var(--green);color:#fff}
     .btn-wa:hover{background:var(--green-600)}
 
-    /* ===== Header (aktualisiert) ===== */
+    /* ===== Header ===== */
     .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
-    /* neu: Höhe folgt der Logo-Grösse */
     .nav{
       height: calc(var(--logo) + 34px);
       display:flex;align-items:center;gap:22px
     }
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;white-space:nowrap}
-    /* neu: Logo deutlich grösser */
     .brand svg{
       width:var(--logo);
       height:var(--logo);
@@ -125,7 +118,6 @@
       box-shadow:var(--shadow);
       padding:10px;
     }
-    /* neu: Wortmarke etwas grösser/angepasst */
     .brand span{
       font-weight:900;
       font-size:clamp(1.05rem, 1.6vw, 1.35rem);
@@ -133,27 +125,14 @@
       color:var(--ink);
     }
 
+    /* wir lassen nur noch Preise, Ablauf, Offerte in der Nav */
     .nav-links{display:flex;align-items:center;gap:22px;margin-left:8px}
     .nav-links a{color:#234b57;font-weight:700;opacity:.92;text-decoration:none}
     .nav-links a:hover{opacity:1}
     .spacer{flex:1}
     .menu{display:none}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);font-weight:800;color:#234b57;background:#fff}
-
-    /* Sprach-Buttons (grüne Kästen) */
-    .lang-switch{display:flex;gap:8px;align-items:center}
-    .lang-btn{
-      appearance:none;border:2px solid var(--green);background:#fff;color:var(--green);
-      font-weight:900;padding:8px 12px;border-radius:12px;cursor:pointer;transition:.2s ease;
-    }
-    .lang-btn:hover{background:#f2fff6}
-    .lang-btn.is-active{
-      background:var(--green);color:#fff;border-color:var(--green);
-      box-shadow:0 0 0 3px rgba(37,211,102,.18)
-    }
-
     @media (max-width:960px){
-      .nav-links,.pill{display:none}
+      .nav-links{display:none}
       .menu{display:block}
       .menu summary{
         list-style:none;cursor:pointer;border:1px solid var(--line);padding:8px 12px;border-radius:12px;background:#fff;font-weight:800;color:#234b57
@@ -163,7 +142,6 @@
       .menu-panel a{display:block;padding:10px 8px;border-radius:10px;color:#234b57;text-decoration:none}
       .menu-panel a:hover{background:#f7fbfd}
 
-      /* neu: mobile Logo-/Header-Grösse */
       .nav{height: calc(var(--logo-mobile) + 32px)}
       .brand svg{
         width:var(--logo-mobile);
@@ -172,6 +150,19 @@
         padding:8px;
       }
       .brand span{font-size:1.06rem}
+    }
+
+    /* Sprach-Buttons (grüne Kästen) */
+    .lang-switch{display:flex;gap:8px;align-items:center}
+    .lang-btn{
+      appearance:none;border:2px solid var(--green);background:#fff;color:{--green};
+      font-weight:900;padding:8px 12px;border-radius:12px;cursor:pointer;transition:.2s ease;
+    }
+    .lang-btn{color:var(--green)}
+    .lang-btn:hover{background:#f2fff6}
+    .lang-btn.is-active{
+      background:var(--green);color:#fff;border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(37,211,102,.18)
     }
 
     /* ===== Hero ===== */
@@ -185,16 +176,24 @@
     .hero-media svg{width:100%;height:100%;display:block}
     @media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:20px}}
 
-    /* ===== Grids & Cards ===== */
     .stripe{background:#fafcfd;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
     .grid{display:grid;gap:18px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    @media (max-width:960px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    @media (max-width:960px){.grid-3{grid-template-columns:1fr}}
 
     .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-    .thumb{aspect-ratio:16/10;border-radius:12px;border:1px solid var(--line);overflow:hidden;background:#fff;margin-bottom:10px}
-    .thumb svg{width:100%;height:100%;display:block}
+
+    /* Hover-Effekt für die 3 Kacheln unten */
+    #preise .card{
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      cursor:pointer;
+    }
+    #preise .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 30px rgba(8,41,51,.08);
+      border-color:rgba(14,165,179,.35);
+    }
+
     .price{font-size:28px;font-weight:900;letter-spacing:.2px}
 
     /* ===== Steps ===== */
@@ -203,7 +202,6 @@
     .step strong{display:block;font-size:14px;color:#2b5560;text-transform:uppercase;letter-spacing:.14em;margin-bottom:6px}
     @media (max-width:960px){.steps{grid-template-columns:1fr}}
 
-    /* ===== Formular ===== */
     form label{font-weight:800;display:block;margin:8px 0 6px}
     .field{
       width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;
@@ -212,7 +210,6 @@
     .field:focus{border-color:var(--brand);box-shadow:0 0 0 3px #d9f3f7}
     textarea.field{min-height:120px;resize:vertical}
 
-    /* ===== Footer ===== */
     footer{background:#fff;border-top:1px solid var(--line)}
     footer .cols{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:24px;padding:26px 0}
     @media(max-width:960px){footer .cols{grid-template-columns:1fr}}
@@ -265,9 +262,7 @@
       </a>
 
       <nav class="nav-links" aria-label="Seitennavigation">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#versprechen">Unser Versprechen</a>
-        <a href="#preise">Preise</a>
+        <a href="#preise">Unsere Dienstleistungen</a>
         <a href="#ablauf">Ablauf</a>
         <a href="#angebot">Offerte</a>
       </nav>
@@ -279,15 +274,13 @@
       <details class="menu" style="margin-left:8px">
         <summary aria-label="Menü öffnen">Menü</summary>
         <div class="menu-panel" role="menu" aria-label="Mobiles Menü">
-          <a role="menuitem" href="#leistungen">Leistungen</a>
-          <a role="menuitem" href="#versprechen">Unser Versprechen</a>
-          <a role="menuitem" href="#preise">Preise</a>
+          <a role="menuitem" href="#preise">Unsere Dienstleistungen</a>
           <a role="menuitem" href="#ablauf">Ablauf</a>
           <a role="menuitem" href="#angebot">Offerte</a>
         </div>
       </details>
 
-      <!-- Sprach-Buttons (grüne Kästen) -->
+      <!-- Sprach-Buttons -->
       <div class="lang-switch" role="group" aria-label="Sprache wählen">
         <button type="button" class="lang-btn is-active" data-lang="de" aria-pressed="true">DE</button>
         <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
@@ -299,7 +292,6 @@
     <!-- ===== Hero ===== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <!-- Textspalte -->
         <div class="hero-text">
           <span class="eyebrow">Reinigung in der Zentralschweiz</span>
           <h1 id="hero-title">Endreinigung in Luzern mit Abgabegarantie – zuverlässig, freundlich, fair.</h1>
@@ -318,11 +310,10 @@
 
           <div class="hero-ctas" role="group" aria-label="Hauptaktionen">
             <a class="btn btn-primary" href="#angebot">Kostenlose Offerte</a>
-            <a class="btn btn-outline" href="#leistungen">Leistungen ansehen</a>
+            <a class="btn btn-outline" href="#preise">Leistungen ansehen</a>
           </div>
         </div>
 
-        <!-- Medienkachel -->
         <div class="hero-media" aria-hidden="true">
           <svg viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Saubere, helle Wohnung mit Glanz">
             <defs>
@@ -354,178 +345,24 @@
       </div>
     </section>
 
-    <!-- ===== Leistungen ===== -->
-    <section id="leistungen" class="stripe" aria-labelledby="s-leistungen">
-      <div class="container">
-        <h2 id="s-leistungen">Unsere Dienstleistungen</h2>
-        <div class="grid grid-3" role="list">
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Endreinigung – Bad und Küche glänzen">
-              <!-- SVG 1: Endreinigung -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Endreinigung – Bad und Küche glänzen">
-                <defs>
-                  <linearGradient id="g1-svc1" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f3fbfd"/><stop offset="1" stop-color="#e5f5fb"/>
-                  </linearGradient>
-                  <filter id="ds1-svc1" x="-20%" y="-20%" width="140%" height="140%">
-                    <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#0b3c49" flood-opacity=".12"/>
-                  </filter>
-                </defs>
-                <rect width="1280" height="800" fill="url(#g1-svc1)"/>
-                <g filter="url(#ds1-svc1)">
-                  <rect x="120" y="140" width="1040" height="520" rx="24" fill="#fff" stroke="#e6eef2"/>
-                  <rect x="160" y="180" width="300" height="200" rx="14" fill="#dff3f8"/>
-                  <rect x="500" y="180" width="620" height="200" rx="14" fill="#f5fafc"/>
-                  <rect x="160" y="410" width="960" height="200" rx="14" fill="#ffffff"/>
-                  <path d="M1080 240 l12 28 28 12-28 12-12 28-12-28-28-12 28-12z" fill="#0ea5b3" opacity=".7"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Endreinigung mit Abgabegarantie</h3>
-            <p class="muted">Transparent, gründlich &amp; bereit für die Übergabe. Auf Wunsch begleiten wir die Abnahme.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
-              <!-- SVG 2: Unterhaltsreinigungen -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Unterhaltsreinigung – Sprayflasche, Tuch, Ordnung">
-                <defs>
-                  <linearGradient id="g2-svc2" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f7fdff"/><stop offset="1" stop-color="#eaf6fa"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1280" height="800" fill="url(#g2-svc2)"/>
-                <g transform="translate(200,160)">
-                  <rect x="0" y="0" width="320" height="480" rx="30" fill="#0ea5b3" opacity=".9"/>
-                  <rect x="220" y="-20" width="160" height="60" rx="12" fill="#0d3b4b"/>
-                  <rect x="40" y="440" width="360" height="30" rx="12" fill="#0ea5b3" opacity=".6"/>
-                  <circle cx="520" cy="120" r="18" fill="#0ea5b3" opacity=".35"/>
-                  <path d="M520 120 l10 22 22 10-22 10-10 22-10-22-22-10 22-10z" fill="#0ea5b3" opacity=".55"/>
-                  <circle cx="600" cy="200" r="12" fill="#0ea5b3" opacity=".4"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Unterhaltsreinigung</h3>
-            <p class="muted">Individuell für Büro, Praxis &amp; Laden – sauber, ordentlich, verlässlich.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
-              <!-- SVG 3: Räumung & Entsorgung -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Räumung & Entsorgung – Kartons, Besen, besenrein">
-                <defs>
-                  <linearGradient id="g3-svc3" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1280" height="800" fill="url(#g3-svc3)"/>
-                <g transform="translate(180,220)">
-                  <rect x="0" y="120" width="280" height="200" rx="12" fill="#a9d6e5"/>
-                  <rect x="120" y="0" width="300" height="200" rx="12" fill="#ffffff" stroke="#d8eef4"/>
-                  <rect x="460" y="120" width="160" height="200" rx="8" fill="#12a0c7" opacity=".75"/>
-                  <rect x="670" y="-40" width="12" height="360" rx="6" fill="#0f4c5c"/>
-                  <rect x="650" y="-60" width="54" height="18" rx="9" fill="#a9d6e5"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Räumung &amp; Entsorgung</h3>
-            <p class="muted">Demontage, Abtransport &amp; fachgerechte Entsorgung – Übergabe besenrein.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Unser Versprechen ===== -->
-    <section id="versprechen" class="stripe" aria-labelledby="s-versprechen">
-      <div class="container">
-        <h2 id="s-versprechen">Unser Versprechen</h2>
-        <div class="grid grid-3" role="list">
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
-              <!-- SVG 4: Nachhaltige Reinigungsmittel -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nachhaltige Reinigungsmittel – Blatt & Häkchen">
-                <defs>
-                  <linearGradient id="p1-promise" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f3fbf6"/><stop offset="1" stop-color="#e6f7ed"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1280" height="800" fill="url(#p1-promise)"/>
-                <g transform="translate(280,200)">
-                  <circle cx="120" cy="200" r="90" fill="#a9d6c5"/>
-                  <path d="M60 200 l40 40 70-80" stroke="#0f4c5c" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                  <rect x="260" y="90" width="520" height="260" rx="26" fill="#fff" stroke="#e6eef2"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Nachhaltige Reinigungsmittel</h3>
-            <p class="muted">Schonend für Oberflächen, stark gegen Schmutz – zertifiziert &amp; umweltbewusst.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Abgabegarantie – Schlüssel und Dokument">
-              <!-- SVG 5: Abgabe Garantie bei Wohnungen -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abgabegarantie – Schlüssel und Dokument">
-                <defs>
-                  <linearGradient id="p2-promise" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f2fbff"/><stop offset="1" stop-color="#e7f5fb"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1280" height="800" fill="url(#p2-promise)"/>
-                <g transform="translate(240,180)">
-                  <rect x="0" y="0" width="420" height="300" rx="20" fill="#fff" stroke="#dcecf1"/>
-                  <rect x="40" y="40" width="160" height="20" rx="10" fill="#cfe8f0"/>
-                  <rect x="40" y="80" width="260" height="20" rx="10" fill="#e6f1f5"/>
-                  <path d="M760 300 l-80 0 0 -160 160 0 0 80 -80 80" fill="#0ea5b3" opacity=".7"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Abgabegarantie bei Wohnungen</h3>
-            <p class="muted">Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist.</p>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="thumb" aria-label="Persönliche Anwesenheit – Kommunikation">
-              <!-- SVG 6: Persönliche Anwesenheit -->
-              <svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Persönliche Anwesenheit – Kommunikation">
-                <defs>
-                  <linearGradient id="p3-promise" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f2fbfe"/><stop offset="1" stop-color="#e6f6fb"/>
-                  </linearGradient>
-                </defs>
-                <rect width="1280" height="800" fill="url(#p3-promise)"/>
-                <g transform="translate(240,180)">
-                  <rect x="140" y="120" width="760" height="240" rx="26" fill="#fff" stroke="#e6eef2"/>
-                  <circle cx="300" cy="240" r="16" fill="#0ea5b3"/>
-                  <circle cx="480" cy="240" r="16" fill="#0ea5b3"/>
-                  <circle cx="660" cy="240" r="16" fill="#0ea5b3"/>
-                </g>
-              </svg>
-            </div>
-            <h3>Persönliche Anwesenheit</h3>
-            <p class="muted">Eine feste Ansprechperson vor Ort – von der Besichtigung bis zum Finish.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Preise ===== -->
+    <!-- ===== Preise (jetzt: Unsere Dienstleistungen) ===== -->
     <section id="preise" aria-labelledby="s-preise">
       <div class="container">
-        <h2 id="s-preise">Transparente Richtpreise</h2>
+        <h2 id="s-preise">Unsere Dienstleistungen</h2>
         <div class="grid grid-3">
-          <div class="card">
+          <div class="card" data-service="2.5–3.5 Zimmer">
             <h3>2.5–3.5 Zimmer</h3>
             <p class="muted">Endreinigung, Grundpaket</p>
             <div class="price">ab CHF 429.–</div>
             <p class="muted">zzgl. Fenster/Storen nach Aufwand</p>
           </div>
-          <div class="card">
+          <div class="card" data-service="4.5–5.5 Zimmer">
             <h3>4.5–5.5 Zimmer</h3>
             <p class="muted">Endreinigung, Grundpaket</p>
             <div class="price">ab CHF 890.–</div>
             <p class="muted">inkl. Küche &amp; Bad intensiv</p>
           </div>
-          <div class="card">
+          <div class="card" data-service="Büroreinigung">
             <h3>Büroreinigung</h3>
             <p class="muted">Regelmässig / einmalig</p>
             <div class="price">ab CHF 39.–/Std.</div>
@@ -611,7 +448,7 @@
       <nav aria-label="Footer-Navigation">
         <p class="muted" style="margin:0">
           <a href="#start">Startseite</a> ·
-          <a href="#versprechen">Über uns</a> ·
+          <a href="#preise">Dienstleistungen</a> ·
           <a href="#angebot">Kontakt</a> ·
           <a href="impressum.html">Impressum</a> ·
           <a href="datenschutz.html">Datenschutz</a>
@@ -629,24 +466,40 @@
   <!-- Jahr -->
   <script defer>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
-  <!-- ===== i18n (DE/EN) + Language-Buttons Init ===== -->
+  <!-- ===== Kachel-Klick → Formular ===== -->
+  <script defer>
+    document.querySelectorAll('#preise .card').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        // optional: Service in Nachricht übernehmen
+        const f = document.getElementById('f-msg');
+        const service = card.dataset.service;
+        if (f && service && !f.value) {
+          f.value = 'Anfrage für: ' + service;
+        }
+        document.getElementById('angebot')?.scrollIntoView({behavior:'smooth'});
+      });
+      card.setAttribute('role','button');
+      card.setAttribute('tabindex','0');
+      card.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+  </script>
+
+  <!-- ===== i18n (gekürzt, nur für vorhandene Bereiche) ===== -->
   <script defer>
   (function(){
     const L={
-      de:{nav:{services:"Leistungen",promises:"Unser Versprechen",prices:"Preise",process:"Ablauf",offer:"Offerte"},
+      de:{
+        nav:{prices:"Unsere Dienstleistungen",process:"Ablauf",offer:"Offerte"},
         hero:{eyebrow:"Reinigung in der Zentralschweiz",
           title:"Endreinigung in Luzern mit Abgabegarantie – zuverlässig, freundlich, fair.",
           lead:"Umzug, Frühjahrsputz oder einfach wieder Glanz? <strong>Glanz &amp; Klar</strong> reinigt gründlich, termingerecht und versichert – mit Liebe zum Detail und klaren Preisen.",
           badges:["Abgabegarantie","Versichert","Eigene Reinigungsmittel","WhatsApp-Termin"],primary:"Kostenlose Offerte",see:"Leistungen ansehen"},
-        services:{h2:"Unsere Dienstleistungen",
-          c1:{h3:"Endreinigung mit Abgabegarantie",p:"Transparent, gründlich & abgabebereit. Auf Wunsch begleiten wir die Abnahme."},
-          c2:{h3:"Unterhaltsreinigung",p:"Individuell für Büro, Praxis & Laden – sauber, ordentlich, verlässlich."},
-          c3:{h3:"Räumung & Entsorgung",p:"Demontage, Abtransport & fachgerechte Entsorgung – Übergabe besenrein."}},
-        promises:{h2:"Unser Versprechen",
-          p1:{h3:"Nachhaltige Reinigungsmittel",p:"Schonend für Oberflächen, stark gegen Schmutz – zertifiziert & umweltbewusst."},
-          p2:{h3:"Abgabegarantie bei Wohnungen",p:"Wir begleiten die Wohnungsabgabe – bis alles abgenommen ist."},
-          p3:{h3:"Persönliche Anwesenheit",p:"Eine feste Ansprechperson vor Ort – von der Besichtigung bis zum Finish."}},
-        prices:{h2:"Transparente Richtpreise",
+        prices:{h2:"Unsere Dienstleistungen",
           c1:{h3:"2.5–3.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 429.–",p2:"zzgl. Fenster/Storen nach Aufwand"},
           c2:{h3:"4.5–5.5 Zimmer",p1:"Endreinigung, Grundpaket",price:"ab CHF 890.–",p2:"inkl. Küche & Bad intensiv"},
           c3:{h3:"Büroreinigung",p1:"Regelmässig / einmalig",price:"ab CHF 39.–/Std.",p2:"Fixpreis nach Besichtigung möglich"},
@@ -658,20 +511,13 @@
         offer:{h2:"Jetzt Offerte anfragen",
           form:{name:"Name",phone:"Telefon",email:"E-Mail",msg:"Nachricht",msgPh:"Besonderheiten, Terminwunsch",send:"Anfrage senden",wa:"Per WhatsApp"}}
       },
-      en:{nav:{services:"Services",promises:"Our Promise",prices:"Prices",process:"Process",offer:"Quote"},
+      en:{
+        nav:{prices:"Our services",process:"Process",offer:"Quote"},
         hero:{eyebrow:"Cleaning in Central Switzerland",
           title:"Final cleaning in Lucerne with handover guarantee – reliable, friendly, fair.",
           lead:"Moving out, spring cleaning or just some sparkle? <strong>Glanz &amp; Klar</strong> delivers thorough, on-time and insured cleaning – with clear pricing.",
           badges:["Handover guarantee","Insured","Own cleaning products","WhatsApp appointment"],primary:"Free quote",see:"View services"},
-        services:{h2:"Our Services",
-          c1:{h3:"Final Cleaning with Handover Guarantee",p:"Transparent, thorough & ready for handover. We attend the inspection if required."},
-          c2:{h3:"Maintenance Cleaning",p:"Tailored for offices, practices & shops – clean, tidy, reliable."},
-          c3:{h3:"Clear-out & Disposal",p:"Dismantling, transport & proper disposal – broom-clean handover."}},
-        promises:{h2:"Our Promise",
-          p1:{h3:"Sustainable Cleaning Products",p:"Gentle on surfaces, tough on dirt – certified & eco-conscious."},
-          p2:{h3:"Handover Guarantee for Apartments",p:"We accompany the handover – until everything is approved."},
-          p3:{h3:"Personal Presence",p:"A single point of contact on site – from inspection to finish."}},
-        prices:{h2:"Transparent Guide Prices",
+        prices:{h2:"Our services",
           c1:{h3:"2.5–3.5 rooms",p1:"Final cleaning, base package",price:"from CHF 429",p2:"plus windows/shutters as required"},
           c2:{h3:"4.5–5.5 rooms",p1:"Final cleaning, base package",price:"from CHF 890",p2:"incl. intensive kitchen & bathroom"},
           c3:{h3:"Office cleaning",p1:"Recurring / one-off",price:"from CHF 39/h",p2:"Fixed price possible after inspection"},
@@ -691,8 +537,6 @@
       document.documentElement.setAttribute('lang', lang);
 
       // Nav
-      document.querySelector('.nav-links a[href="#leistungen"]')?.replaceChildren(t(lang,'nav.services'));
-      document.querySelector('.nav-links a[href="#versprechen"]')?.replaceChildren(t(lang,'nav.promises'));
       document.querySelector('.nav-links a[href="#preise"]')?.replaceChildren(t(lang,'nav.prices'));
       document.querySelector('.nav-links a[href="#ablauf"]')?.replaceChildren(t(lang,'nav.process'));
       document.querySelector('.nav-links a[href="#angebot"]')?.replaceChildren(t(lang,'nav.offer'));
@@ -706,21 +550,7 @@
       document.querySelector('.hero-ctas .btn-primary')?.replaceChildren(t(lang,'hero.primary'));
       document.querySelector('.hero-ctas .btn-outline')?.replaceChildren(t(lang,'hero.see'));
 
-      // Services
-      document.querySelector('#leistungen h2')?.replaceChildren(t(lang,'services.h2'));
-      const scards=document.querySelectorAll('#leistungen .card');
-      if(scards[0]){ scards[0].querySelector('h3').textContent=t(lang,'services.c1.h3'); scards[0].querySelector('p').textContent=t(lang,'services.c1.p'); }
-      if(scards[1]){ scards[1].querySelector('h3').textContent=t(lang,'services.c2.h3'); scards[1].querySelector('p').textContent=t(lang,'services.c2.p'); }
-      if(scards[2]){ scards[2].querySelector('h3').textContent=t(lang,'services.c3.h3'); scards[2].querySelector('p').textContent=t(lang,'services.c3.p'); }
-
-      // Promises
-      document.querySelector('#versprechen h2')?.replaceChildren(t(lang,'promises.h2'));
-      const pcards=document.querySelectorAll('#versprechen .card');
-      if(pcards[0]){ pcards[0].querySelector('h3').textContent=t(lang,'promises.p1.h3'); pcards[0].querySelector('p').textContent=t(lang,'promises.p1.p'); }
-      if(pcards[1]){ pcards[1].querySelector('h3').textContent=t(lang,'promises.p2.h3'); pcards[1].querySelector('p').textContent=t(lang,'promises.p2.p'); }
-      if(pcards[2]){ pcards[2].querySelector('h3').textContent=t(lang,'promises.p3.h3'); pcards[2].querySelector('p').textContent=t(lang,'promises.p3.p'); }
-
-      // Prices
+      // Preise
       const prices=document.querySelector('#preise');
       if(prices){
         prices.querySelector('h2')?.replaceChildren(t(lang,'prices.h2'));
@@ -752,13 +582,11 @@
         if(waBtn){ waBtn.replaceChildren(t(lang,'offer.form.wa')); }
       }
 
-      // Title
       document.title = (lang==='en')
         ? "Glanz & Klar Veskovac – Final cleaning in Lucerne with handover guarantee"
         : "Glanz & Klar Veskovac – Endreinigung in Luzern mit Abgabegarantie";
     }
 
-    // === Sprach-Buttons Init (statt Select) ===
     const btns = document.querySelectorAll('.lang-switch .lang-btn');
     const saved = localStorage.getItem('lang') || 'de';
     applyLang(saved); setActive(saved);
